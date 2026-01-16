@@ -195,4 +195,161 @@
     });
   }
 
+  // ============================================
+  // ROI Calculator
+  // ============================================
+  const calculatorInputs = {
+    duration: document.getElementById('duration'),
+    offshoreRate: document.getElementById('offshore-rate'),
+    seniorRate: document.getElementById('senior-rate'),
+    experiencedRate: document.getElementById('experienced-rate'),
+    supervision: document.getElementById('supervision'),
+    rework: document.getElementById('rework'),
+    overrun: document.getElementById('overrun'),
+    onboarding: document.getElementById('onboarding')
+  };
+
+  // Check if calculator exists on page
+  if (calculatorInputs.duration) {
+    // Constants for experienced resource (lower hidden costs)
+    const EXP_SUPERVISION_HOURS = 1.5;  // hours/week
+    const EXP_REWORK_RATE = 0.075;      // 7.5%
+    const EXP_OVERRUN_RATE = 0.05;      // 5%
+    const EXP_ONBOARDING_WEEKS = 2;     // weeks
+
+    // Working days per month
+    const WORKING_DAYS_PER_MONTH = 22;
+    const WORKING_HOURS_PER_DAY = 8;
+
+    // Format currency
+    function formatCurrency(amount) {
+      return '$' + Math.round(amount).toLocaleString('en-US');
+    }
+
+    // Format percentage
+    function formatPercentage(value, showSign) {
+      const sign = showSign && value > 0 ? '+' : '';
+      return sign + Math.round(value) + '%';
+    }
+
+    // Update slider value displays
+    function updateSliderDisplay(slider, displayId) {
+      const display = document.getElementById(displayId);
+      if (display) {
+        display.textContent = slider.value;
+      }
+    }
+
+    // Main calculation function
+    function calculateROI() {
+      // Get input values
+      const duration = parseInt(calculatorInputs.duration.value) || 6;
+      const offshoreRate = parseFloat(calculatorInputs.offshoreRate.value) || 450;
+      const seniorRate = parseFloat(calculatorInputs.seniorRate.value) || 120;
+      const experiencedRate = parseFloat(calculatorInputs.experiencedRate.value) || 1200;
+      const supervisionHours = parseInt(calculatorInputs.supervision.value) || 8;
+      const reworkRate = parseInt(calculatorInputs.rework.value) / 100 || 0.35;
+      const overrunRate = parseInt(calculatorInputs.overrun.value) / 100 || 0.25;
+      const onboardingWeeks = parseInt(calculatorInputs.onboarding.value) || 6;
+
+      // Calculate total working days
+      const totalDays = duration * WORKING_DAYS_PER_MONTH;
+      const totalWeeks = duration * 4;
+
+      // ========== OFFSHORE CALCULATIONS ==========
+      // Apparent cost (day rate x days)
+      const apparentCost = offshoreRate * totalDays;
+
+      // Supervision cost (senior staff time reviewing/managing)
+      const supervisionCost = supervisionHours * totalWeeks * seniorRate;
+
+      // Rework cost (percentage of deliverables need to be redone)
+      const reworkCost = apparentCost * reworkRate;
+
+      // Timeline overrun cost (additional days due to delays)
+      const overrunDays = totalDays * overrunRate;
+      const overrunCost = overrunDays * offshoreRate;
+
+      // Knowledge transfer/onboarding cost (senior staff training time)
+      const onboardingCost = onboardingWeeks * 40 * seniorRate * 0.2; // 20% of senior time for X weeks
+
+      // Total hidden costs
+      const hiddenTotal = supervisionCost + reworkCost + overrunCost + onboardingCost;
+
+      // True cost
+      const trueCost = apparentCost + hiddenTotal;
+
+      // Cost increase percentage
+      const costIncrease = ((trueCost - apparentCost) / apparentCost) * 100;
+
+      // ========== EXPERIENCED CALCULATIONS ==========
+      // Base cost
+      const expApparentCost = experiencedRate * totalDays;
+
+      // Much lower hidden costs
+      const expSupervisionCost = EXP_SUPERVISION_HOURS * totalWeeks * seniorRate;
+      const expReworkCost = expApparentCost * EXP_REWORK_RATE;
+      const expOverrunCost = totalDays * EXP_OVERRUN_RATE * experiencedRate;
+      const expOnboardingCost = EXP_ONBOARDING_WEEKS * 40 * seniorRate * 0.1; // 10% of senior time
+
+      const expHiddenTotal = expSupervisionCost + expReworkCost + expOverrunCost + expOnboardingCost;
+      const expTrueCost = expApparentCost + expHiddenTotal;
+
+      // ========== COMPARISONS ==========
+      const ratePremium = ((experiencedRate - offshoreRate) / offshoreRate) * 100;
+      const trueDifference = ((expTrueCost - trueCost) / trueCost) * 100;
+
+      // ========== UPDATE DOM ==========
+      // Offshore results
+      document.getElementById('apparent-cost').textContent = formatCurrency(apparentCost);
+      document.getElementById('supervision-cost').textContent = formatCurrency(supervisionCost);
+      document.getElementById('rework-cost').textContent = formatCurrency(reworkCost);
+      document.getElementById('overrun-cost').textContent = formatCurrency(overrunCost);
+      document.getElementById('onboarding-cost').textContent = formatCurrency(onboardingCost);
+      document.getElementById('hidden-total').textContent = formatCurrency(hiddenTotal);
+      document.getElementById('true-cost').textContent = formatCurrency(trueCost);
+      document.getElementById('cost-increase').textContent = formatPercentage(costIncrease, true) + ' over apparent cost';
+
+      // Experienced results
+      document.getElementById('experienced-cost').textContent = formatCurrency(expApparentCost);
+      document.getElementById('exp-supervision-cost').textContent = formatCurrency(expSupervisionCost);
+      document.getElementById('exp-rework-cost').textContent = formatCurrency(expReworkCost);
+      document.getElementById('exp-overrun-cost').textContent = formatCurrency(expOverrunCost);
+      document.getElementById('exp-onboarding-cost').textContent = formatCurrency(expOnboardingCost);
+      document.getElementById('exp-hidden-total').textContent = formatCurrency(expHiddenTotal);
+      document.getElementById('exp-true-cost').textContent = formatCurrency(expTrueCost);
+
+      // Comparison
+      document.getElementById('rate-premium').textContent = formatPercentage(ratePremium, true);
+      document.getElementById('true-difference').textContent = formatPercentage(trueDifference, true);
+
+      // Risk-adjusted value message
+      const riskValueEl = document.getElementById('risk-value');
+      if (expTrueCost > trueCost) {
+        const premium = ((expTrueCost - trueCost) / trueCost) * 100;
+        riskValueEl.textContent = 'Pay ' + Math.round(premium) + '% more for certainty';
+      } else {
+        const savings = ((trueCost - expTrueCost) / trueCost) * 100;
+        riskValueEl.textContent = 'Save ' + Math.round(savings) + '% with lower risk';
+      }
+    }
+
+    // Bind event listeners to all inputs
+    Object.keys(calculatorInputs).forEach(function(key) {
+      const input = calculatorInputs[key];
+      if (input) {
+        input.addEventListener('input', function() {
+          // Update slider displays
+          if (input.type === 'range') {
+            updateSliderDisplay(input, key + '-value');
+          }
+          calculateROI();
+        });
+      }
+    });
+
+    // Initial calculation
+    calculateROI();
+  }
+
 })();

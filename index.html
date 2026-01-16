@@ -278,6 +278,192 @@
       </div>
     </section>
 
+    <!-- ROI Calculator Section -->
+    <section class="section" id="calculator">
+      <div class="container">
+        <div class="section-headline">
+          <h2>True Cost Calculator</h2>
+          <p>Compare the real cost of engagement options. Adjust the assumptions based on your organisation's experience.</p>
+        </div>
+
+        <div class="calculator">
+          <div class="calculator__grid">
+            <!-- Inputs -->
+            <div class="calculator__inputs">
+              <h3>Your Project Parameters</h3>
+
+              <div class="calc-field">
+                <label for="duration">Project Duration</label>
+                <div class="calc-input-group">
+                  <input type="range" id="duration" min="1" max="24" value="6">
+                  <span class="calc-value"><span id="duration-value">6</span> months</span>
+                </div>
+              </div>
+
+              <div class="calc-field">
+                <label for="offshore-rate">Offshore/Junior Day Rate</label>
+                <div class="calc-input-group">
+                  <span class="calc-currency">$</span>
+                  <input type="number" id="offshore-rate" min="200" max="1500" value="450" step="50">
+                  <span class="calc-suffix">/day</span>
+                </div>
+              </div>
+
+              <div class="calc-field">
+                <label for="senior-rate">Your Senior Staff Hourly Cost</label>
+                <div class="calc-input-group">
+                  <span class="calc-currency">$</span>
+                  <input type="number" id="senior-rate" min="50" max="300" value="120" step="10">
+                  <span class="calc-suffix">/hour</span>
+                </div>
+              </div>
+
+              <div class="calc-field">
+                <label for="experienced-rate">Experienced Consultant Day Rate</label>
+                <div class="calc-input-group">
+                  <span class="calc-currency">$</span>
+                  <input type="number" id="experienced-rate" min="800" max="2500" value="1200" step="50">
+                  <span class="calc-suffix">/day</span>
+                </div>
+              </div>
+
+              <h3 style="margin-top: 2rem;">Hidden Cost Assumptions</h3>
+              <p class="calc-note">Adjust these based on your organisation's experience. Industry defaults shown.</p>
+
+              <div class="calc-field">
+                <label for="supervision">Supervision Hours/Week (Offshore)</label>
+                <div class="calc-input-group">
+                  <input type="range" id="supervision" min="2" max="15" value="8">
+                  <span class="calc-value"><span id="supervision-value">8</span> hrs</span>
+                </div>
+                <span class="calc-benchmark">Industry range: 5-12 hrs</span>
+              </div>
+
+              <div class="calc-field">
+                <label for="rework">Rework Rate (Offshore)</label>
+                <div class="calc-input-group">
+                  <input type="range" id="rework" min="10" max="60" value="35">
+                  <span class="calc-value"><span id="rework-value">35</span>%</span>
+                </div>
+                <span class="calc-benchmark">Gartner: 67% require significant rework</span>
+              </div>
+
+              <div class="calc-field">
+                <label for="overrun">Timeline Overrun Risk</label>
+                <div class="calc-input-group">
+                  <input type="range" id="overrun" min="0" max="50" value="25">
+                  <span class="calc-value"><span id="overrun-value">25</span>%</span>
+                </div>
+                <span class="calc-benchmark">McKinsey: 27-45% average overrun</span>
+              </div>
+
+              <div class="calc-field">
+                <label for="onboarding">Knowledge Transfer (Weeks)</label>
+                <div class="calc-input-group">
+                  <input type="range" id="onboarding" min="2" max="12" value="6">
+                  <span class="calc-value"><span id="onboarding-value">6</span> weeks</span>
+                </div>
+                <span class="calc-benchmark">Industry: 4-12 weeks typical</span>
+              </div>
+            </div>
+
+            <!-- Results -->
+            <div class="calculator__results">
+              <div class="calc-result-card calc-result-card--offshore">
+                <h3>Offshore/Junior Resource</h3>
+                <div class="calc-apparent">
+                  <span class="calc-label">Apparent Cost (Day Rate × Days)</span>
+                  <span class="calc-amount" id="apparent-cost">$59,400</span>
+                </div>
+                <div class="calc-hidden">
+                  <span class="calc-label">Hidden Costs</span>
+                  <ul class="calc-breakdown">
+                    <li><span>Supervision overhead</span><span id="supervision-cost">$24,960</span></li>
+                    <li><span>Rework (35% of deliverables)</span><span id="rework-cost">$20,790</span></li>
+                    <li><span>Timeline overrun risk</span><span id="overrun-cost">$14,850</span></li>
+                    <li><span>Knowledge transfer</span><span id="onboarding-cost">$5,760</span></li>
+                  </ul>
+                  <div class="calc-hidden-total">
+                    <span>Total Hidden Costs</span>
+                    <span id="hidden-total">$66,360</span>
+                  </div>
+                </div>
+                <div class="calc-true-cost">
+                  <span class="calc-label">True Cost of Engagement</span>
+                  <span class="calc-amount calc-amount--large" id="true-cost">$125,760</span>
+                  <span class="calc-percentage" id="cost-increase">+112% over apparent cost</span>
+                </div>
+              </div>
+
+              <div class="calc-result-card calc-result-card--experienced">
+                <h3>Experienced Consultant</h3>
+                <div class="calc-apparent">
+                  <span class="calc-label">Engagement Cost</span>
+                  <span class="calc-amount" id="experienced-cost">$158,400</span>
+                </div>
+                <div class="calc-hidden">
+                  <span class="calc-label">Hidden Costs</span>
+                  <ul class="calc-breakdown">
+                    <li><span>Supervision (1-2 hrs/week)</span><span id="exp-supervision-cost">$3,120</span></li>
+                    <li><span>Rework (5-10%)</span><span id="exp-rework-cost">$11,880</span></li>
+                    <li><span>Timeline overrun (minimal)</span><span id="exp-overrun-cost">$7,920</span></li>
+                    <li><span>Knowledge transfer (faster)</span><span id="exp-onboarding-cost">$1,920</span></li>
+                  </ul>
+                  <div class="calc-hidden-total">
+                    <span>Total Hidden Costs</span>
+                    <span id="exp-hidden-total">$24,840</span>
+                  </div>
+                </div>
+                <div class="calc-true-cost">
+                  <span class="calc-label">True Cost of Engagement</span>
+                  <span class="calc-amount calc-amount--large" id="exp-true-cost">$183,240</span>
+                </div>
+              </div>
+
+              <div class="calc-comparison">
+                <div class="calc-comparison-item">
+                  <span class="calc-comparison-label">Day Rate Premium</span>
+                  <span class="calc-comparison-value" id="rate-premium">+167%</span>
+                </div>
+                <div class="calc-comparison-item">
+                  <span class="calc-comparison-label">True Cost Difference</span>
+                  <span class="calc-comparison-value" id="true-difference">+46%</span>
+                </div>
+                <div class="calc-comparison-item calc-comparison-item--highlight">
+                  <span class="calc-comparison-label">Risk-Adjusted Value</span>
+                  <span class="calc-comparison-value" id="risk-value">Pay 46% more for certainty</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Frankness Statement -->
+          <div class="calc-frankness">
+            <h4>A Note on Honesty</h4>
+            <p>We're being frank with you. Our day rates are higher than offshore alternatives. We're not pretending otherwise.</p>
+            <p>What we're showing you is that <strong>day rate is not total cost</strong>. The research behind these defaults comes from IEEE, MIT Sloan, Gartner, Deloitte, and McKinsey studies on offshore outsourcing outcomes. The hidden costs are real - supervision, rework, delays, and re-onboarding add up.</p>
+            <p>Every organisation is different. <strong>Adjust these assumptions based on your own experience.</strong> If your offshore engagements have been smooth, lower the percentages. If they've been painful, you already know these numbers are conservative.</p>
+            <p>The point isn't that we're cheaper - we're not. The point is that paying once for the right expertise often costs less than paying twice for the wrong one.</p>
+          </div>
+
+          <!-- Research References -->
+          <div class="calc-references">
+            <h4>Research Sources</h4>
+            <p class="calc-note">These industry studies inform our default assumptions. We encourage you to review them and calibrate based on your organisation's context.</p>
+            <ul>
+              <li><strong>IEEE/SINTEF (2019)</strong> - Offshore projects showed 181% cost deviation from estimates, with some categories exceeding 400% overrun. <a href="https://ieeexplore.ieee.org/document/8807622/" target="_blank" rel="noopener">View study</a></li>
+              <li><strong>MIT Sloan Management Review</strong> - Study of 50 IT outsourcing cases found hidden costs consistently eroded projected benefits. <a href="https://sloanreview.mit.edu/article/the-hidden-costs-of-it-outsourcing/" target="_blank" rel="noopener">View article</a></li>
+              <li><strong>Gartner</strong> - 67% of offshore projects require significant rework; only 30% of tech projects deliver on promises.</li>
+              <li><strong>Deloitte 2024 Global Outsourcing Survey</strong> - 59% of companies report dissatisfaction with offshore outcomes; 70% have brought work back in-house. <a href="https://www2.deloitte.com/us/en/pages/operations/articles/global-outsourcing-survey.html" target="_blank" rel="noopener">View survey</a></li>
+              <li><strong>McKinsey</strong> - 70% of software projects exceed budgets by 27-45% average; additional 10% each for transactional and monitoring costs.</li>
+              <li><strong>CIO Magazine</strong> - Cultural and organisational differences add 3-27% to outsourcing costs. United Technologies (acknowledged offshore leader) saves just 20%, not 50-80%. <a href="https://www.cio.com/article/267239/the-hidden-costs-of-offshore-outsourcing.html" target="_blank" rel="noopener">View article</a></li>
+              <li><strong>Harvard/Rice University Study</strong> - Each 1-hour increase in timezone difference reduces synchronous communication by 11%. <a href="https://news.rice.edu/news/2024/hidden-cost-working-across-time-zones" target="_blank" rel="noopener">View research</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Industries Section -->
     <section class="section">
       <div class="container">
