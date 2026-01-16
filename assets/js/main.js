@@ -172,12 +172,14 @@
     });
   });
 
-  // Intersection Observer for fade-in animations
+  // ============================================
+  // Enhanced Scroll Animations (Apple-style)
+  // ============================================
   if ('IntersectionObserver' in window) {
     const observerOptions = {
       root: null,
-      rootMargin: '0px',
-      threshold: 0.1
+      rootMargin: '-50px',
+      threshold: 0.15
     };
 
     const observer = new IntersectionObserver(function(entries) {
@@ -189,9 +191,110 @@
       });
     }, observerOptions);
 
-    // Observe elements with fade-in class
-    document.querySelectorAll('.fade-in').forEach(function(el) {
-      observer.observe(el);
+    // Observe all animated elements
+    const animatedSelectors = [
+      '.fade-in',
+      '.scale-in',
+      '.slide-in-left',
+      '.slide-in-right',
+      '.stagger-in',
+      '.text-reveal'
+    ];
+
+    animatedSelectors.forEach(function(selector) {
+      document.querySelectorAll(selector).forEach(function(el) {
+        observer.observe(el);
+      });
+    });
+  }
+
+  // ============================================
+  // Accordion Component
+  // ============================================
+  const accordionItems = document.querySelectorAll('.accordion__item');
+
+  accordionItems.forEach(function(item) {
+    const trigger = item.querySelector('.accordion__trigger');
+
+    if (trigger) {
+      trigger.addEventListener('click', function() {
+        const isOpen = item.classList.contains('is-open');
+
+        // Close all other accordion items (optional - remove for multi-open)
+        accordionItems.forEach(function(otherItem) {
+          if (otherItem !== item) {
+            otherItem.classList.remove('is-open');
+          }
+        });
+
+        // Toggle current item
+        item.classList.toggle('is-open');
+
+        // Update ARIA
+        trigger.setAttribute('aria-expanded', !isOpen);
+      });
+    }
+  });
+
+  // ============================================
+  // Parallax Scroll Effect (subtle)
+  // ============================================
+  const parallaxElements = document.querySelectorAll('.parallax');
+
+  if (parallaxElements.length > 0) {
+    window.addEventListener('scroll', function() {
+      const scrolled = window.pageYOffset;
+
+      parallaxElements.forEach(function(el) {
+        const speed = el.dataset.speed || 0.5;
+        const yPos = -(scrolled * speed);
+        el.style.transform = 'translate3d(0, ' + yPos + 'px, 0)';
+      });
+    }, { passive: true });
+  }
+
+  // ============================================
+  // Smooth Counter Animation
+  // ============================================
+  function animateCounter(el, target, duration) {
+    const start = 0;
+    const startTime = performance.now();
+
+    function update(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      // Easing function (ease-out)
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(start + (target - start) * easeOut);
+
+      el.textContent = current.toLocaleString();
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        el.textContent = target.toLocaleString();
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  // Counter animation on scroll
+  const counterElements = document.querySelectorAll('[data-counter]');
+  if (counterElements.length > 0 && 'IntersectionObserver' in window) {
+    const counterObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          const target = parseInt(entry.target.dataset.counter, 10);
+          animateCounter(entry.target, target, 2000);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counterElements.forEach(function(el) {
+      counterObserver.observe(el);
     });
   }
 
