@@ -76,12 +76,13 @@
 
   <!-- Header -->
   <header class="header" id="header">
-    <div class="container header__inner">
+    <div class="header__inner">
       <a href="/" class="logo">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="40" height="40" rx="8" fill="#1a2b4a"/>
-          <path d="M10 14h20v2H10zM10 19h20v2H10zM10 24h14v2H10z" fill="#b87333"/>
-          <circle cx="28" cy="25" r="5" fill="#4a6fa5"/>
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="#1d1d1f"/>
+          <rect x="8" y="10" width="16" height="2" rx="1" fill="#fff"/>
+          <rect x="8" y="15" width="12" height="2" rx="1" fill="#fff"/>
+          <rect x="8" y="20" width="8" height="2" rx="1" fill="#fff"/>
         </svg>
         <span>The Tech Space</span>
       </a>
@@ -99,7 +100,7 @@
           <li><a href="about.html" class="nav__link">About</a></li>
           <li><a href="blog/" class="nav__link">Blog</a></li>
           <li><a href="contact.html" class="nav__link">Contact</a></li>
-          <li><a href="contact.html" class="btn btn--primary">Book a Consultation</a></li>
+          <li><a href="contact.html" class="btn btn--primary btn--sm">Get in Touch</a></li>
         </ul>
       </nav>
     </div>
@@ -109,44 +110,42 @@
   <main id="main">
     <!-- Hero Section -->
     <section class="hero">
-      <div class="container">
-        <div class="hero__content">
-          <span class="hero__label">Perth, Western Australia</span>
-          <h1 class="hero__title">Unified Communications & Audio Visual Consultancy</h1>
-          <p class="hero__subtitle">Expert consulting for enterprise UC and AV solutions. From Microsoft Teams deployment to full-scale audio visual design, I deliver technology that transforms how organisations communicate and collaborate.</p>
+      <div class="hero__content">
+        <p class="hero__eyebrow">Unified Communications & Audio Visual</p>
+        <h1 class="hero__title">Technology that transforms collaboration.</h1>
+        <p class="hero__subtitle">Expert UC and AV consultancy for enterprise, resources, and higher education. From Microsoft Teams deployment to full-scale audio visual design.</p>
 
-          <div class="hero__buttons">
-            <a href="contact.html" class="btn btn--primary btn--lg">Book a Consultation</a>
-            <a href="services.html" class="btn btn--outline-white btn--lg">View Services</a>
-          </div>
+        <div class="hero__buttons">
+          <a href="contact.html" class="btn btn--primary btn--lg">Book a Consultation</a>
+          <a href="services.html" class="btn btn--ghost btn--lg">Explore Services</a>
+        </div>
 
-          <div class="hero__clients">
-            <p class="hero__clients-label">Trusted by leading organisations</p>
-            <div class="hero__clients-logos">
-              <span style="font-size: 14px; opacity: 0.8;">Woodside Energy</span>
-              <span style="font-size: 14px; opacity: 0.8;">S&P Global</span>
-              <span style="font-size: 14px; opacity: 0.8;">Oracle</span>
-              <span style="font-size: 14px; opacity: 0.8;">Salesforce</span>
-              <span style="font-size: 14px; opacity: 0.8;">AEMO</span>
-            </div>
+        <div class="hero__clients">
+          <p class="hero__clients-label">Trusted by leading organisations</p>
+          <div class="hero__clients-logos">
+            <span>Woodside Energy</span>
+            <span>S&P Global</span>
+            <span>Oracle</span>
+            <span>Salesforce</span>
+            <span>AEMO</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Services Section -->
-    <section class="section" id="services">
+    <section class="section section--gray" id="services">
       <div class="container">
-        <div class="text-center mb-3xl">
-          <h2 class="section-title">Our Expertise</h2>
-          <p class="section-subtitle">Comprehensive UC and AV consulting services tailored to enterprise, education, and commercial environments.</p>
+        <div class="section-headline">
+          <h2>Expertise</h2>
+          <p>End-to-end consulting for unified communications and audio visual solutions.</p>
         </div>
 
         <div class="grid grid--3">
           <!-- UC Solutions -->
-          <div class="card card--service">
+          <div class="card card--feature">
             <div class="card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                 <circle cx="9" cy="7" r="4"></circle>
                 <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -154,71 +153,54 @@
               </svg>
             </div>
             <h3 class="card__title">UC Solutions</h3>
-            <p class="card__description">Microsoft Teams, Webex, and enterprise voice deployments. Strategy, implementation, and migration services for unified communications platforms.</p>
-            <a href="services.html#uc" class="card__link">
-              Learn more
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
+            <p class="card__description">Microsoft Teams, Webex, and enterprise voice. Strategy, implementation, and migration services.</p>
+            <a href="services.html#uc" class="card__link">Learn more</a>
           </div>
 
           <!-- AV Design -->
-          <div class="card card--service">
+          <div class="card card--feature">
             <div class="card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
                 <line x1="8" y1="21" x2="16" y2="21"></line>
                 <line x1="12" y1="17" x2="12" y2="21"></line>
               </svg>
             </div>
             <h3 class="card__title">AV Design</h3>
-            <p class="card__description">End-to-end audio visual system design for meeting rooms, lecture theatres, and collaboration spaces. Crestron, Q-SYS, and Dante certified.</p>
-            <a href="services.html#av" class="card__link">
-              Learn more
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
+            <p class="card__description">End-to-end audio visual system design. Crestron, Q-SYS, and Dante certified expertise.</p>
+            <a href="services.html#av" class="card__link">Learn more</a>
           </div>
 
           <!-- Project Delivery -->
-          <div class="card card--service">
+          <div class="card card--feature">
             <div class="card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
                 <polyline points="2 17 12 22 22 17"></polyline>
                 <polyline points="2 12 12 17 22 12"></polyline>
               </svg>
             </div>
             <h3 class="card__title">Project Delivery</h3>
-            <p class="card__description">From strategy to execution. Technical consulting, vendor management, and project leadership for complex UC/AV initiatives.</p>
-            <a href="services.html#delivery" class="card__link">
-              Learn more
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
+            <p class="card__description">From strategy to execution. Technical consulting, vendor management, and project leadership.</p>
+            <a href="services.html#delivery" class="card__link">Learn more</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Credentials Section -->
-    <section class="section section--alt credentials">
+    <section class="section credentials">
       <div class="container">
-        <h2 class="section-title">Certifications & Recognition</h2>
-        <p class="section-subtitle">Industry-recognised credentials and expertise across unified communications and audio visual technologies.</p>
+        <div class="section-headline">
+          <h2>Certifications</h2>
+          <p>Industry-recognised credentials across UC and AV technologies.</p>
+        </div>
 
         <div class="credentials__badges">
           <div class="credentials__badge">
             <div class="credentials__badge-icon">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                <rect width="40" height="40" rx="4" fill="#f5f5f5"/>
-                <text x="20" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a2b4a">CTS</text>
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <text x="16" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#1d1d1f">CTS</text>
               </svg>
             </div>
             <span class="credentials__badge-label">AVIXA CTS</span>
@@ -226,10 +208,8 @@
 
           <div class="credentials__badge">
             <div class="credentials__badge-icon">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                <rect width="40" height="40" rx="4" fill="#f5f5f5"/>
-                <text x="20" y="22" text-anchor="middle" font-size="8" font-weight="bold" fill="#1a2b4a">MS-700</text>
-                <text x="20" y="30" text-anchor="middle" font-size="6" fill="#4a6fa5">Teams</text>
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <text x="16" y="18" text-anchor="middle" font-size="7" font-weight="600" fill="#1d1d1f">MS-700</text>
               </svg>
             </div>
             <span class="credentials__badge-label">Microsoft Teams</span>
@@ -237,20 +217,17 @@
 
           <div class="credentials__badge">
             <div class="credentials__badge-icon">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                <rect width="40" height="40" rx="4" fill="#f5f5f5"/>
-                <text x="20" y="22" text-anchor="middle" font-size="9" font-weight="bold" fill="#1a2b4a">Dante</text>
-                <text x="20" y="30" text-anchor="middle" font-size="7" fill="#4a6fa5">L1-3</text>
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <text x="16" y="20" text-anchor="middle" font-size="9" font-weight="600" fill="#1d1d1f">Dante</text>
               </svg>
             </div>
-            <span class="credentials__badge-label">Dante Certified</span>
+            <span class="credentials__badge-label">Dante L1-3</span>
           </div>
 
           <div class="credentials__badge">
             <div class="credentials__badge-icon">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                <rect width="40" height="40" rx="4" fill="#f5f5f5"/>
-                <text x="20" y="25" text-anchor="middle" font-size="8" font-weight="bold" fill="#1a2b4a">Crestron</text>
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <text x="16" y="20" text-anchor="middle" font-size="7" font-weight="600" fill="#1d1d1f">Crestron</text>
               </svg>
             </div>
             <span class="credentials__badge-label">Crestron</span>
@@ -258,9 +235,8 @@
 
           <div class="credentials__badge">
             <div class="credentials__badge-icon">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                <rect width="40" height="40" rx="4" fill="#f5f5f5"/>
-                <text x="20" y="25" text-anchor="middle" font-size="9" font-weight="bold" fill="#1a2b4a">Q-SYS</text>
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <text x="16" y="20" text-anchor="middle" font-size="8" font-weight="600" fill="#1d1d1f">Q-SYS</text>
               </svg>
             </div>
             <span class="credentials__badge-label">Q-SYS L1-2</span>
@@ -268,62 +244,38 @@
 
           <div class="credentials__badge">
             <div class="credentials__badge-icon">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                <rect width="40" height="40" rx="4" fill="#f5f5f5"/>
-                <text x="20" y="25" text-anchor="middle" font-size="8" font-weight="bold" fill="#1a2b4a">AVIXA</text>
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <text x="16" y="20" text-anchor="middle" font-size="7" font-weight="600" fill="#1d1d1f">AVIXA</text>
               </svg>
             </div>
             <span class="credentials__badge-label">AVIXA Member</span>
           </div>
         </div>
 
-        <div class="credentials__awards">
-          <h4 class="credentials__award-title">2017 AETM Outstanding Contribution Award</h4>
-          <p class="credentials__award-text">Recognised by the Association for Audiovisual & Education Technology Management for significant impact in learning and teaching technology delivery.</p>
-          <p class="text-sm text-muted mt-md">Featured in: Inavate APAC, ProAVL Asia Magazine</p>
+        <div class="credentials__highlight">
+          <h4>2017 AETM Outstanding Contribution Award</h4>
+          <p>Recognised by the Association for Audiovisual & Education Technology Management for significant impact in learning and teaching technology delivery.</p>
         </div>
       </div>
     </section>
 
     <!-- Experience Section -->
-    <section class="section">
+    <section class="section section--gray">
       <div class="container">
-        <div class="text-center mb-3xl">
-          <h2 class="section-title">Enterprise Experience</h2>
-          <p class="section-subtitle">Over 11 years delivering UC and AV solutions for leading organisations across resources, enterprise, and higher education sectors.</p>
+        <div class="section-headline">
+          <h2>Experience</h2>
+          <p>11+ years delivering UC and AV solutions across enterprise and higher education.</p>
         </div>
 
         <div class="grid grid--2">
           <div class="card">
-            <h3 class="card__title mb-md">Resources & Enterprise</h3>
+            <h3 class="card__title">Resources & Enterprise</h3>
             <p class="card__description">Currently embedded as Technical Consultant within Woodside Energy's Unified Communications Service Line, delivering Microsoft Teams harmonisation, AV control systems, and enterprise UC strategy.</p>
-            <ul style="margin-top: 1rem;">
-              <li style="color: var(--color-gray-700); margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;">
-                <span style="color: var(--color-accent);">-</span> Microsoft Teams Rooms & Telephony deployment
-              </li>
-              <li style="color: var(--color-gray-700); margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;">
-                <span style="color: var(--color-accent);">-</span> AV Control & Monitoring platform rollout
-              </li>
-              <li style="color: var(--color-gray-700); margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;">
-                <span style="color: var(--color-accent);">-</span> SDA network migration for 5000+ devices
-              </li>
-            </ul>
           </div>
 
           <div class="card">
-            <h3 class="card__title mb-md">Higher Education</h3>
-            <p class="card__description">Extensive experience with Australian universities, delivering AV infrastructure for teaching spaces, lecture theatres, and collaboration environments.</p>
-            <ul style="margin-top: 1rem;">
-              <li style="color: var(--color-gray-700); margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;">
-                <span style="color: var(--color-accent);">-</span> Curtin University - AV Engineer
-              </li>
-              <li style="color: var(--color-gray-700); margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;">
-                <span style="color: var(--color-accent);">-</span> University of Western Australia
-              </li>
-              <li style="color: var(--color-gray-700); margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;">
-                <span style="color: var(--color-accent);">-</span> Australian Catholic University
-              </li>
-            </ul>
+            <h3 class="card__title">Higher Education</h3>
+            <p class="card__description">Extensive experience with Australian universities, delivering AV infrastructure for teaching spaces, lecture theatres, and collaboration environments across Curtin, UWA, and ACU.</p>
           </div>
         </div>
       </div>
@@ -332,11 +284,11 @@
     <!-- CTA Section -->
     <section class="section cta">
       <div class="container">
-        <h2 class="cta__title">Ready to transform your communication infrastructure?</h2>
-        <p class="cta__text">Let's discuss how UC and AV solutions can drive value for your organisation.</p>
+        <h2 class="cta__title">Ready to get started?</h2>
+        <p class="cta__text">Let's discuss how UC and AV solutions can transform your organisation.</p>
         <a href="contact.html" class="btn btn--primary btn--lg">Schedule a Consultation</a>
         <p class="cta__contact">
-          <a href="mailto:design@thetech.space">design@thetech.space</a> &nbsp;|&nbsp; Perth, Western Australia
+          <a href="mailto:design@thetech.space">design@thetech.space</a> &nbsp;·&nbsp; Perth, Western Australia
         </p>
       </div>
     </section>
@@ -348,14 +300,15 @@
       <div class="footer__grid">
         <div class="footer__brand">
           <a href="/" class="footer__logo">
-            <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="40" height="40" rx="8" fill="#ffffff"/>
-              <path d="M10 14h20v2H10zM10 19h20v2H10zM10 24h14v2H10z" fill="#b87333"/>
-              <circle cx="28" cy="25" r="5" fill="#4a6fa5"/>
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" rx="8" fill="#1d1d1f"/>
+              <rect x="8" y="10" width="16" height="2" rx="1" fill="#fff"/>
+              <rect x="8" y="15" width="12" height="2" rx="1" fill="#fff"/>
+              <rect x="8" y="20" width="8" height="2" rx="1" fill="#fff"/>
             </svg>
             <span>The Tech Space</span>
           </a>
-          <p class="footer__description">Expert Unified Communications and Audio Visual consultancy delivering enterprise technology solutions across Western Australia and beyond.</p>
+          <p class="footer__description">Expert Unified Communications and Audio Visual consultancy delivering enterprise technology solutions.</p>
           <div class="footer__social">
             <a href="https://linkedin.com/in/kevinsing" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -377,23 +330,22 @@
             <li><a href="services.html#uc">UC Solutions</a></li>
             <li><a href="services.html#av">AV Design</a></li>
             <li><a href="services.html#delivery">Project Delivery</a></li>
-            <li><a href="services.html#strategy">Strategy & Roadmaps</a></li>
+            <li><a href="services.html#strategy">Strategy</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="footer__title">Resources</h4>
+          <h4 class="footer__title">Company</h4>
           <ul class="footer__links">
-            <li><a href="blog/">Blog</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="about.html#certifications">Certifications</a></li>
+            <li><a href="blog/">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
 
         <div>
           <h4 class="footer__title">Connect</h4>
           <ul class="footer__links">
-            <li><a href="contact.html">Contact</a></li>
             <li><a href="https://linkedin.com/in/kevinsing" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
             <li><a href="mailto:design@thetech.space">Email</a></li>
           </ul>
@@ -401,9 +353,9 @@
       </div>
 
       <div class="footer__bottom">
-        <p>&copy; 2026 The Tech Space Consultancy & Services. Perth, WA.</p>
+        <p>Copyright &copy; 2026 The Tech Space. Perth, WA.</p>
         <div class="footer__legal">
-          <a href="#">Privacy Policy</a>
+          <a href="#">Privacy</a>
           <a href="#">Terms</a>
         </div>
       </div>
