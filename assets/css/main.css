@@ -3453,3 +3453,187 @@ p:last-child {
     font-size: var(--font-size-3xl);
   }
 }
+
+/* --------------------------------------------
+   Testimonials Section
+   -------------------------------------------- */
+.testimonials {
+  background-color: var(--color-gray-100);
+}
+
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-xl);
+}
+
+@media (max-width: 1024px) {
+  .testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Testimonial Card */
+.testimonial-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-2xl);
+  border: 1px solid var(--color-gray-200);
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.testimonial-card__quote {
+  margin-bottom: var(--spacing-xl);
+}
+
+.testimonial-card__icon {
+  color: var(--color-gray-300);
+  margin-bottom: var(--spacing-md);
+  width: 32px;
+  height: 32px;
+}
+
+.testimonial-card__quote p {
+  font-size: var(--font-size-base);
+  line-height: 1.7;
+  color: var(--color-gray-700);
+  font-style: italic;
+}
+
+.testimonial-card__author {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-gray-200);
+}
+
+.testimonial-card__author-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.testimonial-card__name {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-900);
+}
+
+.testimonial-card__role {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* --------------------------------------------
+   Case Study Cards
+   -------------------------------------------- */
+.case-studies {
+  background-color: var(--color-gray-100);
+}
+
+.case-study-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-gray-200);
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.case-study-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.case-study-card__header {
+  background: linear-gradient(135deg, var(--color-gray-900) 0%, var(--color-gray-800) 100%);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.case-study-card__sector {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-white);
+}
+
+.case-study-card__type {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.case-study-card__body {
+  padding: var(--spacing-xl);
+  flex: 1;
+}
+
+.case-study-card__section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.case-study-card__section:last-child {
+  margin-bottom: 0;
+}
+
+.case-study-card__label {
+  display: block;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-xs);
+}
+
+.case-study-card__section p {
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  color: var(--color-gray-700);
+  margin: 0;
+}
+
+/* Case Study - Outcome highlight */
+.case-study-card__section:last-child p {
+  color: var(--color-gray-900);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .case-studies .grid--3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonial-card {
+    padding: var(--spacing-xl);
+  }
+
+  .testimonial-card__quote p {
+    font-size: var(--font-size-sm);
+  }
+
+  .case-study-card__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
