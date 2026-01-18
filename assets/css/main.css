@@ -259,7 +259,7 @@ p:last-child {
 }
 
 /* --------------------------------------------
-   Header & Navigation - Glass Effect
+   Header & Navigation - Clean White
    -------------------------------------------- */
 .header {
   position: fixed;
@@ -267,10 +267,8 @@ p:last-child {
   left: 0;
   right: 0;
   height: var(--header-height);
-  background-color: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-gray-200);
   z-index: 1000;
   transition: background-color var(--transition);
 }
@@ -320,16 +318,15 @@ p:last-child {
 .nav__link {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-regular);
-  color: var(--color-gray-900);
+  color: var(--color-gray-600);
   text-decoration: none;
   padding: var(--spacing-xs) 0;
-  opacity: 0.8;
-  transition: opacity var(--transition);
+  transition: color var(--transition);
 }
 
 .nav__link:hover,
 .nav__link--active {
-  opacity: 1;
+  color: var(--color-black);
   text-decoration: none;
 }
 
@@ -467,11 +464,14 @@ p:last-child {
 .btn--ghost {
   background-color: transparent;
   color: var(--color-gray-900);
-  padding: 8px 0;
+  padding: 12px 24px;
+  border: 1px solid var(--color-gray-400);
 }
 
 .btn--ghost:hover {
-  color: var(--color-accent-hover);
+  color: var(--color-black);
+  border-color: var(--color-gray-900);
+  background-color: var(--color-gray-100);
 }
 
 .btn--ghost::after {
@@ -504,9 +504,9 @@ p:last-child {
   overflow: hidden;
 }
 
-/* Hero with Background Image */
+/* Hero with Background Image - Nordic Light Style */
 .hero--with-image {
-  background-color: var(--color-gray-900);
+  background-color: var(--color-gray-100);
 }
 
 .hero__background {
@@ -522,7 +522,8 @@ p:last-child {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.4;
+  opacity: 0.08;
+  filter: grayscale(100%);
 }
 
 .hero__overlay {
@@ -531,7 +532,7 @@ p:last-child {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.92) 100%);
+  background: linear-gradient(180deg, rgba(245, 245, 245, 0.95) 0%, rgba(245, 245, 245, 0.98) 100%);
 }
 
 .hero--with-image .hero__content {
@@ -540,32 +541,32 @@ p:last-child {
 }
 
 .hero--with-image .hero__eyebrow {
-  color: var(--color-white);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  color: var(--color-gray-600);
+  text-shadow: none;
 }
 
 .hero--with-image .hero__title {
   background: none;
   -webkit-background-clip: unset;
-  -webkit-text-fill-color: var(--color-white);
+  -webkit-text-fill-color: var(--color-gray-900);
   background-clip: unset;
-  color: var(--color-white);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  color: var(--color-gray-900);
+  text-shadow: none;
 }
 
 .hero--with-image .hero__subtitle {
-  color: var(--color-white);
-  opacity: 0.9;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  color: var(--color-gray-600);
+  opacity: 1;
+  text-shadow: none;
 }
 
 .hero--with-image .hero__clients-label {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--color-gray-500);
 }
 
 .hero--with-image .hero__clients-logos span {
-  color: rgba(255, 255, 255, 0.8);
-  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--color-gray-600);
+  border-color: var(--color-gray-300);
 }
 
 .hero__content {
