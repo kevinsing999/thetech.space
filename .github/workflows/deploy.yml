@@ -3,7 +3,9 @@ name: Deploy to FTP
 on:
   push:
     branches:
+      - main
       - master
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -16,14 +18,16 @@ jobs:
       - name: Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./
-          server-dir: /thetech.space/
+          server: 66.102.137.92
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          server-dir: ${{ secrets.FTP_DIR }}/
           exclude: |
             **/.git*
             **/.git*/**
-            **/tmpclaude-*
+            **/node_modules/**
             **/*.ps1
+            **/*.md
+            **/tmpclaude-*
+            **/.claude/**
             **/docs/**
