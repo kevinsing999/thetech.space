@@ -1,0 +1,2251 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>Tools | The Tech Space</title>
+  <meta name="title" content="Tools | The Tech Space">
+  <meta name="description" content="Free UC/AV planning tools: Project Budget Planner for multi-phase rollouts and True Cost Calculator for total cost of ownership analysis.">
+  <meta name="keywords" content="UC AV budget planner, total cost of ownership calculator, TCO calculator, project cost estimator, AV project planning">
+  <meta name="author" content="Kevin Sing">
+  <meta name="robots" content="index, follow">
+
+  <!-- Geographic -->
+  <meta name="geo.region" content="AU-WA">
+  <meta name="geo.placename" content="Perth">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thetech.space/tools.html">
+  <meta property="og:title" content="Tools | The Tech Space">
+  <meta property="og:description" content="Free UC/AV planning tools: Project Budget Planner and True Cost Calculator.">
+  <meta property="og:image" content="https://thetech.space/assets/images/og-image.jpg">
+  <meta property="og:locale" content="en_AU">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://thetech.space/tools.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="assets/css/main.css?v=3">
+
+  <!-- Tools-specific Styles -->
+  <style>
+    /* ==========================================
+       TOOLS PAGE STYLES
+       ========================================== */
+
+    :root {
+      --tools-primary: #7237a2;
+      --tools-primary-light: #9473d2;
+      --tools-primary-dark: #4a2469;
+      --tools-secondary: #4284df;
+      --tools-accent: #f27d7a;
+      --tools-success: #22c55e;
+      --tools-warning: #f59e0b;
+      --tools-bg: #f5f5f7;
+      --tools-bg-white: #ffffff;
+      --tools-bg-dark: #1a1a2e;
+      --tools-border: #e5e5ea;
+      --tools-text: #1d1d1f;
+      --tools-text-muted: #86868b;
+      --tools-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --tools-shadow-lg: 0 12px 48px rgba(114, 55, 162, 0.15);
+      --tools-radius: 16px;
+      --tools-radius-sm: 10px;
+    }
+
+    .tools-page {
+      padding: 120px 0 80px;
+      background: var(--tools-bg);
+      min-height: 100vh;
+    }
+
+    .tools-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Tool Navigation */
+    .tool-nav {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+      padding: 8px;
+      background: var(--tools-bg-white);
+      border-radius: var(--tools-radius);
+      box-shadow: var(--tools-shadow);
+      border: 1px solid var(--tools-border);
+    }
+
+    .tool-nav-btn {
+      flex: 1;
+      padding: 16px 20px;
+      border: 2px solid transparent;
+      border-radius: var(--tools-radius-sm);
+      background: var(--tools-bg);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: left;
+      font-family: inherit;
+    }
+
+    .tool-nav-btn:hover {
+      border-color: var(--tools-primary-light);
+      background: rgba(114, 55, 162, 0.05);
+    }
+
+    .tool-nav-btn.active {
+      border-color: var(--tools-primary);
+      background: linear-gradient(135deg, rgba(114, 55, 162, 0.08) 0%, rgba(66, 132, 223, 0.05) 100%);
+    }
+
+    .tool-nav-btn h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0 0 4px;
+      color: var(--tools-text);
+    }
+
+    .tool-nav-btn p {
+      font-size: 0.85rem;
+      color: var(--tools-text-muted);
+      margin: 0;
+    }
+
+    .tool-nav-btn.active h3 {
+      color: var(--tools-primary);
+    }
+
+    .tool-section {
+      display: none;
+    }
+
+    .tool-section.active {
+      display: block;
+    }
+
+    /* Tool Hero */
+    .tool-hero {
+      background: linear-gradient(135deg, var(--tools-primary) 0%, var(--tools-secondary) 100%);
+      padding: 48px 32px;
+      border-radius: var(--tools-radius);
+      color: #fff;
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tool-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 60%;
+      height: 200%;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+      transform: rotate(-15deg);
+    }
+
+    .tool-hero h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 0 0 8px;
+      position: relative;
+    }
+
+    .tool-hero p {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin: 0 0 24px;
+      max-width: 600px;
+      position: relative;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .btn-hero {
+      padding: 12px 20px;
+      border-radius: var(--tools-radius-sm);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      font-family: inherit;
+    }
+
+    .btn-hero-primary {
+      background: #fff;
+      color: var(--tools-primary);
+    }
+
+    .btn-hero-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+
+    .btn-hero-outline {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .btn-hero-outline:hover {
+      background: rgba(255,255,255,0.25);
+    }
+
+    /* Summary Bar */
+    .summary-bar {
+      background: var(--tools-bg-white);
+      border-radius: var(--tools-radius);
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--tools-shadow);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 24px;
+      position: sticky;
+      top: 90px;
+      z-index: 100;
+      border: 1px solid var(--tools-border);
+    }
+
+    .summary-item {
+      text-align: center;
+    }
+
+    .summary-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--tools-text-muted);
+      margin-bottom: 4px;
+    }
+
+    .summary-value {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--tools-text);
+    }
+
+    .summary-value.highlight {
+      color: var(--tools-primary);
+    }
+
+    .summary-sub {
+      font-size: 0.7rem;
+      color: var(--tools-text-muted);
+    }
+
+    /* Sections */
+    .tool-card {
+      background: var(--tools-bg-white);
+      border-radius: var(--tools-radius);
+      margin-bottom: 16px;
+      box-shadow: var(--tools-shadow);
+      overflow: hidden;
+      border: 1px solid var(--tools-border);
+    }
+
+    .tool-card-header {
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      background: linear-gradient(to right, var(--tools-bg-white) 0%, var(--tools-bg) 100%);
+      transition: all 0.2s ease;
+    }
+
+    .tool-card-header:hover {
+      background: var(--tools-bg);
+    }
+
+    .tool-card-header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .tool-card-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--tools-primary) 0%, var(--tools-primary-light) 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .tool-card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .tool-card-subtitle {
+      font-size: 0.85rem;
+      color: var(--tools-text-muted);
+      margin: 4px 0 0;
+    }
+
+    .tool-card-toggle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--tools-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      color: var(--tools-text-muted);
+    }
+
+    .tool-card.open .tool-card-toggle {
+      transform: rotate(180deg);
+      background: var(--tools-primary);
+      color: #fff;
+    }
+
+    .tool-card-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .tool-card.open .tool-card-body {
+      max-height: 3000px;
+    }
+
+    .tool-card-content {
+      padding: 0 24px 24px;
+    }
+
+    /* Room Types */
+    .room-types-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .room-type-card {
+      background: var(--tools-bg);
+      border-radius: var(--tools-radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--tools-border);
+    }
+
+    .room-type-header {
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+    }
+
+    .room-type-name-input {
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      background: transparent;
+      padding: 6px 10px;
+      border-radius: 6px;
+      flex: 1;
+      max-width: 250px;
+    }
+
+    .room-type-name-input:focus {
+      outline: none;
+      background: var(--tools-bg-white);
+      box-shadow: 0 0 0 2px var(--tools-primary-light);
+    }
+
+    .room-type-summary {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 0.85rem;
+    }
+
+    .room-type-total {
+      font-weight: 700;
+      color: var(--tools-primary);
+    }
+
+    .room-type-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .room-type-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    .room-type-card.expanded .room-type-body {
+      max-height: 2000px;
+    }
+
+    .room-type-content {
+      padding: 0 20px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    /* Cost Categories */
+    .cost-category {
+      background: var(--tools-bg-white);
+      border-radius: var(--tools-radius-sm);
+      padding: 16px;
+      border: 1px solid var(--tools-border);
+    }
+
+    .cost-category-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--tools-border);
+    }
+
+    .cost-category-title {
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .category-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .dot-hardware { background: var(--tools-secondary); }
+    .dot-license { background: var(--tools-accent); }
+    .dot-service { background: var(--tools-success); }
+    .dot-labour { background: var(--tools-warning); }
+
+    .cost-items {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cost-item {
+      background: var(--tools-bg);
+      border: 1px solid var(--tools-border);
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .cost-item-row1 {
+      display: grid;
+      grid-template-columns: 1fr 80px 24px;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .cost-item-row2 {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .cost-item input[type="text"],
+    .cost-item input[type="number"] {
+      padding: 8px 10px;
+      border: 1px solid var(--tools-border);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      width: 100%;
+      background: var(--tools-bg-white);
+    }
+
+    .cost-item input:focus {
+      outline: none;
+      border-color: var(--tools-primary);
+    }
+
+    .cost-item select {
+      padding: 6px 8px;
+      border: 1px solid var(--tools-border);
+      border-radius: 6px;
+      font-size: 0.75rem;
+      background: var(--tools-bg-white);
+      cursor: pointer;
+    }
+
+    .cost-item select:focus {
+      outline: none;
+      border-color: var(--tools-primary);
+    }
+
+    .freq-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .freq-once { background: #e0f2fe; color: #0369a1; }
+    .freq-monthly { background: #fce7f3; color: #be185d; }
+    .freq-yearly { background: #fef3c7; color: #92400e; }
+
+    .timing-badge {
+      font-size: 0.65rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .timing-before { background: #fef3c7; color: #92400e; }
+    .timing-at { background: #dcfce7; color: #166534; }
+    .timing-after { background: #e0f2fe; color: #0369a1; }
+
+    .btn-icon {
+      width: 24px;
+      height: 24px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--tools-text-muted);
+      transition: all 0.2s ease;
+    }
+
+    .btn-icon:hover {
+      background: rgba(239, 68, 68, 0.1);
+      color: #ef4444;
+    }
+
+    .btn-add {
+      font-size: 0.8rem;
+      padding: 6px 12px;
+      background: var(--tools-bg);
+      border: 1px dashed var(--tools-border);
+      border-radius: 6px;
+      cursor: pointer;
+      color: var(--tools-text-muted);
+      transition: all 0.2s ease;
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .btn-add:hover {
+      border-color: var(--tools-primary);
+      color: var(--tools-primary);
+      background: rgba(114, 55, 162, 0.05);
+    }
+
+    /* Spreadsheet */
+    .spreadsheet-wrapper {
+      overflow-x: auto;
+      margin-top: 16px;
+    }
+
+    .spreadsheet {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .spreadsheet th,
+    .spreadsheet td {
+      padding: 10px 12px;
+      border: 1px solid var(--tools-border);
+      text-align: left;
+    }
+
+    .spreadsheet th {
+      background: var(--tools-bg);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .spreadsheet .col-header {
+      text-align: right;
+    }
+
+    .spreadsheet input {
+      width: 60px;
+      padding: 4px 6px;
+      border: 1px solid var(--tools-border);
+      border-radius: 4px;
+      text-align: right;
+      font-size: 0.85rem;
+    }
+
+    .spreadsheet input:focus {
+      outline: none;
+      border-color: var(--tools-primary);
+    }
+
+    .row-total {
+      font-weight: 600;
+      color: var(--tools-primary);
+      text-align: right;
+    }
+
+    /* Timeline Controls */
+    .timeline-controls {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .timeline-control {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .timeline-control label {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .timeline-control input,
+    .timeline-control select {
+      padding: 8px 12px;
+      border: 1px solid var(--tools-border);
+      border-radius: 6px;
+      font-size: 0.85rem;
+    }
+
+    /* Chart */
+    .chart-container {
+      margin-bottom: 24px;
+    }
+
+    .chart-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .chart-bars {
+      display: flex;
+      gap: 4px;
+      align-items: flex-end;
+      height: 150px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--tools-border);
+    }
+
+    .chart-bar {
+      flex: 1;
+      min-width: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      justify-content: flex-end;
+    }
+
+    .chart-bar-segment {
+      width: 100%;
+      border-radius: 2px 2px 0 0;
+      transition: height 0.3s ease;
+    }
+
+    .chart-legend {
+      display: flex;
+      gap: 16px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: var(--tools-text-muted);
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--tools-bg-dark) 0%, #2d2d4a 100%);
+      border-radius: var(--tools-radius);
+      padding: 48px 32px;
+      text-align: center;
+      color: #fff;
+      margin-top: 32px;
+    }
+
+    .cta-section h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 0 12px;
+    }
+
+    .cta-section p {
+      opacity: 0.8;
+      margin: 0 0 24px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-section .btn--primary {
+      background: var(--tools-primary);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: var(--tools-radius-sm);
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    .cta-section .btn--primary:hover {
+      background: var(--tools-primary-light);
+      transform: translateY(-2px);
+    }
+
+    /* TCO Calculator Specific */
+    .tco-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .tco-grid {
+        grid-template-columns: 1fr;
+      }
+      .tool-nav {
+        flex-direction: column;
+      }
+    }
+
+    .tco-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .tco-card {
+      background: var(--tools-bg-white);
+      border-radius: var(--tools-radius);
+      padding: 24px;
+      box-shadow: var(--tools-shadow);
+      border: 1px solid var(--tools-border);
+    }
+
+    .tco-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--tools-border);
+    }
+
+    .tco-card-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--tools-primary) 0%, var(--tools-primary-light) 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .tco-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .tco-field {
+      margin-bottom: 16px;
+    }
+
+    .tco-field:last-child {
+      margin-bottom: 0;
+    }
+
+    .tco-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--tools-text-muted);
+      margin-bottom: 6px;
+    }
+
+    .tco-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--tools-border);
+      border-radius: var(--tools-radius-sm);
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      background: var(--tools-bg);
+    }
+
+    .tco-input:focus {
+      outline: none;
+      border-color: var(--tools-primary);
+      box-shadow: 0 0 0 3px rgba(114, 55, 162, 0.1);
+      background: var(--tools-bg-white);
+    }
+
+    .tco-input-prefix {
+      position: relative;
+    }
+
+    .tco-input-prefix .tco-input {
+      padding-left: 32px;
+    }
+
+    .tco-input-prefix::before {
+      content: '$';
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--tools-text-muted);
+      font-weight: 600;
+    }
+
+    .tco-input-suffix {
+      position: relative;
+    }
+
+    .tco-input-suffix .tco-input {
+      padding-right: 48px;
+    }
+
+    .tco-input-suffix::after {
+      content: attr(data-suffix);
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--tools-text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* TCO Results */
+    .tco-results {
+      position: sticky;
+      top: 100px;
+    }
+
+    .tco-results-card {
+      background: linear-gradient(135deg, var(--tools-bg-dark) 0%, #2d2d4a 100%);
+      border-radius: var(--tools-radius);
+      padding: 32px;
+      color: #fff;
+    }
+
+    .tco-total {
+      text-align: center;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .tco-total-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.7;
+      margin-bottom: 8px;
+    }
+
+    .tco-total-value {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .tco-total-sub {
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
+
+    .tco-breakdown {
+      margin-bottom: 24px;
+    }
+
+    .tco-breakdown-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.7;
+      margin-bottom: 16px;
+    }
+
+    .tco-breakdown-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .tco-breakdown-row:last-child {
+      border-bottom: none;
+    }
+
+    .tco-breakdown-label {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tco-breakdown-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .tco-breakdown-value {
+      font-weight: 600;
+    }
+
+    .tco-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .tco-metric {
+      background: rgba(255,255,255,0.08);
+      border-radius: var(--tools-radius-sm);
+      padding: 16px;
+      text-align: center;
+    }
+
+    .tco-metric-value {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .tco-metric-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      opacity: 0.7;
+    }
+
+    .tco-chart {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .tco-chart-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.7;
+      margin-bottom: 16px;
+    }
+
+    .tco-bar-container {
+      height: 24px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .tco-bar-segment {
+      height: 100%;
+      transition: width 0.5s ease;
+    }
+
+    .tco-bar-initial { background: var(--tools-secondary); }
+    .tco-bar-recurring { background: var(--tools-accent); }
+    .tco-bar-maintenance { background: var(--tools-success); }
+    .tco-bar-operations { background: var(--tools-warning); }
+
+    .tco-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 12px;
+      justify-content: center;
+    }
+
+    .tco-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.7rem;
+      opacity: 0.8;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--tools-bg-dark);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: var(--tools-radius-sm);
+      font-size: 0.9rem;
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Primary Button */
+    .btn-primary {
+      background: var(--tools-primary);
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: var(--tools-radius-sm);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+
+    .btn-primary:hover {
+      background: var(--tools-primary-dark);
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main" class="sr-only">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="/" class="logo">
+        <img src="assets/images/logo.svg" alt="The Tech Space" width="40" height="40">
+        <span>The Tech Space</span>
+      </a>
+
+      <nav class="nav">
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav__list" id="nav-list">
+          <li><a href="/" class="nav__link">Home</a></li>
+          <li><a href="services.html" class="nav__link">Services</a></li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+          <li><a href="tools.html" class="nav__link nav__link--active">Tools</a></li>
+          <li><a href="blog/" class="nav__link">Blog</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+          <li><a href="contact.html" class="btn btn--primary btn--sm">Get in Touch</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main" class="tools-page">
+    <div class="tools-container">
+
+      <!-- Tool Navigation -->
+      <div class="tool-nav">
+        <button class="tool-nav-btn active" onclick="switchTool('budget')">
+          <h3>Project Budget Planner</h3>
+          <p>Plan multi-phase project costs over time</p>
+        </button>
+        <button class="tool-nav-btn" onclick="switchTool('tco')">
+          <h3>True Cost Calculator</h3>
+          <p>Understand total cost of ownership</p>
+        </button>
+      </div>
+
+      <!-- ============================================
+           TOOL 1: PROJECT BUDGET PLANNER
+           ============================================ -->
+      <div class="tool-section active" id="tool-budget">
+
+        <!-- Hero -->
+        <div class="tool-hero">
+          <h1>Project Budget Planner</h1>
+          <p>Plan your project costs over time. Define deliverables, schedule rollouts, and visualise your cash flow.</p>
+          <div class="hero-actions">
+            <button class="btn-hero btn-hero-primary" onclick="saveProject()">Save Project</button>
+            <button class="btn-hero btn-hero-outline" onclick="loadProject()">Load</button>
+            <button class="btn-hero btn-hero-outline" onclick="exportCSV()">Export CSV</button>
+          </div>
+        </div>
+
+        <!-- Summary Bar -->
+        <div class="summary-bar" id="summaryBar">
+          <div class="summary-item">
+            <div class="summary-label">Active Units</div>
+            <div class="summary-value" id="sumUnits">0</div>
+            <div class="summary-sub" id="sumUnitsSub">at end of project</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-label">One-Time Costs</div>
+            <div class="summary-value" id="sumOneTime">$0</div>
+            <div class="summary-sub">upfront</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-label">Monthly Costs</div>
+            <div class="summary-value" id="sumMonthly">$0</div>
+            <div class="summary-sub" id="sumMonthlySub">per month</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-label">Yearly Costs</div>
+            <div class="summary-value" id="sumYearly">$0</div>
+            <div class="summary-sub">per year</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-label">Project Total</div>
+            <div class="summary-value highlight" id="sumTotal">$0</div>
+            <div class="summary-sub" id="sumTotalSub">over 24 months</div>
+          </div>
+        </div>
+
+        <!-- Section 1: Deliverable Types -->
+        <div class="tool-card open" id="section-types">
+          <div class="tool-card-header" onclick="toggleSection('section-types')">
+            <div class="tool-card-header-left">
+              <div class="tool-card-icon">📦</div>
+              <div>
+                <h2 class="tool-card-title">Deliverable Types</h2>
+                <p class="tool-card-subtitle">Define what you're delivering and the costs involved</p>
+              </div>
+            </div>
+            <div class="tool-card-toggle">▼</div>
+          </div>
+          <div class="tool-card-body">
+            <div class="tool-card-content">
+              <div class="room-types-list" id="roomTypesList"></div>
+              <button class="btn-primary" onclick="addRoomType()" style="margin-top: 16px;">+ Add Deliverable Type</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Deployment Schedule -->
+        <div class="tool-card" id="section-schedule">
+          <div class="tool-card-header" onclick="toggleSection('section-schedule')">
+            <div class="tool-card-header-left">
+              <div class="tool-card-icon">📅</div>
+              <div>
+                <h2 class="tool-card-title">Deployment Schedule</h2>
+                <p class="tool-card-subtitle">Plan when to deliver each type over time</p>
+              </div>
+            </div>
+            <div class="tool-card-toggle">▼</div>
+          </div>
+          <div class="tool-card-body">
+            <div class="tool-card-content">
+              <div class="timeline-controls">
+                <div class="timeline-control">
+                  <label>Start:</label>
+                  <input type="month" id="startMonth" onchange="updateTimeline()">
+                </div>
+                <div class="timeline-control">
+                  <label>Duration:</label>
+                  <select id="duration" onchange="updateTimeline()">
+                    <option value="12">12 months</option>
+                    <option value="24" selected>24 months</option>
+                    <option value="36">36 months</option>
+                    <option value="48">48 months</option>
+                    <option value="60">60 months</option>
+                  </select>
+                </div>
+                <div class="timeline-control">
+                  <label>View:</label>
+                  <select id="timeView" onchange="updateTimeline()">
+                    <option value="monthly">Monthly</option>
+                    <option value="quarterly">Quarterly</option>
+                    <option value="yearly">Yearly</option>
+                  </select>
+                </div>
+              </div>
+              <div class="spreadsheet-wrapper">
+                <table class="spreadsheet" id="deploymentTable">
+                  <thead id="deploymentHead"></thead>
+                  <tbody id="deploymentBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Cash Flow -->
+        <div class="tool-card" id="section-cashflow">
+          <div class="tool-card-header" onclick="toggleSection('section-cashflow')">
+            <div class="tool-card-header-left">
+              <div class="tool-card-icon">💰</div>
+              <div>
+                <h2 class="tool-card-title">Cash Flow Projection</h2>
+                <p class="tool-card-subtitle">Visualise your costs over the project timeline</p>
+              </div>
+            </div>
+            <div class="tool-card-toggle">▼</div>
+          </div>
+          <div class="tool-card-body">
+            <div class="tool-card-content">
+              <div class="chart-container">
+                <div class="chart-title">Cost by Period</div>
+                <div class="chart-bars" id="cashflowChart"></div>
+                <div class="chart-legend">
+                  <div class="legend-item"><div class="legend-dot" style="background: var(--tools-secondary);"></div> One-Time</div>
+                  <div class="legend-item"><div class="legend-dot" style="background: var(--tools-accent);"></div> Monthly</div>
+                  <div class="legend-item"><div class="legend-dot" style="background: var(--tools-warning);"></div> Yearly</div>
+                </div>
+              </div>
+              <div class="spreadsheet-wrapper">
+                <table class="spreadsheet" id="cashflowTable">
+                  <thead id="cashflowHead"></thead>
+                  <tbody id="cashflowBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Breakdown -->
+        <div class="tool-card" id="section-breakdown">
+          <div class="tool-card-header" onclick="toggleSection('section-breakdown')">
+            <div class="tool-card-header-left">
+              <div class="tool-card-icon">📊</div>
+              <div>
+                <h2 class="tool-card-title">Cost Breakdown</h2>
+                <p class="tool-card-subtitle">Summary by deliverable type</p>
+              </div>
+            </div>
+            <div class="tool-card-toggle">▼</div>
+          </div>
+          <div class="tool-card-body">
+            <div class="tool-card-content">
+              <div class="spreadsheet-wrapper">
+                <table class="spreadsheet" id="breakdownTable">
+                  <thead>
+                    <tr>
+                      <th>Deliverable</th>
+                      <th class="col-header">Deployed</th>
+                      <th class="col-header">Sunset</th>
+                      <th class="col-header">Active</th>
+                      <th class="col-header">Upfront/unit</th>
+                      <th class="col-header">Monthly/unit</th>
+                      <th class="col-header">Yearly/unit</th>
+                      <th class="col-header">Total Upfront</th>
+                      <th class="col-header">Total Monthly</th>
+                    </tr>
+                  </thead>
+                  <tbody id="breakdownBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+          <h3>Need help with your project?</h3>
+          <p>If you're unsure about costs, scope, or approach — let's have a conversation.</p>
+          <a href="contact.html" class="btn--primary">Start a Consultation</a>
+        </div>
+
+      </div><!-- End tool-budget -->
+
+      <!-- ============================================
+           TOOL 2: TRUE COST CALCULATOR
+           ============================================ -->
+      <div class="tool-section" id="tool-tco">
+
+        <!-- TCO Hero -->
+        <div class="tool-hero" style="background: linear-gradient(135deg, var(--tools-secondary) 0%, var(--tools-primary) 100%);">
+          <h1>True Cost Calculator</h1>
+          <p>Understand the full cost of technology ownership over its entire lifecycle — not just the sticker price.</p>
+        </div>
+
+        <!-- TCO Grid -->
+        <div class="tco-grid">
+
+          <!-- Inputs Column -->
+          <div class="tco-inputs">
+
+            <!-- Asset Details -->
+            <div class="tco-card">
+              <div class="tco-card-header">
+                <div class="tco-card-icon">🖥️</div>
+                <h3 class="tco-card-title">Asset Details</h3>
+              </div>
+              <div class="tco-field">
+                <label class="tco-label">Asset Name / Description</label>
+                <input type="text" class="tco-input" id="tcoAssetName" placeholder="e.g., Conference Room Display System" oninput="calculateTCO()">
+              </div>
+              <div class="tco-field">
+                <label class="tco-label">Quantity</label>
+                <input type="number" class="tco-input" id="tcoQuantity" value="1" min="1" oninput="calculateTCO()">
+              </div>
+              <div class="tco-field">
+                <label class="tco-label">Expected Lifespan</label>
+                <div class="tco-input-suffix" data-suffix="years">
+                  <input type="number" class="tco-input" id="tcoLifespan" value="5" min="1" max="20" oninput="calculateTCO()">
+                </div>
+              </div>
+            </div>
+
+            <!-- Initial Costs -->
+            <div class="tco-card">
+              <div class="tco-card-header">
+                <div class="tco-card-icon">💳</div>
+                <h3 class="tco-card-title">Initial Costs (One-Time)</h3>
+              </div>
+              <div class="tco-field">
+                <label class="tco-label">Hardware / Equipment Purchase</label>
+                <div class="tco-input-prefix">
+                  <input type="number" class="tco-input" id="tcoHardware" value="0" min="0" oninput="calculateTCO()">
+                </div>
+              </div>
+              <div class="tco-field">
+                <label class="tco-label">Installation / Deployment</label>
+                <div class="tco-input-prefix">
+                  <input type="number" class="tco-input" id="tcoInstallation" value="0" min="0" oninput="calculateTCO()">
+                </div>
+              </div>
+              <div class="tco-field">
+                <label class="tco-label">Training / Onboarding</label>
+                <div class="tco-input-prefix">
+                  <input type="number" class="tco-input" id="tcoTraining" value="0" min="0" oninput="calculateTCO()">
+                </div>
+              </div>
+              <div class="tco-field">
+                <label class="tco-label">Other Initial Costs</label>
+                <div class="tco-input-prefix">
+                  <input type="number" class="tco-input" id="tcoOtherInitial" value="0" min="0" oninput="calculateTCO()">
+                </div>
+              </div>
+            </div>
+
+            <!-- Annual Costs -->
+            <div class="tco-card">
+              <div class="tco-card-header">
+                <div class="tco-card-icon">📅</div>
+                <h3 class="tco-card-title">Annual Recurring Costs</h3>
+              </div>
+              <div class="tco-field">
+                <label class="tco-label">Software / Licensing (per year)</label>
+                <div class="tco-input-prefix">
+                  <input type="number" class="tco-input" id="tcoLicensing" value="0" min="0" oninput="calculateTCO()">
+                </div>
+              </div>
+              <div class="tco-field">
+                <label class="tco-label">Maintenance & Support (per year)</label>
+                <div class="tco-input-prefix">
+                  <input type="number" class="tco-input" id="tcoMaintenance" value="0" min="0" oninput="calculateTCO()">
+                </div>
+              </div>
+              <div class="tco-field">
+                <label class="tco-label">Energy / Power Costs (per year)</label>
+                <div class="tco-input-prefix">
+                  <input type="number" class="tco-input" id="tcoEnergy" value="0" min="0" oninput="calculateTCO()">
+                </div>
+              </div>
+              <div class="tco-field">
+                <label class="tco-label">Consumables / Supplies (per year)</label>
+                <div class="tco-input-prefix">
+                  <input type="number" class="tco-input" id="tcoConsumables" value="0" min="0" oninput="calculateTCO()">
+                </div>
+              </div>
+              <div class="tco-field">
+                <label class="tco-label">Other Annual Costs</label>
+                <div class="tco-input-prefix">
+                  <input type="number" class="tco-input" id="tcoOtherAnnual" value="0" min="0" oninput="calculateTCO()">
+                </div>
+              </div>
+            </div>
+
+            <!-- End of Life -->
+            <div class="tco-card">
+              <div class="tco-card-header">
+                <div class="tco-card-icon">🔄</div>
+                <h3 class="tco-card-title">End of Life</h3>
+              </div>
+              <div class="tco-field">
+                <label class="tco-label">Disposal / Decommissioning Cost</label>
+                <div class="tco-input-prefix">
+                  <input type="number" class="tco-input" id="tcoDisposal" value="0" min="0" oninput="calculateTCO()">
+                </div>
+              </div>
+              <div class="tco-field">
+                <label class="tco-label">Salvage / Resale Value (subtract)</label>
+                <div class="tco-input-prefix">
+                  <input type="number" class="tco-input" id="tcoSalvage" value="0" min="0" oninput="calculateTCO()">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Results Column -->
+          <div class="tco-results">
+            <div class="tco-results-card">
+
+              <!-- Total -->
+              <div class="tco-total">
+                <div class="tco-total-label">Total Cost of Ownership</div>
+                <div class="tco-total-value" id="tcoTotal">$0</div>
+                <div class="tco-total-sub">over <span id="tcoLifespanDisplay">5</span> years</div>
+              </div>
+
+              <!-- Breakdown -->
+              <div class="tco-breakdown">
+                <div class="tco-breakdown-title">Cost Breakdown</div>
+                <div class="tco-breakdown-row">
+                  <div class="tco-breakdown-label">
+                    <div class="tco-breakdown-dot dot-hardware"></div>
+                    Initial Costs
+                  </div>
+                  <div class="tco-breakdown-value" id="tcoInitialTotal">$0</div>
+                </div>
+                <div class="tco-breakdown-row">
+                  <div class="tco-breakdown-label">
+                    <div class="tco-breakdown-dot dot-license"></div>
+                    Software & Licensing
+                  </div>
+                  <div class="tco-breakdown-value" id="tcoRecurringTotal">$0</div>
+                </div>
+                <div class="tco-breakdown-row">
+                  <div class="tco-breakdown-label">
+                    <div class="tco-breakdown-dot dot-service"></div>
+                    Maintenance & Support
+                  </div>
+                  <div class="tco-breakdown-value" id="tcoMaintenanceTotal">$0</div>
+                </div>
+                <div class="tco-breakdown-row">
+                  <div class="tco-breakdown-label">
+                    <div class="tco-breakdown-dot dot-labour"></div>
+                    Operations (Energy, Consumables)
+                  </div>
+                  <div class="tco-breakdown-value" id="tcoOperationsTotal">$0</div>
+                </div>
+              </div>
+
+              <!-- Metrics -->
+              <div class="tco-metrics">
+                <div class="tco-metric">
+                  <div class="tco-metric-value" id="tcoPerYear">$0</div>
+                  <div class="tco-metric-label">Per Year</div>
+                </div>
+                <div class="tco-metric">
+                  <div class="tco-metric-value" id="tcoPerMonth">$0</div>
+                  <div class="tco-metric-label">Per Month</div>
+                </div>
+                <div class="tco-metric">
+                  <div class="tco-metric-value" id="tcoPerUnit">$0</div>
+                  <div class="tco-metric-label">Per Unit Total</div>
+                </div>
+                <div class="tco-metric">
+                  <div class="tco-metric-value" id="tcoRatio">0%</div>
+                  <div class="tco-metric-label">Hidden Costs %</div>
+                </div>
+              </div>
+
+              <!-- Visual Chart -->
+              <div class="tco-chart">
+                <div class="tco-chart-title">Cost Distribution</div>
+                <div class="tco-bar-container">
+                  <div class="tco-bar-segment tco-bar-initial" id="tcoBarInitial" style="width: 25%;"></div>
+                  <div class="tco-bar-segment tco-bar-recurring" id="tcoBarRecurring" style="width: 25%;"></div>
+                  <div class="tco-bar-segment tco-bar-maintenance" id="tcoBarMaintenance" style="width: 25%;"></div>
+                  <div class="tco-bar-segment tco-bar-operations" id="tcoBarOperations" style="width: 25%;"></div>
+                </div>
+                <div class="tco-legend">
+                  <div class="tco-legend-item"><div class="tco-breakdown-dot dot-hardware"></div> Initial</div>
+                  <div class="tco-legend-item"><div class="tco-breakdown-dot dot-license"></div> Licensing</div>
+                  <div class="tco-legend-item"><div class="tco-breakdown-dot dot-service"></div> Maintenance</div>
+                  <div class="tco-legend-item"><div class="tco-breakdown-dot dot-labour"></div> Operations</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- TCO CTA -->
+        <div class="cta-section">
+          <h3>Want to optimise your technology spend?</h3>
+          <p>Understanding TCO is just the first step. Let us help you make informed decisions.</p>
+          <a href="contact.html" class="btn--primary">Start a Consultation</a>
+        </div>
+
+      </div><!-- End tool-tco -->
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/" class="footer__logo">
+            <img src="assets/images/logo.svg" alt="The Tech Space" width="36" height="36">
+            <span>The Tech Space</span>
+          </a>
+          <p class="footer__description">Enterprise UC and AV consulting. Resource augmentation, project engagements, and strategic advisory for service line owners.</p>
+          <div class="footer__social">
+            <a href="https://linkedin.com/in/kevinsing" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="mailto:design@thetech.space" aria-label="Email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer__title">Engagements</h4>
+          <ul class="footer__links">
+            <li><a href="services.html#augmentation">Resource Augmentation</a></li>
+            <li><a href="services.html#projects">Project Engagements</a></li>
+            <li><a href="services.html#advisory">Strategic Advisory</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer__title">Company</h4>
+          <ul class="footer__links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="blog/">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer__title">Connect</h4>
+          <ul class="footer__links">
+            <li><a href="https://linkedin.com/in/kevinsing" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="mailto:design@thetech.space">Email</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>Copyright &copy; 2026 The Tech Space. Perth, WA.</p>
+        <div class="footer__legal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- File Input -->
+  <input type="file" id="fileInput" accept=".json" style="display: none;" onchange="handleFileLoad(event)">
+
+  <!-- Main Site JavaScript -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Tools JavaScript -->
+  <script>
+    // ============================================
+    // TOOL SWITCHING
+    // ============================================
+
+    function switchTool(tool) {
+      // Update nav buttons
+      document.querySelectorAll('.tool-nav-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.closest('.tool-nav-btn').classList.add('active');
+
+      // Update tool sections
+      document.querySelectorAll('.tool-section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById('tool-' + tool).classList.add('active');
+
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ============================================
+    // PROJECT BUDGET PLANNER
+    // ============================================
+
+    let project = {
+      name: 'New Project',
+      startMonth: new Date().toISOString().slice(0, 7),
+      duration: 24,
+      timeView: 'monthly',
+      roomTypes: [],
+      deployment: {},
+      sunset: {},
+      nextId: 1
+    };
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      initDefaults();
+      loadFromStorage();
+      render();
+      calculateTCO();
+    });
+
+    function initDefaults() {
+      document.getElementById('startMonth').value = project.startMonth;
+      document.getElementById('duration').value = project.duration;
+      document.getElementById('timeView').value = project.timeView;
+    }
+
+    function toggleSection(id) {
+      document.getElementById(id).classList.toggle('open');
+    }
+
+    function addRoomType() {
+      const id = 'rt_' + project.nextId++;
+      project.roomTypes.push({
+        id,
+        name: 'New Deliverable',
+        expanded: true,
+        costs: {
+          hardware: [{ id: 'h1', item: 'Hardware Item', cost: 0, freq: 'once', startsAt: 'deploy' }],
+          license: [{ id: 'l1', item: 'License', cost: 0, freq: 'monthly', startsAt: 'deploy' }],
+          service: [{ id: 's1', item: 'Service', cost: 0, freq: 'once', startsAt: 'deploy' }],
+          labour: [{ id: 'b1', item: 'Labour', cost: 0, freq: 'once', startsAt: 'deploy' }]
+        }
+      });
+      project.deployment[id] = {};
+      project.sunset[id] = {};
+      render();
+      saveToStorage();
+    }
+
+    function deleteRoomType(id) {
+      project.roomTypes = project.roomTypes.filter(rt => rt.id !== id);
+      delete project.deployment[id];
+      delete project.sunset[id];
+      render();
+      saveToStorage();
+    }
+
+    function toggleRoomType(id) {
+      const rt = project.roomTypes.find(r => r.id === id);
+      if (rt) rt.expanded = !rt.expanded;
+      render();
+    }
+
+    function updateRoomName(id, name) {
+      const rt = project.roomTypes.find(r => r.id === id);
+      if (rt) rt.name = name;
+      render();
+      saveToStorage();
+    }
+
+    function addCostItem(roomId, category) {
+      const rt = project.roomTypes.find(r => r.id === roomId);
+      if (!rt) return;
+      const defaultFreq = category === 'license' ? 'monthly' : 'once';
+      const newId = category.charAt(0) + (rt.costs[category].length + 1);
+      rt.costs[category].push({ id: newId, item: 'New Item', cost: 0, freq: defaultFreq, startsAt: 'deploy' });
+      render();
+      saveToStorage();
+    }
+
+    function deleteCostItem(roomId, category, itemId) {
+      const rt = project.roomTypes.find(r => r.id === roomId);
+      if (!rt) return;
+      rt.costs[category] = rt.costs[category].filter(c => c.id !== itemId);
+      render();
+      saveToStorage();
+    }
+
+    function updateCostItem(roomId, category, itemId, field, value) {
+      const rt = project.roomTypes.find(r => r.id === roomId);
+      if (!rt) return;
+      const item = rt.costs[category].find(c => c.id === itemId);
+      if (item) {
+        item[field] = field === 'cost' ? parseFloat(value) || 0 : value;
+      }
+      render();
+      saveToStorage();
+    }
+
+    function getStartOffset(startsAt) {
+      if (!startsAt || startsAt === 'deploy') return 0;
+      if (startsAt === 'month-12') return -12;
+      if (startsAt === 'month-6') return -6;
+      if (startsAt === 'month-3') return -3;
+      if (startsAt === 'month-2') return -2;
+      if (startsAt === 'month-1') return -1;
+      if (startsAt === 'month1') return 1;
+      if (startsAt === 'month3') return 3;
+      if (startsAt === 'month6') return 6;
+      if (startsAt === 'month12') return 12;
+      return 0;
+    }
+
+    function render() {
+      renderRoomTypes();
+      updateTimeline();
+      updateSummary();
+    }
+
+    function renderRoomTypes() {
+      const container = document.getElementById('roomTypesList');
+      container.innerHTML = project.roomTypes.map(rt => {
+        const upfront = calculateRoomUpfront(rt);
+        const monthly = calculateRoomMonthly(rt);
+        const yearly = calculateRoomYearly(rt);
+
+        return `
+          <div class="room-type-card ${rt.expanded ? 'expanded' : ''}">
+            <div class="room-type-header" onclick="toggleRoomType('${rt.id}')">
+              <input type="text" class="room-type-name-input" value="${escapeHtml(rt.name)}"
+                     onclick="event.stopPropagation()"
+                     onchange="updateRoomName('${rt.id}', this.value)">
+              <div class="room-type-summary">
+                <span class="room-type-total">${formatCurrency(upfront)} upfront</span>
+                <span>${formatCurrency(monthly)}/mo</span>
+                <span>${formatCurrency(yearly)}/yr</span>
+              </div>
+              <div class="room-type-actions">
+                <button class="btn-icon" onclick="event.stopPropagation(); deleteRoomType('${rt.id}')" title="Delete">✕</button>
+              </div>
+            </div>
+            <div class="room-type-body">
+              <div class="room-type-content">
+                ${renderCostCategory(rt, 'hardware', 'Hardware', 'dot-hardware')}
+                ${renderCostCategory(rt, 'license', 'Licenses', 'dot-license')}
+                ${renderCostCategory(rt, 'service', 'Services', 'dot-service')}
+                ${renderCostCategory(rt, 'labour', 'Labour', 'dot-labour')}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderCostCategory(rt, category, title, dotClass) {
+      const items = rt.costs[category] || [];
+      return `
+        <div class="cost-category">
+          <div class="cost-category-header">
+            <span class="cost-category-title"><span class="category-dot ${dotClass}"></span> ${title}</span>
+          </div>
+          <div class="cost-items">
+            ${items.map(item => `
+              <div class="cost-item">
+                <div class="cost-item-row1">
+                  <input type="text" value="${escapeHtml(item.item)}"
+                         onchange="updateCostItem('${rt.id}', '${category}', '${item.id}', 'item', this.value)">
+                  <input type="number" value="${item.cost}" min="0" step="0.01"
+                         onchange="updateCostItem('${rt.id}', '${category}', '${item.id}', 'cost', this.value)">
+                  <button class="btn-icon" onclick="deleteCostItem('${rt.id}', '${category}', '${item.id}')">✕</button>
+                </div>
+                <div class="cost-item-row2">
+                  <select onchange="updateCostItem('${rt.id}', '${category}', '${item.id}', 'freq', this.value)">
+                    <option value="once" ${item.freq === 'once' ? 'selected' : ''}>Once</option>
+                    <option value="monthly" ${item.freq === 'monthly' ? 'selected' : ''}>Monthly</option>
+                    <option value="yearly" ${item.freq === 'yearly' ? 'selected' : ''}>Yearly</option>
+                  </select>
+                  <select onchange="updateCostItem('${rt.id}', '${category}', '${item.id}', 'startsAt', this.value)">
+                    <optgroup label="Before Deployment">
+                      <option value="month-12" ${item.startsAt === 'month-12' ? 'selected' : ''}>-12 months</option>
+                      <option value="month-6" ${item.startsAt === 'month-6' ? 'selected' : ''}>-6 months</option>
+                      <option value="month-3" ${item.startsAt === 'month-3' ? 'selected' : ''}>-3 months</option>
+                      <option value="month-2" ${item.startsAt === 'month-2' ? 'selected' : ''}>-2 months</option>
+                      <option value="month-1" ${item.startsAt === 'month-1' ? 'selected' : ''}>-1 month</option>
+                    </optgroup>
+                    <optgroup label="At Deployment">
+                      <option value="deploy" ${!item.startsAt || item.startsAt === 'deploy' ? 'selected' : ''}>At deployment</option>
+                    </optgroup>
+                    <optgroup label="After Deployment">
+                      <option value="month1" ${item.startsAt === 'month1' ? 'selected' : ''}>+1 month</option>
+                      <option value="month3" ${item.startsAt === 'month3' ? 'selected' : ''}>+3 months</option>
+                      <option value="month6" ${item.startsAt === 'month6' ? 'selected' : ''}>+6 months</option>
+                      <option value="month12" ${item.startsAt === 'month12' ? 'selected' : ''}>+12 months</option>
+                    </optgroup>
+                  </select>
+                  <span class="freq-indicator freq-${item.freq}">${item.freq}</span>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+          <button class="btn-add" onclick="addCostItem('${rt.id}', '${category}')">+ Add ${title}</button>
+        </div>
+      `;
+    }
+
+    function calculateRoomUpfront(rt) {
+      let total = 0;
+      Object.values(rt.costs).forEach(items => {
+        items.forEach(item => {
+          if (item.freq === 'once') total += item.cost;
+        });
+      });
+      return total;
+    }
+
+    function calculateRoomMonthly(rt) {
+      let total = 0;
+      Object.values(rt.costs).forEach(items => {
+        items.forEach(item => {
+          if (item.freq === 'monthly') total += item.cost;
+        });
+      });
+      return total;
+    }
+
+    function calculateRoomYearly(rt) {
+      let total = 0;
+      Object.values(rt.costs).forEach(items => {
+        items.forEach(item => {
+          if (item.freq === 'yearly') total += item.cost;
+        });
+      });
+      return total;
+    }
+
+    function updateTimeline() {
+      project.startMonth = document.getElementById('startMonth').value;
+      project.duration = parseInt(document.getElementById('duration').value);
+      project.timeView = document.getElementById('timeView').value;
+      renderDeploymentTable();
+      calculateCashFlow();
+      renderBreakdown();
+      saveToStorage();
+    }
+
+    function renderDeploymentTable() {
+      const periods = getPeriods();
+      const head = document.getElementById('deploymentHead');
+      const body = document.getElementById('deploymentBody');
+
+      head.innerHTML = `<tr><th>Deliverable</th><th>Type</th>${periods.map(p => `<th class="col-header">${p.label}</th>`).join('')}<th class="col-header">Total</th></tr>`;
+
+      body.innerHTML = project.roomTypes.flatMap(rt => [
+        `<tr>
+          <td rowspan="2">${escapeHtml(rt.name)}</td>
+          <td>Deploy</td>
+          ${periods.map(p => `<td><input type="number" min="0" value="${project.deployment[rt.id]?.[p.key] || ''}"
+               onchange="updateDeployment('${rt.id}', '${p.key}', this.value)"></td>`).join('')}
+          <td class="row-total">${getTotalDeployed(rt.id)}</td>
+        </tr>
+        <tr style="background: #fff5f5;">
+          <td>Sunset</td>
+          ${periods.map(p => `<td><input type="number" min="0" value="${project.sunset[rt.id]?.[p.key] || ''}"
+               onchange="updateSunset('${rt.id}', '${p.key}', this.value)" style="background: #fff5f5;"></td>`).join('')}
+          <td class="row-total" style="color: #dc2626;">${getTotalSunset(rt.id)}</td>
+        </tr>`
+      ]).join('');
+    }
+
+    function getPeriods() {
+      const periods = [];
+      const start = new Date(project.startMonth + '-01');
+      for (let i = 0; i < project.duration; i++) {
+        const d = new Date(start);
+        d.setMonth(d.getMonth() + i);
+        const key = d.toISOString().slice(0, 7);
+        const label = d.toLocaleDateString('en-AU', { month: 'short', year: '2-digit' });
+        if (project.timeView === 'monthly') {
+          periods.push({ key, label });
+        } else if (project.timeView === 'quarterly' && i % 3 === 0) {
+          periods.push({ key, label: `Q${Math.floor(i/3)+1} ${d.getFullYear()}` });
+        } else if (project.timeView === 'yearly' && i % 12 === 0) {
+          periods.push({ key, label: `FY${d.getFullYear()}` });
+        }
+      }
+      return periods;
+    }
+
+    function updateDeployment(roomId, period, value) {
+      if (!project.deployment[roomId]) project.deployment[roomId] = {};
+      project.deployment[roomId][period] = parseInt(value) || 0;
+      render();
+      saveToStorage();
+    }
+
+    function updateSunset(roomId, period, value) {
+      if (!project.sunset[roomId]) project.sunset[roomId] = {};
+      project.sunset[roomId][period] = parseInt(value) || 0;
+      render();
+      saveToStorage();
+    }
+
+    function getTotalDeployed(roomId) {
+      return Object.values(project.deployment[roomId] || {}).reduce((a, b) => a + (b || 0), 0);
+    }
+
+    function getTotalSunset(roomId) {
+      return Object.values(project.sunset[roomId] || {}).reduce((a, b) => a + (b || 0), 0);
+    }
+
+    function calculateCashFlow() {
+      const periods = getPeriods();
+      const cashflow = {};
+      let maxCost = 0;
+
+      periods.forEach(p => {
+        cashflow[p.key] = { onetime: 0, monthly: 0, yearly: 0, total: 0 };
+      });
+
+      project.roomTypes.forEach(rt => {
+        const allPeriods = getAllMonthlyPeriods();
+
+        allPeriods.forEach((monthKey, monthIndex) => {
+          const deployed = project.deployment[rt.id]?.[monthKey] || 0;
+          if (deployed === 0) return;
+
+          Object.values(rt.costs).forEach(items => {
+            items.forEach(item => {
+              const offset = getStartOffset(item.startsAt);
+              const costMonth = new Date(monthKey + '-01');
+              costMonth.setMonth(costMonth.getMonth() + offset);
+              const costKey = costMonth.toISOString().slice(0, 7);
+
+              if (!cashflow[costKey]) return;
+
+              if (item.freq === 'once') {
+                cashflow[costKey].onetime += item.cost * deployed;
+              } else if (item.freq === 'monthly') {
+                for (let m = monthIndex + offset; m < allPeriods.length; m++) {
+                  const activeKey = allPeriods[m];
+                  if (!cashflow[activeKey]) continue;
+                  const active = getActiveUnitsAtPeriod(rt.id, activeKey);
+                  if (active > 0) cashflow[activeKey].monthly += item.cost * Math.min(deployed, active);
+                }
+              } else if (item.freq === 'yearly') {
+                for (let m = monthIndex + offset; m < allPeriods.length; m += 12) {
+                  const activeKey = allPeriods[m];
+                  if (!cashflow[activeKey]) continue;
+                  const active = getActiveUnitsAtPeriod(rt.id, activeKey);
+                  if (active > 0) cashflow[activeKey].yearly += item.cost * Math.min(deployed, active);
+                }
+              }
+            });
+          });
+        });
+      });
+
+      Object.keys(cashflow).forEach(k => {
+        cashflow[k].total = cashflow[k].onetime + cashflow[k].monthly + cashflow[k].yearly;
+        maxCost = Math.max(maxCost, cashflow[k].total);
+      });
+
+      renderCashFlowChart(periods, cashflow, maxCost);
+      renderCashFlowTable(periods, cashflow);
+    }
+
+    function getAllMonthlyPeriods() {
+      const periods = [];
+      const start = new Date(project.startMonth + '-01');
+      for (let i = 0; i < project.duration; i++) {
+        const d = new Date(start);
+        d.setMonth(d.getMonth() + i);
+        periods.push(d.toISOString().slice(0, 7));
+      }
+      return periods;
+    }
+
+    function getActiveUnitsAtPeriod(roomId, periodKey) {
+      const allPeriods = getAllMonthlyPeriods();
+      const periodIndex = allPeriods.indexOf(periodKey);
+      if (periodIndex < 0) return 0;
+
+      let deployed = 0;
+      let sunset = 0;
+      for (let i = 0; i <= periodIndex; i++) {
+        const k = allPeriods[i];
+        deployed += project.deployment[roomId]?.[k] || 0;
+        sunset += project.sunset[roomId]?.[k] || 0;
+      }
+      return Math.max(0, deployed - sunset);
+    }
+
+    function renderCashFlowChart(periods, cashflow, maxCost) {
+      const chart = document.getElementById('cashflowChart');
+      chart.innerHTML = periods.map(p => {
+        const cf = cashflow[p.key];
+        const h1 = maxCost > 0 ? (cf.onetime / maxCost * 100) : 0;
+        const h2 = maxCost > 0 ? (cf.monthly / maxCost * 100) : 0;
+        const h3 = maxCost > 0 ? (cf.yearly / maxCost * 100) : 0;
+        return `
+          <div class="chart-bar" title="${p.label}: ${formatCurrency(cf.total)}">
+            <div class="chart-bar-segment" style="height: ${h3}%; background: var(--tools-warning);"></div>
+            <div class="chart-bar-segment" style="height: ${h2}%; background: var(--tools-accent);"></div>
+            <div class="chart-bar-segment" style="height: ${h1}%; background: var(--tools-secondary);"></div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderCashFlowTable(periods, cashflow) {
+      const head = document.getElementById('cashflowHead');
+      const body = document.getElementById('cashflowBody');
+
+      head.innerHTML = `<tr><th>Cost Type</th>${periods.map(p => `<th class="col-header">${p.label}</th>`).join('')}<th class="col-header">Total</th></tr>`;
+
+      const totals = { onetime: 0, monthly: 0, yearly: 0, total: 0 };
+      periods.forEach(p => {
+        totals.onetime += cashflow[p.key].onetime;
+        totals.monthly += cashflow[p.key].monthly;
+        totals.yearly += cashflow[p.key].yearly;
+        totals.total += cashflow[p.key].total;
+      });
+
+      body.innerHTML = `
+        <tr><td>One-Time</td>${periods.map(p => `<td class="row-total">${formatCurrency(cashflow[p.key].onetime)}</td>`).join('')}<td class="row-total">${formatCurrency(totals.onetime)}</td></tr>
+        <tr><td>Monthly</td>${periods.map(p => `<td class="row-total">${formatCurrency(cashflow[p.key].monthly)}</td>`).join('')}<td class="row-total">${formatCurrency(totals.monthly)}</td></tr>
+        <tr><td>Yearly</td>${periods.map(p => `<td class="row-total">${formatCurrency(cashflow[p.key].yearly)}</td>`).join('')}<td class="row-total">${formatCurrency(totals.yearly)}</td></tr>
+        <tr style="font-weight: 700;"><td>Total</td>${periods.map(p => `<td class="row-total">${formatCurrency(cashflow[p.key].total)}</td>`).join('')}<td class="row-total" style="color: var(--tools-primary);">${formatCurrency(totals.total)}</td></tr>
+      `;
+    }
+
+    function renderBreakdown() {
+      const body = document.getElementById('breakdownBody');
+      body.innerHTML = project.roomTypes.map(rt => {
+        const deployed = getTotalDeployed(rt.id);
+        const sunset = getTotalSunset(rt.id);
+        const active = deployed - sunset;
+        const upfront = calculateRoomUpfront(rt);
+        const monthly = calculateRoomMonthly(rt);
+        const yearly = calculateRoomYearly(rt);
+        return `<tr>
+          <td>${escapeHtml(rt.name)}</td>
+          <td class="row-total">${deployed}</td>
+          <td class="row-total" style="color: #dc2626;">${sunset}</td>
+          <td class="row-total">${active}</td>
+          <td class="row-total">${formatCurrency(upfront)}</td>
+          <td class="row-total">${formatCurrency(monthly)}</td>
+          <td class="row-total">${formatCurrency(yearly)}</td>
+          <td class="row-total">${formatCurrency(upfront * deployed)}</td>
+          <td class="row-total">${formatCurrency(monthly * active)}</td>
+        </tr>`;
+      }).join('');
+    }
+
+    function updateSummary() {
+      let totalUnits = 0;
+      let totalOneTime = 0;
+      let totalMonthly = 0;
+      let totalYearly = 0;
+
+      project.roomTypes.forEach(rt => {
+        const deployed = getTotalDeployed(rt.id);
+        const sunset = getTotalSunset(rt.id);
+        const active = deployed - sunset;
+        totalUnits += active;
+        totalOneTime += calculateRoomUpfront(rt) * deployed;
+        totalMonthly += calculateRoomMonthly(rt) * active;
+        totalYearly += calculateRoomYearly(rt) * active;
+      });
+
+      const projectTotal = totalOneTime + (totalMonthly * project.duration) + (totalYearly * Math.floor(project.duration / 12));
+
+      document.getElementById('sumUnits').textContent = totalUnits;
+      document.getElementById('sumOneTime').textContent = formatCurrency(totalOneTime);
+      document.getElementById('sumMonthly').textContent = formatCurrency(totalMonthly);
+      document.getElementById('sumYearly').textContent = formatCurrency(totalYearly);
+      document.getElementById('sumTotal').textContent = formatCurrency(projectTotal);
+      document.getElementById('sumTotalSub').textContent = `over ${project.duration} months`;
+    }
+
+    // Storage
+    function saveToStorage() {
+      localStorage.setItem('techspace_budget_planner', JSON.stringify(project));
+    }
+
+    function loadFromStorage() {
+      const saved = localStorage.getItem('techspace_budget_planner');
+      if (saved) {
+        try {
+          const loaded = JSON.parse(saved);
+          Object.assign(project, loaded);
+        } catch (e) {}
+      }
+    }
+
+    function saveProject() {
+      const data = JSON.stringify(project, null, 2);
+      const blob = new Blob([data], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${project.name.replace(/[^a-z0-9]/gi, '_')}_budget.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Project saved!');
+    }
+
+    function loadProject() {
+      document.getElementById('fileInput').click();
+    }
+
+    function handleFileLoad(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const loaded = JSON.parse(e.target.result);
+          Object.assign(project, loaded);
+          initDefaults();
+          render();
+          saveToStorage();
+          showToast('Project loaded!');
+        } catch (err) {
+          showToast('Error loading file');
+        }
+      };
+      reader.readAsText(file);
+      event.target.value = '';
+    }
+
+    function exportCSV() {
+      const periods = getPeriods();
+      let csv = 'Deliverable,Type,' + periods.map(p => p.label).join(',') + ',Total\n';
+      project.roomTypes.forEach(rt => {
+        csv += `"${rt.name}",Deploy,${periods.map(p => project.deployment[rt.id]?.[p.key] || 0).join(',')},${getTotalDeployed(rt.id)}\n`;
+        csv += `"${rt.name}",Sunset,${periods.map(p => project.sunset[rt.id]?.[p.key] || 0).join(',')},${getTotalSunset(rt.id)}\n`;
+      });
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${project.name.replace(/[^a-z0-9]/gi, '_')}_schedule.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('CSV exported!');
+    }
+
+    // ============================================
+    // TRUE COST CALCULATOR
+    // ============================================
+
+    function calculateTCO() {
+      const quantity = parseFloat(document.getElementById('tcoQuantity').value) || 1;
+      const lifespan = parseFloat(document.getElementById('tcoLifespan').value) || 5;
+
+      const hardware = parseFloat(document.getElementById('tcoHardware').value) || 0;
+      const installation = parseFloat(document.getElementById('tcoInstallation').value) || 0;
+      const training = parseFloat(document.getElementById('tcoTraining').value) || 0;
+      const otherInitial = parseFloat(document.getElementById('tcoOtherInitial').value) || 0;
+
+      const licensing = parseFloat(document.getElementById('tcoLicensing').value) || 0;
+      const maintenance = parseFloat(document.getElementById('tcoMaintenance').value) || 0;
+      const energy = parseFloat(document.getElementById('tcoEnergy').value) || 0;
+      const consumables = parseFloat(document.getElementById('tcoConsumables').value) || 0;
+      const otherAnnual = parseFloat(document.getElementById('tcoOtherAnnual').value) || 0;
+
+      const disposal = parseFloat(document.getElementById('tcoDisposal').value) || 0;
+      const salvage = parseFloat(document.getElementById('tcoSalvage').value) || 0;
+
+      const initialTotal = (hardware + installation + training + otherInitial) * quantity;
+      const licensingTotal = licensing * quantity * lifespan;
+      const maintenanceTotal = maintenance * quantity * lifespan;
+      const operationsTotal = (energy + consumables + otherAnnual) * quantity * lifespan;
+      const endOfLifeTotal = (disposal - salvage) * quantity;
+
+      const grandTotal = initialTotal + licensingTotal + maintenanceTotal + operationsTotal + endOfLifeTotal;
+
+      const perYear = grandTotal / lifespan;
+      const perMonth = perYear / 12;
+      const perUnit = grandTotal / quantity;
+      const hiddenCostsRatio = initialTotal > 0 ? ((grandTotal - initialTotal) / initialTotal * 100) : 0;
+
+      document.getElementById('tcoLifespanDisplay').textContent = lifespan;
+      document.getElementById('tcoTotal').textContent = formatCurrency(grandTotal);
+      document.getElementById('tcoInitialTotal').textContent = formatCurrency(initialTotal);
+      document.getElementById('tcoRecurringTotal').textContent = formatCurrency(licensingTotal);
+      document.getElementById('tcoMaintenanceTotal').textContent = formatCurrency(maintenanceTotal);
+      document.getElementById('tcoOperationsTotal').textContent = formatCurrency(operationsTotal);
+      document.getElementById('tcoPerYear').textContent = formatCurrency(perYear);
+      document.getElementById('tcoPerMonth').textContent = formatCurrency(perMonth);
+      document.getElementById('tcoPerUnit').textContent = formatCurrency(perUnit);
+      document.getElementById('tcoRatio').textContent = hiddenCostsRatio.toFixed(0) + '%';
+
+      const total = grandTotal || 1;
+      document.getElementById('tcoBarInitial').style.width = (initialTotal / total * 100) + '%';
+      document.getElementById('tcoBarRecurring').style.width = (licensingTotal / total * 100) + '%';
+      document.getElementById('tcoBarMaintenance').style.width = (maintenanceTotal / total * 100) + '%';
+      document.getElementById('tcoBarOperations').style.width = (operationsTotal / total * 100) + '%';
+    }
+
+    // ============================================
+    // UTILITIES
+    // ============================================
+
+    function formatCurrency(val) {
+      return '$' + Math.round(val).toLocaleString('en-AU');
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+  </script>
+</body>
+</html>
