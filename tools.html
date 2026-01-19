@@ -1382,6 +1382,243 @@
     .btn-primary:hover {
       background: var(--tools-primary-dark);
     }
+
+    /* ==========================================
+       DISPLAY SIZE CALCULATOR STYLES
+       ========================================== */
+    .toggle-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .toggle-btn {
+      display: flex;
+      flex-direction: column;
+      padding: 12px 16px;
+      border: 1px solid var(--tools-border);
+      border-radius: var(--tools-radius-sm);
+      background: var(--tools-bg-white);
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s ease;
+    }
+
+    .toggle-btn:hover {
+      border-color: var(--tools-primary-light);
+    }
+
+    .toggle-btn.active {
+      border-color: var(--tools-primary);
+      background: rgba(114, 55, 162, 0.05);
+    }
+
+    .toggle-btn strong {
+      font-size: 0.9rem;
+      color: var(--tools-text);
+      margin-bottom: 2px;
+    }
+
+    .toggle-btn span {
+      font-size: 0.8rem;
+      color: var(--tools-text-muted);
+    }
+
+    .input-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .calc-input {
+      flex: 1;
+      padding: 10px 12px;
+      border: 1px solid var(--tools-border);
+      border-radius: var(--tools-radius-sm);
+      font-size: 1rem;
+      color: var(--tools-text);
+    }
+
+    .calc-select {
+      width: 100px;
+      padding: 10px 12px;
+      border: 1px solid var(--tools-border);
+      border-radius: var(--tools-radius-sm);
+      font-size: 1rem;
+      color: var(--tools-text);
+      background: var(--tools-bg-white);
+    }
+
+    .radio-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .radio-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: var(--tools-text);
+    }
+
+    .radio-item input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--tools-primary);
+    }
+
+    .field-note {
+      font-size: 0.85rem;
+      color: var(--tools-text-muted);
+      margin-top: 8px;
+    }
+
+    .result-hero-box {
+      background: var(--tools-bg-white);
+      border: 1px solid var(--tools-border);
+      border-radius: var(--tools-radius);
+      padding: 24px;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .result-label {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--tools-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .result-value {
+      display: block;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--tools-primary);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .result-context {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--tools-text-muted);
+    }
+
+    .result-details {
+      background: var(--tools-bg-white);
+      border: 1px solid var(--tools-border);
+      border-radius: var(--tools-radius);
+      padding: 16px 20px;
+      margin-bottom: 16px;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--tools-border);
+      font-size: 0.95rem;
+    }
+
+    .detail-row:last-child {
+      border-bottom: none;
+    }
+
+    .detail-row span:first-child {
+      color: var(--tools-text-muted);
+    }
+
+    .detail-row span:last-child {
+      font-weight: 600;
+      color: var(--tools-text);
+    }
+
+    .size-list-box {
+      background: var(--tools-bg-white);
+      border: 1px solid var(--tools-border);
+      border-radius: var(--tools-radius);
+      padding: 16px 20px;
+    }
+
+    .size-list-box h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--tools-text);
+      margin: 0 0 12px;
+    }
+
+    .size-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .size-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      border-radius: var(--tools-radius-sm);
+      background: var(--tools-bg);
+      border: 1px solid transparent;
+    }
+
+    .size-item.recommended {
+      background: rgba(114, 55, 162, 0.1);
+      border-color: var(--tools-primary);
+    }
+
+    .size-item.recommended .size-status {
+      color: var(--tools-primary);
+      font-weight: 600;
+    }
+
+    .size-item.undersized { opacity: 0.5; }
+    .size-item.marginal { opacity: 0.7; }
+    .size-item.oversized { opacity: 0.6; }
+
+    .size-val {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--tools-text);
+    }
+
+    .size-status {
+      font-size: 0.85rem;
+      color: var(--tools-text-muted);
+    }
+
+    .calc-disclaimer {
+      background: var(--tools-bg);
+      padding: 16px 20px;
+      border-radius: var(--tools-radius-sm);
+      margin-top: 24px;
+    }
+
+    .calc-disclaimer p {
+      font-size: 0.85rem;
+      color: var(--tools-text-muted);
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .toggle-row {
+        grid-template-columns: 1fr;
+      }
+      .input-row {
+        flex-direction: column;
+      }
+      .calc-select {
+        width: 100%;
+      }
+      .result-value {
+        font-size: 2.5rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1429,6 +1666,10 @@
         <button class="tool-nav-btn" onclick="switchTool('tco')">
           <h3>True Cost Calculator</h3>
           <p>Understand total cost of ownership</p>
+        </button>
+        <button class="tool-nav-btn" onclick="switchTool('display')">
+          <h3>Display Size Calculator</h3>
+          <p>AVIXA DISCAS optimal screen sizing</p>
         </button>
       </div>
 
@@ -1834,6 +2075,104 @@
         </div>
 
       </div><!-- End tool-tco -->
+
+      <!-- ============================================
+           TOOL 3: DISPLAY SIZE CALCULATOR
+           ============================================ -->
+      <div class="tool-section" id="tool-display">
+
+        <!-- Hero -->
+        <div class="tool-hero">
+          <h1>Display Size Calculator</h1>
+          <p>Calculate optimal display size based on viewing distance. Uses AVIXA DISCAS standard (ANSI/INFOCOMM V202.01:2016).</p>
+        </div>
+
+        <!-- Calculator -->
+        <div class="calc-card">
+          <div class="calc-grid">
+            <!-- Inputs -->
+            <div class="calc-inputs">
+              <h3>Viewing Parameters</h3>
+
+              <div class="calc-field">
+                <label>Farthest Viewer Distance</label>
+                <div class="input-row">
+                  <input type="number" id="displayDistance" value="8" min="2" max="30" step="0.5" class="calc-input">
+                  <select id="displayUnit" class="calc-select">
+                    <option value="m">metres</option>
+                    <option value="ft">feet</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="calc-field">
+                <label>Viewing Task</label>
+                <div class="toggle-row">
+                  <button type="button" class="toggle-btn active" data-task="bdm" onclick="setDisplayTask('bdm', this)">
+                    <strong>General Content</strong>
+                    <span>PowerPoint, video calls</span>
+                  </button>
+                  <button type="button" class="toggle-btn" data-task="adm" onclick="setDisplayTask('adm', this)">
+                    <strong>Detailed Analysis</strong>
+                    <span>CAD, medical, fine detail</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="calc-field" id="elementHeightField">
+                <label>Content Detail Level</label>
+                <div class="radio-list">
+                  <label class="radio-item"><input type="radio" name="elementHeight" value="0.04"> Large text (4%)</label>
+                  <label class="radio-item"><input type="radio" name="elementHeight" value="0.03" checked> Standard (3%)</label>
+                  <label class="radio-item"><input type="radio" name="elementHeight" value="0.02"> Small detail (2%)</label>
+                </div>
+                <p class="field-note">Smaller detail requires larger display</p>
+              </div>
+
+              <div class="calc-field" id="resolutionField" style="display:none;">
+                <label>Display Resolution</label>
+                <div class="radio-list">
+                  <label class="radio-item"><input type="radio" name="displayRes" value="1080"> 1080p (Full HD)</label>
+                  <label class="radio-item"><input type="radio" name="displayRes" value="2160" checked> 4K (2160p)</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Results -->
+            <div class="calc-results">
+              <div class="result-hero-box">
+                <span class="result-label">Recommended Display</span>
+                <span class="result-value" id="displayResult">75"</span>
+                <span class="result-context" id="displayContext">For 8m viewing, general content</span>
+              </div>
+
+              <div class="result-details">
+                <div class="detail-row"><span>Image Height</span><span id="dispHeight">1.33m</span></div>
+                <div class="detail-row"><span>Image Width</span><span id="dispWidth">2.37m</span></div>
+                <div class="detail-row"><span>Calculated Diagonal</span><span id="dispDiagonal">74.8"</span></div>
+                <div class="detail-row"><span>Closest Viewer (min)</span><span id="dispClosest">2.3m</span></div>
+              </div>
+
+              <div class="size-list-box">
+                <h4>Standard Sizes</h4>
+                <div class="size-list" id="displaySizeList"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="calc-disclaimer">
+            <p><strong>Based on AVIXA DISCAS Standard</strong> (ANSI/INFOCOMM V202.01:2016). Assumes 16:9 aspect ratio. Results may vary based on room lighting, content type, and viewer acuity.</p>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+          <h3>Need help with room design?</h3>
+          <p>Display sizing is one factor. We help with complete meeting room standards and AV system design.</p>
+          <a href="contact.html" class="btn--primary">Discuss Your Project</a>
+        </div>
+
+      </div><!-- End tool-display -->
 
     </div>
   </main>
@@ -2605,6 +2944,96 @@
       toast.classList.add('show');
       setTimeout(() => toast.classList.remove('show'), 2500);
     }
+
+    // ==========================================
+    // DISPLAY SIZE CALCULATOR (AVIXA DISCAS)
+    // ==========================================
+    let displayTask = 'bdm';
+    const DISPLAY_SIZES = [32, 43, 50, 55, 65, 75, 85, 98, 110];
+
+    function setDisplayTask(task, btn) {
+      displayTask = task;
+      document.querySelectorAll('#tool-display .toggle-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('elementHeightField').style.display = task === 'bdm' ? 'block' : 'none';
+      document.getElementById('resolutionField').style.display = task === 'adm' ? 'block' : 'none';
+      calculateDisplay();
+    }
+
+    function calculateDisplay() {
+      const BDM_ACUITY = 200;
+      const ADM_ACUITY = 3438;
+      const DIAGONAL_RATIO = 18.36 / 9;
+      const CLOSEST_FACTOR = 1.732;
+      const M_TO_FT = 3.281;
+      const M_TO_IN = 39.37;
+
+      let dist = parseFloat(document.getElementById('displayDistance').value) || 8;
+      const unit = document.getElementById('displayUnit').value;
+      if (unit === 'ft') dist /= M_TO_FT;
+
+      let height;
+      if (displayTask === 'bdm') {
+        const ehEl = document.querySelector('[name="elementHeight"]:checked');
+        const eh = ehEl ? parseFloat(ehEl.value) : 0.03;
+        height = dist / (BDM_ACUITY * eh);
+      } else {
+        const resEl = document.querySelector('[name="displayRes"]:checked');
+        const res = resEl ? parseInt(resEl.value) : 2160;
+        height = (res * dist) / ADM_ACUITY;
+      }
+
+      const width = height * (16 / 9);
+      const diagM = height * DIAGONAL_RATIO;
+      const diagIn = diagM * M_TO_IN;
+      const closest = height * CLOSEST_FACTOR;
+
+      // Find recommended size
+      let rec = DISPLAY_SIZES[DISPLAY_SIZES.length - 1];
+      for (let i = 0; i < DISPLAY_SIZES.length; i++) {
+        if (DISPLAY_SIZES[i] >= diagIn) {
+          rec = DISPLAY_SIZES[i];
+          break;
+        }
+      }
+
+      // Update UI
+      document.getElementById('displayResult').textContent = rec + '"';
+      const distStr = unit === 'ft' ? (dist * M_TO_FT).toFixed(1) + 'ft' : dist.toFixed(1) + 'm';
+      document.getElementById('displayContext').textContent =
+        'For ' + distStr + ' viewing, ' + (displayTask === 'bdm' ? 'general content' : 'detailed analysis');
+      document.getElementById('dispHeight').textContent = height.toFixed(2) + 'm';
+      document.getElementById('dispWidth').textContent = width.toFixed(2) + 'm';
+      document.getElementById('dispDiagonal').textContent = diagIn.toFixed(1) + '"';
+      const closestStr = unit === 'ft' ? (closest * M_TO_FT).toFixed(1) + 'ft' : closest.toFixed(2) + 'm';
+      document.getElementById('dispClosest').textContent = closestStr;
+
+      // Size list
+      const list = document.getElementById('displaySizeList');
+      list.innerHTML = '';
+      DISPLAY_SIZES.forEach(s => {
+        const diff = s - diagIn;
+        let status, cls;
+        if (s === rec) { status = 'Recommended'; cls = 'recommended'; }
+        else if (diff < -10) { status = 'Too small'; cls = 'undersized'; }
+        else if (diff < 0) { status = 'Slightly small'; cls = 'marginal'; }
+        else if (diff < 15) { status = 'Good option'; cls = 'good'; }
+        else { status = 'Larger than needed'; cls = 'oversized'; }
+
+        const item = document.createElement('div');
+        item.className = 'size-item ' + cls;
+        item.innerHTML = '<span class="size-val">' + s + '"</span><span class="size-status">' + status + '</span>';
+        list.appendChild(item);
+      });
+    }
+
+    // Initialize display calculator
+    document.getElementById('displayDistance').addEventListener('input', calculateDisplay);
+    document.getElementById('displayUnit').addEventListener('change', calculateDisplay);
+    document.querySelectorAll('[name="elementHeight"], [name="displayRes"]').forEach(r => {
+      r.addEventListener('change', calculateDisplay);
+    });
+    calculateDisplay();
   </script>
 </body>
 </html>
