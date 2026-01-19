@@ -1024,6 +1024,326 @@
       opacity: 0.8;
     }
 
+    /* True Cost Calculator - Engagement Comparison */
+    .tco-header {
+      text-align: center;
+      padding: 48px 24px;
+      margin-bottom: 32px;
+    }
+
+    .tco-header h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      margin: 0 0 12px;
+      color: var(--tools-text);
+    }
+
+    .tco-header p {
+      font-size: 1.1rem;
+      color: var(--tools-text-muted);
+      margin: 0;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .tco-main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 900px) {
+      .tco-main-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .tco-inputs-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .tco-card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0 0 20px;
+      color: var(--tools-text);
+    }
+
+    .tco-card-desc {
+      font-size: 0.85rem;
+      color: var(--tools-text-muted);
+      margin: -12px 0 20px;
+    }
+
+    .tco-slider-field {
+      margin-bottom: 24px;
+    }
+
+    .tco-slider-field:last-child {
+      margin-bottom: 0;
+    }
+
+    .tco-hint {
+      font-size: 0.75rem;
+      color: var(--tools-text-muted);
+      margin: 2px 0 8px;
+      font-style: italic;
+    }
+
+    .tco-slider-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .tco-slider {
+      flex: 1;
+      height: 6px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: var(--tools-border);
+      border-radius: 3px;
+      outline: none;
+    }
+
+    .tco-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--tools-primary);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .tco-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.1);
+    }
+
+    .tco-slider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--tools-primary);
+      cursor: pointer;
+      border: none;
+    }
+
+    .tco-slider-value {
+      min-width: 80px;
+      text-align: right;
+      font-weight: 600;
+      color: var(--tools-text);
+    }
+
+    .tco-input-field {
+      margin-bottom: 20px;
+    }
+
+    .tco-input-field:last-child {
+      margin-bottom: 0;
+    }
+
+    .tco-input-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tco-input-prefix-text,
+    .tco-input-suffix-text {
+      font-size: 0.9rem;
+      color: var(--tools-text-muted);
+      font-weight: 500;
+    }
+
+    .tco-input-row .tco-input {
+      width: 100px;
+      text-align: right;
+    }
+
+    /* Results Panel */
+    .tco-results-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .tco-result-card {
+      background: var(--tools-bg-white);
+      border-radius: var(--tools-radius);
+      padding: 24px;
+      box-shadow: var(--tools-shadow);
+      border: 1px solid var(--tools-border);
+    }
+
+    .tco-result-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0 0 16px;
+    }
+
+    .tco-result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+    }
+
+    .tco-result-row span:first-child {
+      font-size: 0.9rem;
+      color: var(--tools-text-muted);
+    }
+
+    .tco-result-main {
+      padding-bottom: 16px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid var(--tools-border);
+    }
+
+    .tco-result-main span:first-child {
+      color: var(--tools-text);
+    }
+
+    .tco-result-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--tools-text);
+    }
+
+    .tco-value-muted {
+      font-size: 1rem !important;
+      color: var(--tools-text-muted) !important;
+      font-weight: 500 !important;
+    }
+
+    .tco-hidden-costs {
+      margin: 16px 0;
+    }
+
+    .tco-hidden-costs h4 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--tools-text-muted);
+      margin: 0 0 8px;
+    }
+
+    .tco-result-subtotal {
+      margin-top: 8px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--tools-border);
+    }
+
+    .tco-true-cost-box {
+      background: var(--tools-bg);
+      border-radius: var(--tools-radius-sm);
+      padding: 20px;
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    .tco-true-cost-offshore {
+      border: 2px solid #fed7aa;
+      background: #fff7ed;
+    }
+
+    .tco-true-cost-consultant {
+      border: 2px solid #bbf7d0;
+      background: #f0fdf4;
+    }
+
+    .tco-true-cost-label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--tools-text-muted);
+      margin-bottom: 8px;
+    }
+
+    .tco-true-cost-value {
+      display: block;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--tools-text);
+    }
+
+    .tco-true-cost-pct {
+      display: block;
+      font-size: 0.85rem;
+      color: #ea580c;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* Summary Bar */
+    .tco-summary-bar {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      background: var(--tools-bg-dark);
+      border-radius: var(--tools-radius);
+      padding: 24px 32px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 600px) {
+      .tco-summary-bar {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+    }
+
+    .tco-summary-item {
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    .tco-summary-item:not(:last-child) {
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+
+    @media (max-width: 600px) {
+      .tco-summary-item:not(:last-child) {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        padding-bottom: 16px;
+      }
+    }
+
+    .tco-summary-label {
+      display: block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 8px;
+    }
+
+    .tco-summary-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .tco-summary-highlight {
+      background: rgba(255,255,255,0.1);
+      border-radius: var(--tools-radius-sm);
+      padding: 16px 24px;
+      margin: -8px 0;
+    }
+
+    .tco-summary-highlight .tco-summary-value {
+      font-size: 1rem;
+      color: #4ade80;
+    }
+
     /* Toast */
     .toast {
       position: fixed;
@@ -1308,222 +1628,208 @@
            ============================================ -->
       <div class="tool-section" id="tool-tco">
 
-        <!-- TCO Hero -->
-        <div class="tool-hero" style="background: linear-gradient(135deg, var(--tools-secondary) 0%, var(--tools-primary) 100%);">
+        <!-- TCO Header -->
+        <div class="tco-header">
           <h1>True Cost Calculator</h1>
-          <p>Understand the full cost of technology ownership over its entire lifecycle — not just the sticker price.</p>
+          <p>Compare the real cost of engagement options. Adjust the assumptions based on your organisation's experience.</p>
         </div>
 
-        <!-- TCO Grid -->
-        <div class="tco-grid">
+        <!-- TCO Main Grid -->
+        <div class="tco-main-grid">
 
-          <!-- Inputs Column -->
-          <div class="tco-inputs">
+          <!-- Left Column: Inputs -->
+          <div class="tco-inputs-panel">
 
-            <!-- Asset Details -->
+            <!-- Project Parameters -->
             <div class="tco-card">
-              <div class="tco-card-header">
-                <div class="tco-card-icon">🖥️</div>
-                <h3 class="tco-card-title">Asset Details</h3>
+              <h3 class="tco-card-title">Your Project Parameters</h3>
+
+              <div class="tco-slider-field">
+                <label class="tco-label">Project Duration</label>
+                <div class="tco-slider-row">
+                  <input type="range" class="tco-slider" id="tcoDuration" min="1" max="24" value="6" oninput="calculateTrueCost()">
+                  <span class="tco-slider-value" id="tcoDurationValue">6 months</span>
+                </div>
               </div>
-              <div class="tco-field">
-                <label class="tco-label">Asset Name / Description</label>
-                <input type="text" class="tco-input" id="tcoAssetName" placeholder="e.g., Conference Room Display System" oninput="calculateTCO()">
+
+              <div class="tco-input-field">
+                <label class="tco-label">Offshore/Junior Day Rate</label>
+                <div class="tco-input-row">
+                  <span class="tco-input-prefix-text">$</span>
+                  <input type="number" class="tco-input" id="tcoOffshoreRate" value="450" min="0" oninput="calculateTrueCost()">
+                  <span class="tco-input-suffix-text">/day</span>
+                </div>
               </div>
-              <div class="tco-field">
-                <label class="tco-label">Quantity</label>
-                <input type="number" class="tco-input" id="tcoQuantity" value="1" min="1" oninput="calculateTCO()">
+
+              <div class="tco-input-field">
+                <label class="tco-label">Your Senior Staff Hourly Cost</label>
+                <div class="tco-input-row">
+                  <span class="tco-input-prefix-text">$</span>
+                  <input type="number" class="tco-input" id="tcoSeniorRate" value="120" min="0" oninput="calculateTrueCost()">
+                  <span class="tco-input-suffix-text">/hour</span>
+                </div>
               </div>
-              <div class="tco-field">
-                <label class="tco-label">Expected Lifespan</label>
-                <div class="tco-input-suffix" data-suffix="years">
-                  <input type="number" class="tco-input" id="tcoLifespan" value="5" min="1" max="20" oninput="calculateTCO()">
+
+              <div class="tco-input-field">
+                <label class="tco-label">Experienced Consultant Day Rate</label>
+                <div class="tco-input-row">
+                  <span class="tco-input-prefix-text">$</span>
+                  <input type="number" class="tco-input" id="tcoConsultantRate" value="1200" min="0" oninput="calculateTrueCost()">
+                  <span class="tco-input-suffix-text">/day</span>
                 </div>
               </div>
             </div>
 
-            <!-- Initial Costs -->
+            <!-- Hidden Cost Assumptions -->
             <div class="tco-card">
-              <div class="tco-card-header">
-                <div class="tco-card-icon">💳</div>
-                <h3 class="tco-card-title">Initial Costs (One-Time)</h3>
-              </div>
-              <div class="tco-field">
-                <label class="tco-label">Hardware / Equipment Purchase</label>
-                <div class="tco-input-prefix">
-                  <input type="number" class="tco-input" id="tcoHardware" value="0" min="0" oninput="calculateTCO()">
-                </div>
-              </div>
-              <div class="tco-field">
-                <label class="tco-label">Installation / Deployment</label>
-                <div class="tco-input-prefix">
-                  <input type="number" class="tco-input" id="tcoInstallation" value="0" min="0" oninput="calculateTCO()">
-                </div>
-              </div>
-              <div class="tco-field">
-                <label class="tco-label">Training / Onboarding</label>
-                <div class="tco-input-prefix">
-                  <input type="number" class="tco-input" id="tcoTraining" value="0" min="0" oninput="calculateTCO()">
-                </div>
-              </div>
-              <div class="tco-field">
-                <label class="tco-label">Other Initial Costs</label>
-                <div class="tco-input-prefix">
-                  <input type="number" class="tco-input" id="tcoOtherInitial" value="0" min="0" oninput="calculateTCO()">
-                </div>
-              </div>
-            </div>
+              <h3 class="tco-card-title">Hidden Cost Assumptions</h3>
+              <p class="tco-card-desc">Adjust these based on your organisation's experience. Industry defaults shown.</p>
 
-            <!-- Annual Costs -->
-            <div class="tco-card">
-              <div class="tco-card-header">
-                <div class="tco-card-icon">📅</div>
-                <h3 class="tco-card-title">Annual Recurring Costs</h3>
-              </div>
-              <div class="tco-field">
-                <label class="tco-label">Software / Licensing (per year)</label>
-                <div class="tco-input-prefix">
-                  <input type="number" class="tco-input" id="tcoLicensing" value="0" min="0" oninput="calculateTCO()">
+              <div class="tco-slider-field">
+                <label class="tco-label">Supervision Hours/Week (Offshore)</label>
+                <p class="tco-hint">Industry range: 5-12 hrs</p>
+                <div class="tco-slider-row">
+                  <input type="range" class="tco-slider" id="tcoSupervision" min="0" max="20" value="8" oninput="calculateTrueCost()">
+                  <span class="tco-slider-value" id="tcoSupervisionValue">8 hrs</span>
                 </div>
               </div>
-              <div class="tco-field">
-                <label class="tco-label">Maintenance & Support (per year)</label>
-                <div class="tco-input-prefix">
-                  <input type="number" class="tco-input" id="tcoMaintenance" value="0" min="0" oninput="calculateTCO()">
-                </div>
-              </div>
-              <div class="tco-field">
-                <label class="tco-label">Energy / Power Costs (per year)</label>
-                <div class="tco-input-prefix">
-                  <input type="number" class="tco-input" id="tcoEnergy" value="0" min="0" oninput="calculateTCO()">
-                </div>
-              </div>
-              <div class="tco-field">
-                <label class="tco-label">Consumables / Supplies (per year)</label>
-                <div class="tco-input-prefix">
-                  <input type="number" class="tco-input" id="tcoConsumables" value="0" min="0" oninput="calculateTCO()">
-                </div>
-              </div>
-              <div class="tco-field">
-                <label class="tco-label">Other Annual Costs</label>
-                <div class="tco-input-prefix">
-                  <input type="number" class="tco-input" id="tcoOtherAnnual" value="0" min="0" oninput="calculateTCO()">
-                </div>
-              </div>
-            </div>
 
-            <!-- End of Life -->
-            <div class="tco-card">
-              <div class="tco-card-header">
-                <div class="tco-card-icon">🔄</div>
-                <h3 class="tco-card-title">End of Life</h3>
-              </div>
-              <div class="tco-field">
-                <label class="tco-label">Disposal / Decommissioning Cost</label>
-                <div class="tco-input-prefix">
-                  <input type="number" class="tco-input" id="tcoDisposal" value="0" min="0" oninput="calculateTCO()">
+              <div class="tco-slider-field">
+                <label class="tco-label">Rework Rate (Offshore)</label>
+                <p class="tco-hint">Gartner: 67% require significant rework</p>
+                <div class="tco-slider-row">
+                  <input type="range" class="tco-slider" id="tcoRework" min="0" max="100" value="35" oninput="calculateTrueCost()">
+                  <span class="tco-slider-value" id="tcoReworkValue">35%</span>
                 </div>
               </div>
-              <div class="tco-field">
-                <label class="tco-label">Salvage / Resale Value (subtract)</label>
-                <div class="tco-input-prefix">
-                  <input type="number" class="tco-input" id="tcoSalvage" value="0" min="0" oninput="calculateTCO()">
+
+              <div class="tco-slider-field">
+                <label class="tco-label">Timeline Overrun Risk</label>
+                <p class="tco-hint">McKinsey: 27-45% average overrun</p>
+                <div class="tco-slider-row">
+                  <input type="range" class="tco-slider" id="tcoOverrun" min="0" max="100" value="25" oninput="calculateTrueCost()">
+                  <span class="tco-slider-value" id="tcoOverrunValue">25%</span>
+                </div>
+              </div>
+
+              <div class="tco-slider-field">
+                <label class="tco-label">Knowledge Transfer (Weeks)</label>
+                <p class="tco-hint">Industry: 4-12 weeks typical</p>
+                <div class="tco-slider-row">
+                  <input type="range" class="tco-slider" id="tcoKnowledge" min="0" max="16" value="6" oninput="calculateTrueCost()">
+                  <span class="tco-slider-value" id="tcoKnowledgeValue">6 weeks</span>
                 </div>
               </div>
             </div>
 
           </div>
 
-          <!-- Results Column -->
-          <div class="tco-results">
-            <div class="tco-results-card">
+          <!-- Right Column: Results -->
+          <div class="tco-results-panel">
 
-              <!-- Total -->
-              <div class="tco-total">
-                <div class="tco-total-label">Total Cost of Ownership</div>
-                <div class="tco-total-value" id="tcoTotal">$0</div>
-                <div class="tco-total-sub">over <span id="tcoLifespanDisplay">5</span> years</div>
+            <!-- Offshore/Junior Results -->
+            <div class="tco-result-card tco-result-offshore">
+              <h3 class="tco-result-title" style="color: #f97316;">Offshore/Junior Resource</h3>
+
+              <div class="tco-result-row tco-result-main">
+                <span>Apparent Cost (Day Rate × Days)</span>
+                <span class="tco-result-value" id="tcoOffshoreApparent">$59,400</span>
               </div>
 
-              <!-- Breakdown -->
-              <div class="tco-breakdown">
-                <div class="tco-breakdown-title">Cost Breakdown</div>
-                <div class="tco-breakdown-row">
-                  <div class="tco-breakdown-label">
-                    <div class="tco-breakdown-dot dot-hardware"></div>
-                    Initial Costs
-                  </div>
-                  <div class="tco-breakdown-value" id="tcoInitialTotal">$0</div>
+              <div class="tco-hidden-costs">
+                <h4>Hidden Costs</h4>
+                <div class="tco-result-row">
+                  <span>Supervision overhead</span>
+                  <span class="tco-result-value tco-value-muted" id="tcoOffshoreSupervision">$23,040</span>
                 </div>
-                <div class="tco-breakdown-row">
-                  <div class="tco-breakdown-label">
-                    <div class="tco-breakdown-dot dot-license"></div>
-                    Software & Licensing
-                  </div>
-                  <div class="tco-breakdown-value" id="tcoRecurringTotal">$0</div>
+                <div class="tco-result-row">
+                  <span>Rework (<span id="tcoReworkPctDisplay">35</span>% of deliverables)</span>
+                  <span class="tco-result-value tco-value-muted" id="tcoOffshoreRework">$20,790</span>
                 </div>
-                <div class="tco-breakdown-row">
-                  <div class="tco-breakdown-label">
-                    <div class="tco-breakdown-dot dot-service"></div>
-                    Maintenance & Support
-                  </div>
-                  <div class="tco-breakdown-value" id="tcoMaintenanceTotal">$0</div>
+                <div class="tco-result-row">
+                  <span>Timeline overrun risk</span>
+                  <span class="tco-result-value tco-value-muted" id="tcoOffshoreOverrun">$14,850</span>
                 </div>
-                <div class="tco-breakdown-row">
-                  <div class="tco-breakdown-label">
-                    <div class="tco-breakdown-dot dot-labour"></div>
-                    Operations (Energy, Consumables)
-                  </div>
-                  <div class="tco-breakdown-value" id="tcoOperationsTotal">$0</div>
+                <div class="tco-result-row">
+                  <span>Knowledge transfer</span>
+                  <span class="tco-result-value tco-value-muted" id="tcoOffshoreKnowledge">$5,760</span>
+                </div>
+                <div class="tco-result-row tco-result-subtotal">
+                  <span style="color: #f97316;">Total Hidden Costs</span>
+                  <span class="tco-result-value" style="color: #f97316;" id="tcoOffshoreHidden">$64,440</span>
                 </div>
               </div>
 
-              <!-- Metrics -->
-              <div class="tco-metrics">
-                <div class="tco-metric">
-                  <div class="tco-metric-value" id="tcoPerYear">$0</div>
-                  <div class="tco-metric-label">Per Year</div>
-                </div>
-                <div class="tco-metric">
-                  <div class="tco-metric-value" id="tcoPerMonth">$0</div>
-                  <div class="tco-metric-label">Per Month</div>
-                </div>
-                <div class="tco-metric">
-                  <div class="tco-metric-value" id="tcoPerUnit">$0</div>
-                  <div class="tco-metric-label">Per Unit Total</div>
-                </div>
-                <div class="tco-metric">
-                  <div class="tco-metric-value" id="tcoRatio">0%</div>
-                  <div class="tco-metric-label">Hidden Costs %</div>
-                </div>
+              <div class="tco-true-cost-box tco-true-cost-offshore">
+                <span class="tco-true-cost-label">True Cost of Engagement</span>
+                <span class="tco-true-cost-value" id="tcoOffshoreTotal">$123,840</span>
+                <span class="tco-true-cost-pct" id="tcoOffshoreOverPct">+108% over apparent cost</span>
               </div>
-
-              <!-- Visual Chart -->
-              <div class="tco-chart">
-                <div class="tco-chart-title">Cost Distribution</div>
-                <div class="tco-bar-container">
-                  <div class="tco-bar-segment tco-bar-initial" id="tcoBarInitial" style="width: 25%;"></div>
-                  <div class="tco-bar-segment tco-bar-recurring" id="tcoBarRecurring" style="width: 25%;"></div>
-                  <div class="tco-bar-segment tco-bar-maintenance" id="tcoBarMaintenance" style="width: 25%;"></div>
-                  <div class="tco-bar-segment tco-bar-operations" id="tcoBarOperations" style="width: 25%;"></div>
-                </div>
-                <div class="tco-legend">
-                  <div class="tco-legend-item"><div class="tco-breakdown-dot dot-hardware"></div> Initial</div>
-                  <div class="tco-legend-item"><div class="tco-breakdown-dot dot-license"></div> Licensing</div>
-                  <div class="tco-legend-item"><div class="tco-breakdown-dot dot-service"></div> Maintenance</div>
-                  <div class="tco-legend-item"><div class="tco-breakdown-dot dot-labour"></div> Operations</div>
-                </div>
-              </div>
-
             </div>
+
+            <!-- Experienced Consultant Results -->
+            <div class="tco-result-card tco-result-consultant">
+              <h3 class="tco-result-title" style="color: #22c55e;">Experienced Consultant</h3>
+
+              <div class="tco-result-row tco-result-main">
+                <span>Engagement Cost</span>
+                <span class="tco-result-value" id="tcoConsultantBase">$158,400</span>
+              </div>
+
+              <div class="tco-hidden-costs">
+                <h4>Hidden Costs</h4>
+                <div class="tco-result-row">
+                  <span>Supervision (1-2 hrs/week)</span>
+                  <span class="tco-result-value tco-value-muted" id="tcoConsultantSupervision">$4,320</span>
+                </div>
+                <div class="tco-result-row">
+                  <span>Rework (5-10%)</span>
+                  <span class="tco-result-value tco-value-muted" id="tcoConsultantRework">$11,880</span>
+                </div>
+                <div class="tco-result-row">
+                  <span>Timeline overrun (minimal)</span>
+                  <span class="tco-result-value tco-value-muted" id="tcoConsultantOverrun">$7,920</span>
+                </div>
+                <div class="tco-result-row">
+                  <span>Knowledge transfer (faster)</span>
+                  <span class="tco-result-value tco-value-muted" id="tcoConsultantKnowledge">$960</span>
+                </div>
+                <div class="tco-result-row tco-result-subtotal">
+                  <span style="color: #22c55e;">Total Hidden Costs</span>
+                  <span class="tco-result-value" style="color: #22c55e;" id="tcoConsultantHidden">$25,080</span>
+                </div>
+              </div>
+
+              <div class="tco-true-cost-box tco-true-cost-consultant">
+                <span class="tco-true-cost-label">True Cost of Engagement</span>
+                <span class="tco-true-cost-value" id="tcoConsultantTotal">$183,480</span>
+              </div>
+            </div>
+
           </div>
 
         </div>
 
-        <!-- TCO CTA -->
+        <!-- Summary Bar -->
+        <div class="tco-summary-bar">
+          <div class="tco-summary-item">
+            <span class="tco-summary-label">Day Rate Premium</span>
+            <span class="tco-summary-value" style="color: #f97316;" id="tcoDayRatePremium">+167%</span>
+          </div>
+          <div class="tco-summary-item">
+            <span class="tco-summary-label">True Cost Difference</span>
+            <span class="tco-summary-value" style="color: #22c55e;" id="tcoTrueCostDiff">+48%</span>
+          </div>
+          <div class="tco-summary-item tco-summary-highlight">
+            <span class="tco-summary-label">Risk-Adjusted Value</span>
+            <span class="tco-summary-value" id="tcoRiskValue">Pay 48% more for certainty</span>
+          </div>
+        </div>
+
+        <!-- CTA -->
         <div class="cta-section">
-          <h3>Want to optimise your technology spend?</h3>
-          <p>Understanding TCO is just the first step. Let us help you make informed decisions.</p>
+          <h3>Ready to discuss your engagement?</h3>
+          <p>Let's find the right approach for your organisation's needs and risk tolerance.</p>
           <a href="contact.html" class="btn--primary">Start a Consultation</a>
         </div>
 
@@ -1643,7 +1949,7 @@
       initDefaults();
       loadFromStorage();
       render();
-      calculateTCO();
+      calculateTrueCost();
     });
 
     function initDefaults() {
@@ -2178,53 +2484,106 @@
     // TRUE COST CALCULATOR
     // ============================================
 
-    function calculateTCO() {
-      const quantity = parseFloat(document.getElementById('tcoQuantity').value) || 1;
-      const lifespan = parseFloat(document.getElementById('tcoLifespan').value) || 5;
+    function calculateTrueCost() {
+      const DAYS_PER_MONTH = 22;
+      const WEEKS_PER_MONTH = 4.33;
+      const HOURS_PER_DAY = 8;
+      const DAYS_PER_WEEK = 5;
 
-      const hardware = parseFloat(document.getElementById('tcoHardware').value) || 0;
-      const installation = parseFloat(document.getElementById('tcoInstallation').value) || 0;
-      const training = parseFloat(document.getElementById('tcoTraining').value) || 0;
-      const otherInitial = parseFloat(document.getElementById('tcoOtherInitial').value) || 0;
+      // Get input values
+      const duration = parseFloat(document.getElementById('tcoDuration').value) || 6;
+      const offshoreRate = parseFloat(document.getElementById('tcoOffshoreRate').value) || 450;
+      const seniorRate = parseFloat(document.getElementById('tcoSeniorRate').value) || 120;
+      const consultantRate = parseFloat(document.getElementById('tcoConsultantRate').value) || 1200;
 
-      const licensing = parseFloat(document.getElementById('tcoLicensing').value) || 0;
-      const maintenance = parseFloat(document.getElementById('tcoMaintenance').value) || 0;
-      const energy = parseFloat(document.getElementById('tcoEnergy').value) || 0;
-      const consumables = parseFloat(document.getElementById('tcoConsumables').value) || 0;
-      const otherAnnual = parseFloat(document.getElementById('tcoOtherAnnual').value) || 0;
+      const supervisionHours = parseFloat(document.getElementById('tcoSupervision').value) || 8;
+      const reworkRate = parseFloat(document.getElementById('tcoRework').value) || 35;
+      const overrunRate = parseFloat(document.getElementById('tcoOverrun').value) || 25;
+      const knowledgeWeeks = parseFloat(document.getElementById('tcoKnowledge').value) || 6;
 
-      const disposal = parseFloat(document.getElementById('tcoDisposal').value) || 0;
-      const salvage = parseFloat(document.getElementById('tcoSalvage').value) || 0;
+      // Update slider display values
+      document.getElementById('tcoDurationValue').textContent = duration + (duration === 1 ? ' month' : ' months');
+      document.getElementById('tcoSupervisionValue').textContent = supervisionHours + ' hrs';
+      document.getElementById('tcoReworkValue').textContent = reworkRate + '%';
+      document.getElementById('tcoOverrunValue').textContent = overrunRate + '%';
+      document.getElementById('tcoKnowledgeValue').textContent = knowledgeWeeks + (knowledgeWeeks === 1 ? ' week' : ' weeks');
+      document.getElementById('tcoReworkPctDisplay').textContent = reworkRate;
 
-      const initialTotal = (hardware + installation + training + otherInitial) * quantity;
-      const licensingTotal = licensing * quantity * lifespan;
-      const maintenanceTotal = maintenance * quantity * lifespan;
-      const operationsTotal = (energy + consumables + otherAnnual) * quantity * lifespan;
-      const endOfLifeTotal = (disposal - salvage) * quantity;
+      const totalDays = duration * DAYS_PER_MONTH;
+      const totalWeeks = duration * WEEKS_PER_MONTH;
 
-      const grandTotal = initialTotal + licensingTotal + maintenanceTotal + operationsTotal + endOfLifeTotal;
+      // ============ OFFSHORE/JUNIOR CALCULATIONS ============
+      const offshoreApparent = offshoreRate * totalDays;
+      const offshoreSupervision = seniorRate * supervisionHours * totalWeeks;
+      const offshoreRework = offshoreApparent * (reworkRate / 100);
+      const offshoreOverrun = offshoreApparent * (overrunRate / 100);
+      const offshoreKnowledge = seniorRate * HOURS_PER_DAY * knowledgeWeeks * (DAYS_PER_WEEK / 5); // Simplified to hrs × weeks × 8
 
-      const perYear = grandTotal / lifespan;
-      const perMonth = perYear / 12;
-      const perUnit = grandTotal / quantity;
-      const hiddenCostsRatio = initialTotal > 0 ? ((grandTotal - initialTotal) / initialTotal * 100) : 0;
+      const offshoreHidden = offshoreSupervision + offshoreRework + offshoreOverrun + offshoreKnowledge;
+      const offshoreTotal = offshoreApparent + offshoreHidden;
+      const offshoreOverPct = offshoreApparent > 0 ? ((offshoreHidden / offshoreApparent) * 100) : 0;
 
-      document.getElementById('tcoLifespanDisplay').textContent = lifespan;
-      document.getElementById('tcoTotal').textContent = formatCurrency(grandTotal);
-      document.getElementById('tcoInitialTotal').textContent = formatCurrency(initialTotal);
-      document.getElementById('tcoRecurringTotal').textContent = formatCurrency(licensingTotal);
-      document.getElementById('tcoMaintenanceTotal').textContent = formatCurrency(maintenanceTotal);
-      document.getElementById('tcoOperationsTotal').textContent = formatCurrency(operationsTotal);
-      document.getElementById('tcoPerYear').textContent = formatCurrency(perYear);
-      document.getElementById('tcoPerMonth').textContent = formatCurrency(perMonth);
-      document.getElementById('tcoPerUnit').textContent = formatCurrency(perUnit);
-      document.getElementById('tcoRatio').textContent = hiddenCostsRatio.toFixed(0) + '%';
+      // ============ EXPERIENCED CONSULTANT CALCULATIONS ============
+      // Consultant advantages (industry benchmarks):
+      // - Supervision: 1-2 hrs/week instead of 8+ hrs (use ~1.5 hrs)
+      // - Rework: 5-10% instead of 35%+ (use 7.5%)
+      // - Overrun: 5% instead of 25%+
+      // - Knowledge transfer: 1 week instead of 6+ (minimal ramp-up)
 
-      const total = grandTotal || 1;
-      document.getElementById('tcoBarInitial').style.width = (initialTotal / total * 100) + '%';
-      document.getElementById('tcoBarRecurring').style.width = (licensingTotal / total * 100) + '%';
-      document.getElementById('tcoBarMaintenance').style.width = (maintenanceTotal / total * 100) + '%';
-      document.getElementById('tcoBarOperations').style.width = (operationsTotal / total * 100) + '%';
+      const consultantBase = consultantRate * totalDays;
+      const consultantSupervisionHours = 1.5; // Fixed low supervision need
+      const consultantReworkRate = 7.5; // Fixed low rework rate
+      const consultantOverrunRate = 5; // Fixed low overrun
+      const consultantKnowledgeWeeks = 1; // Minimal ramp-up
+
+      const consultantSupervision = seniorRate * consultantSupervisionHours * totalWeeks;
+      const consultantRework = consultantBase * (consultantReworkRate / 100);
+      const consultantOverrun = consultantBase * (consultantOverrunRate / 100);
+      const consultantKnowledge = seniorRate * HOURS_PER_DAY * consultantKnowledgeWeeks * 1;
+
+      const consultantHidden = consultantSupervision + consultantRework + consultantOverrun + consultantKnowledge;
+      const consultantTotal = consultantBase + consultantHidden;
+
+      // ============ SUMMARY CALCULATIONS ============
+      const dayRatePremium = offshoreRate > 0 ? (((consultantRate - offshoreRate) / offshoreRate) * 100) : 0;
+      const trueCostDiff = offshoreTotal > 0 ? (((consultantTotal - offshoreTotal) / offshoreTotal) * 100) : 0;
+
+      // ============ UPDATE DISPLAY ============
+      // Offshore results
+      document.getElementById('tcoOffshoreApparent').textContent = formatCurrency(offshoreApparent);
+      document.getElementById('tcoOffshoreSupervision').textContent = formatCurrency(offshoreSupervision);
+      document.getElementById('tcoOffshoreRework').textContent = formatCurrency(offshoreRework);
+      document.getElementById('tcoOffshoreOverrun').textContent = formatCurrency(offshoreOverrun);
+      document.getElementById('tcoOffshoreKnowledge').textContent = formatCurrency(offshoreKnowledge);
+      document.getElementById('tcoOffshoreHidden').textContent = formatCurrency(offshoreHidden);
+      document.getElementById('tcoOffshoreTotal').textContent = formatCurrency(offshoreTotal);
+      document.getElementById('tcoOffshoreOverPct').textContent = '+' + Math.round(offshoreOverPct) + '% over apparent cost';
+
+      // Consultant results
+      document.getElementById('tcoConsultantBase').textContent = formatCurrency(consultantBase);
+      document.getElementById('tcoConsultantSupervision').textContent = formatCurrency(consultantSupervision);
+      document.getElementById('tcoConsultantRework').textContent = formatCurrency(consultantRework);
+      document.getElementById('tcoConsultantOverrun').textContent = formatCurrency(consultantOverrun);
+      document.getElementById('tcoConsultantKnowledge').textContent = formatCurrency(consultantKnowledge);
+      document.getElementById('tcoConsultantHidden').textContent = formatCurrency(consultantHidden);
+      document.getElementById('tcoConsultantTotal').textContent = formatCurrency(consultantTotal);
+
+      // Summary bar
+      document.getElementById('tcoDayRatePremium').textContent = '+' + Math.round(dayRatePremium) + '%';
+      document.getElementById('tcoTrueCostDiff').textContent = (trueCostDiff >= 0 ? '+' : '') + Math.round(trueCostDiff) + '%';
+
+      // Risk-adjusted value message
+      let riskMessage = '';
+      if (trueCostDiff <= 0) {
+        riskMessage = 'Experience saves you money';
+      } else if (trueCostDiff < 30) {
+        riskMessage = 'Pay ' + Math.round(trueCostDiff) + '% more for certainty';
+      } else if (trueCostDiff < 60) {
+        riskMessage = 'Pay ' + Math.round(trueCostDiff) + '% more for reduced risk';
+      } else {
+        riskMessage = 'Premium of ' + Math.round(trueCostDiff) + '% for quality';
+      }
+      document.getElementById('tcoRiskValue').textContent = riskMessage;
     }
 
     // ============================================
