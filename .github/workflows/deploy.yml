@@ -15,20 +15,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy to FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /home/ulfao306/thetech.space/
-          dangerous-clean-slate: true
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/*.ps1
-            **/*.md
-            **/tmpclaude-*
-            **/.claude/**
-            **/docs/**
+      - name: Deploy via lftp
+        run: |
+          sudo apt-get install -y lftp
+          lftp -c "
+            set ftp:ssl-allow no;
+            open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }};
+            mirror -R --delete --exclude .git/ --exclude node_modules/ --exclude '*.ps1' --exclude '*.md' --exclude 'tmpclaude-*' --exclude docs/ ./ /home/ulfao306/thetech.space/;
+            quit;
+          "
