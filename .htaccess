@@ -65,8 +65,8 @@ ErrorDocument 500 /500.html
     ExpiresByType text/javascript "access plus 1 month"
     ExpiresByType application/javascript "access plus 1 month"
 
-    # HTML
-    ExpiresByType text/html "access plus 1 day"
+    # HTML - no cache during development
+    ExpiresByType text/html "access plus 0 seconds"
 
     # Default
     ExpiresDefault "access plus 1 week"
@@ -86,9 +86,9 @@ ErrorDocument 500 /500.html
         Header set Cache-Control "max-age=2592000, public"
     </FilesMatch>
 
-    # HTML - short cache
+    # HTML - no cache during development
     <FilesMatch "\.(html|htm)$">
-        Header set Cache-Control "max-age=86400, public, must-revalidate"
+        Header set Cache-Control "no-cache, must-revalidate"
     </FilesMatch>
 </IfModule>
 
