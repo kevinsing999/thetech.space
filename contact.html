@@ -53,12 +53,12 @@
 
         <ul class="nav__list" id="nav-list">
           <li><a href="/" class="nav__link">Home</a></li>
-          <li><a href="services.html" class="nav__link">Services</a></li>
-          <li><a href="about.html" class="nav__link">About</a></li>
-          <li><a href="tools.html" class="nav__link">Tools</a></li>
-          <li><a href="blog/" class="nav__link">Blog</a></li>
-          <li><a href="contact.html" class="nav__link nav__link--active">Contact</a></li>
-          <li><a href="contact.html" class="btn btn--primary btn--sm">Get in Touch</a></li>
+          <li><a href="/services" class="nav__link">Services</a></li>
+          <li><a href="/about" class="nav__link">About</a></li>
+          <li><a href="/tools/" class="nav__link">Tools</a></li>
+          <li><a href="blog" class="nav__link">Blog</a></li>
+          <li><a href="/contact" class="nav__link nav__link--active">Contact</a></li>
+          <li><a href="/contact" class="btn btn--primary btn--sm">Get in Touch</a></li>
         </ul>
       </nav>
     </div>
@@ -140,61 +140,101 @@
           <div class="contact-form">
             <h2 style="margin-bottom: 1.5rem;">Start a Conversation</h2>
 
-            <form id="contact-form" action="#" method="POST" novalidate>
+            <!-- Success State -->
+            <div id="form-success" class="form-success" style="display: none;">
+              <div class="form-success__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <h3 class="form-success__title">Message Sent</h3>
+              <p class="form-success__text">Thanks for reaching out. I'll review your message and get back to you within 1-2 business days.</p>
+              <button type="button" class="btn btn--secondary" onclick="resetForm()" style="margin-top: 1.5rem;">Send Another Message</button>
+            </div>
+
+            <!-- Error State -->
+            <div id="form-error" class="form-error-banner" style="display: none;">
+              <div class="form-error-banner__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+              </div>
+              <div>
+                <p class="form-error-banner__title">Something went wrong</p>
+                <p class="form-error-banner__text">Please try again or email me directly at <a href="mailto:design@thetech.space">design@thetech.space</a></p>
+              </div>
+            </div>
+
+            <form id="contact-form" action="https://formspree.io/f/xgoozrap" method="POST">
               <div class="form-group">
-                <label for="name" class="form-label">Full Name *</label>
+                <label for="name" class="form-label">Full Name <span class="form-required">*</span></label>
                 <input type="text" id="name" name="name" class="form-input" required autocomplete="name" minlength="2" maxlength="100" placeholder="Your name">
-                <p class="form-error" aria-live="polite"></p>
+                <p class="form-field-error" aria-live="polite"></p>
               </div>
 
               <div class="form-group">
-                <label for="email" class="form-label">Work Email *</label>
+                <label for="email" class="form-label">Work Email <span class="form-required">*</span></label>
                 <input type="email" id="email" name="email" class="form-input" required autocomplete="email" placeholder="you@company.com">
-                <p class="form-error" aria-live="polite"></p>
+                <p class="form-field-error" aria-live="polite"></p>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="company" class="form-label">Organisation</label>
+                  <input type="text" id="company" name="company" class="form-input" autocomplete="organization" placeholder="Your organisation">
+                </div>
+
+                <div class="form-group">
+                  <label for="service" class="form-label">Engagement Type</label>
+                  <select id="service" name="service" class="form-select">
+                    <option value="">Select type...</option>
+                    <option value="Resource Augmentation">Resource Augmentation</option>
+                    <option value="Project Engagement">Project Engagement</option>
+                    <option value="Strategic Advisory">Strategic Advisory</option>
+                    <option value="Not sure yet">Not sure yet</option>
+                  </select>
+                </div>
               </div>
 
               <div class="form-group">
-                <label for="company" class="form-label">Organisation</label>
-                <input type="text" id="company" name="company" class="form-input" autocomplete="organization" placeholder="Your organisation">
-              </div>
-
-              <div class="form-group">
-                <label for="service" class="form-label">Engagement Type</label>
-                <select id="service" name="service" class="form-select">
-                  <option value="">Select an engagement type...</option>
-                  <option value="resource-augmentation">Resource Augmentation</option>
-                  <option value="project-engagement">Project Engagement</option>
-                  <option value="strategic-advisory">Strategic Advisory</option>
-                  <option value="not-sure">Not sure yet - let's discuss</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="message" class="form-label">Tell me about your challenge *</label>
+                <label for="message" class="form-label">Tell me about your challenge <span class="form-required">*</span></label>
                 <textarea id="message" name="message" class="form-textarea" required rows="5" minlength="20" maxlength="2000" placeholder="What capability gaps are you trying to solve? What does success look like for your service line?"></textarea>
-                <p class="form-error" aria-live="polite"></p>
+                <p class="form-field-error" aria-live="polite"></p>
+                <p class="form-hint">Minimum 20 characters</p>
               </div>
 
               <!-- Honeypot for spam -->
-              <div style="display:none" aria-hidden="true">
-                <input type="text" name="website" tabindex="-1" autocomplete="off">
-              </div>
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
-              <button type="submit" class="btn btn--primary btn--lg" style="width: 100%;">
+              <!-- Formspree settings -->
+              <input type="hidden" name="_subject" value="New enquiry from thetech.space">
+
+              <button type="submit" id="submit-btn" class="btn btn--primary btn--lg btn--submit">
                 <span class="btn-text">Send Message</span>
-                <span class="btn-loading" style="display: none;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation: spin 1s linear infinite;">
-                    <line x1="12" y1="2" x2="12" y2="6"></line>
-                    <line x1="12" y1="18" x2="12" y2="22"></line>
-                    <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
-                    <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
-                    <line x1="2" y1="12" x2="6" y2="12"></line>
-                    <line x1="18" y1="12" x2="22" y2="12"></line>
-                    <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
-                    <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
+                <span class="btn-loading">
+                  <svg class="spinner" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="spinner-circle" cx="12" cy="12" r="10" fill="none" stroke-width="3"></circle>
                   </svg>
+                  Sending...
+                </span>
+                <span class="btn-success">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  Sent!
                 </span>
               </button>
+
+              <p class="form-privacy">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                Your information is secure and will never be shared.
+              </p>
             </form>
           </div>
         </div>
@@ -239,8 +279,8 @@
         <div>
           <h4 class="footer__title">Resources</h4>
           <ul class="footer__links">
-            <li><a href="blog/">Blog</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="blog">Blog</a></li>
+            <li><a href="/about">About</a></li>
             <li><a href="about.html#expertise">Technical Expertise</a></li>
           </ul>
         </div>
@@ -248,7 +288,7 @@
         <div>
           <h4 class="footer__title">Connect</h4>
           <ul class="footer__links">
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="/contact">Contact</a></li>
             <li><a href="https://linkedin.com/in/kevinsing" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
             <li><a href="mailto:design@thetech.space">Email</a></li>
           </ul>
@@ -265,15 +305,305 @@
     </div>
   </footer>
 
-  <!-- Spinner animation -->
+  <!-- Form Styles -->
   <style>
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    /* Form Row - Side by side fields */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Required asterisk */
+    .form-required {
+      color: #dc2626;
+      font-weight: 500;
+    }
+
+    /* Field hint */
+    .form-hint {
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-top: 0.4rem;
+    }
+
+    /* Field error */
+    .form-field-error {
+      font-size: 0.85rem;
+      color: #dc2626;
+      margin-top: 0.4rem;
+      min-height: 1.2rem;
+    }
+
+    /* Input focus states */
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: #7237a2;
+      box-shadow: 0 0 0 3px rgba(114, 55, 162, 0.15);
+    }
+
+    /* Input error state */
+    .form-input.error,
+    .form-textarea.error {
+      border-color: #dc2626;
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+    }
+
+    /* Submit Button */
+    .btn--submit {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .btn--submit .btn-text,
+    .btn--submit .btn-loading,
+    .btn--submit .btn-success {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .btn--submit .btn-loading,
+    .btn--submit .btn-success {
+      display: none;
+    }
+    .btn--submit.loading .btn-text { display: none; }
+    .btn--submit.loading .btn-loading { display: flex; }
+    .btn--submit.success .btn-text { display: none; }
+    .btn--submit.success .btn-loading { display: none; }
+    .btn--submit.success .btn-success { display: flex; }
+    .btn--submit.success {
+      background: #059669;
+    }
+
+    /* Spinner */
+    .spinner {
+      width: 20px;
+      height: 20px;
+      animation: rotate 1s linear infinite;
+    }
+    .spinner-circle {
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-dasharray: 60;
+      stroke-dashoffset: 45;
+      animation: dash 1.5s ease-in-out infinite;
+    }
+    @keyframes rotate {
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes dash {
+      0% { stroke-dashoffset: 60; }
+      50% { stroke-dashoffset: 15; }
+      100% { stroke-dashoffset: 60; }
+    }
+
+    /* Privacy note */
+    .form-privacy {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-top: 1rem;
+    }
+
+    /* Success State */
+    .form-success {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      border-radius: 12px;
+      animation: fadeIn 0.4s ease;
+    }
+    .form-success__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      background: #059669;
+      color: white;
+      border-radius: 50%;
+      margin-bottom: 1.5rem;
+      animation: scaleIn 0.4s ease 0.1s both;
+    }
+    .form-success__title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #065f46;
+      margin-bottom: 0.5rem;
+    }
+    .form-success__text {
+      color: #047857;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Error Banner */
+    .form-error-banner {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      animation: shake 0.4s ease;
+    }
+    .form-error-banner__icon {
+      flex-shrink: 0;
+      color: #dc2626;
+      margin-top: 2px;
+    }
+    .form-error-banner__title {
+      font-weight: 600;
+      color: #991b1b;
+      margin-bottom: 0.25rem;
+    }
+    .form-error-banner__text {
+      font-size: 0.9rem;
+      color: #b91c1c;
+    }
+    .form-error-banner__text a {
+      color: #7237a2;
+      font-weight: 500;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.5); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-5px); }
+      40%, 80% { transform: translateX(5px); }
+    }
+
+    /* Form container styling */
+    .contact-form form {
+      animation: fadeIn 0.3s ease;
     }
   </style>
 
   <!-- JavaScript -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/analytics.js"></script>
+
+  <!-- Form Handler -->
+  <script>
+    (function() {
+      const form = document.getElementById('contact-form');
+      const submitBtn = document.getElementById('submit-btn');
+      const successEl = document.getElementById('form-success');
+      const errorEl = document.getElementById('form-error');
+
+      // Real-time validation
+      const validateField = (field) => {
+        const errorEl = field.parentNode.querySelector('.form-field-error');
+        let error = '';
+
+        if (field.required && !field.value.trim()) {
+          error = 'This field is required';
+        } else if (field.type === 'email' && field.value) {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(field.value)) {
+            error = 'Please enter a valid email address';
+          }
+        } else if (field.minLength && field.value.length < field.minLength) {
+          error = `Minimum ${field.minLength} characters required`;
+        }
+
+        if (errorEl) errorEl.textContent = error;
+        field.classList.toggle('error', !!error);
+        return !error;
+      };
+
+      // Add blur validation
+      form.querySelectorAll('input, textarea').forEach(field => {
+        field.addEventListener('blur', () => validateField(field));
+        field.addEventListener('input', () => {
+          if (field.classList.contains('error')) validateField(field);
+        });
+      });
+
+      // Form submission
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Validate all fields
+        let isValid = true;
+        form.querySelectorAll('input[required], textarea[required]').forEach(field => {
+          if (!validateField(field)) isValid = false;
+        });
+
+        if (!isValid) return;
+
+        // Show loading state
+        submitBtn.classList.add('loading');
+        submitBtn.disabled = true;
+        errorEl.style.display = 'none';
+
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (response.ok) {
+            // Success animation
+            submitBtn.classList.remove('loading');
+            submitBtn.classList.add('success');
+
+            // Track conversion
+            if (window.trackFormSubmit) trackFormSubmit('Contact Form');
+
+            // Show success state after brief delay
+            setTimeout(() => {
+              form.style.display = 'none';
+              successEl.style.display = 'block';
+            }, 800);
+          } else {
+            throw new Error('Form submission failed');
+          }
+        } catch (err) {
+          submitBtn.classList.remove('loading');
+          submitBtn.disabled = false;
+          errorEl.style.display = 'flex';
+
+          // Scroll error into view
+          errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+
+      // Reset form function
+      window.resetForm = function() {
+        form.reset();
+        form.style.display = 'block';
+        successEl.style.display = 'none';
+        errorEl.style.display = 'none';
+        submitBtn.classList.remove('success', 'loading');
+        submitBtn.disabled = false;
+        form.querySelectorAll('.form-field-error').forEach(el => el.textContent = '');
+        form.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+      };
+    })();
+  </script>
 </body>
 </html>

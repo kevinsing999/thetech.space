@@ -1,25 +1,69 @@
 # robots.txt for thetech.space
-# UC & AV Consultancy Website
+# Enterprise UC & AV Consultancy - Free Planning Tools
 
+# Default rules for all crawlers
 User-agent: *
 Allow: /
+Allow: /tools/
+Allow: /blog/
+Allow: /services
+Allow: /about
+Allow: /contact
 
 # Sitemap location
 Sitemap: https://thetech.space/sitemap.xml
 
-# Disallow admin/private areas (if any)
-# Disallow: /admin/
-# Disallow: /private/
-
-# Allow all search engines
+# Google
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
+User-agent: Googlebot-Image
+Allow: /assets/images/
+
+# Bing
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
+# Yahoo
 User-agent: Slurp
 Allow: /
 
+# DuckDuckGo
 User-agent: DuckDuckBot
 Allow: /
+
+# Yandex
+User-agent: Yandex
+Allow: /
+
+# Baidu (for international reach)
+User-agent: Baiduspider
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Block AI training scrapers (optional - remove if you want AI indexing)
+# User-agent: GPTBot
+# Disallow: /
+
+# User-agent: ChatGPT-User
+# Disallow: /
+
+# User-agent: CCBot
+# Disallow: /
+
+# Host directive (for Yandex)
+Host: https://thetech.space

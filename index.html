@@ -91,12 +91,12 @@
 
         <ul class="nav__list" id="nav-list">
           <li><a href="/" class="nav__link nav__link--active">Home</a></li>
-          <li><a href="services.html" class="nav__link">Services</a></li>
-          <li><a href="about.html" class="nav__link">About</a></li>
-          <li><a href="tools.html" class="nav__link">Tools</a></li>
-          <li><a href="blog/" class="nav__link">Blog</a></li>
-          <li><a href="contact.html" class="nav__link">Contact</a></li>
-          <li><a href="contact.html" class="btn btn--primary btn--sm">Get in Touch</a></li>
+          <li><a href="/services" class="nav__link">Services</a></li>
+          <li><a href="/about" class="nav__link">About</a></li>
+          <li><a href="/tools/" class="nav__link">Tools</a></li>
+          <li><a href="blog" class="nav__link">Blog</a></li>
+          <li><a href="/contact" class="nav__link">Contact</a></li>
+          <li><a href="/contact" class="btn btn--primary btn--sm">Get in Touch</a></li>
         </ul>
       </nav>
     </div>
@@ -116,8 +116,8 @@
         <p class="hero__subtitle">Embedded expertise for enterprise UC and AV. Solve capability gaps, de-risk complex initiatives, and deliver transformation outcomes without the overhead of permanent hires.</p>
 
         <div class="hero__buttons">
-          <a href="contact.html" class="btn btn--primary btn--lg">Discuss an Engagement</a>
-          <a href="services.html" class="btn btn--ghost btn--lg">How We Work</a>
+          <a href="/contact" class="btn btn--primary btn--lg">Discuss an Engagement</a>
+          <a href="/services" class="btn btn--ghost btn--lg">How We Work</a>
         </div>
 
         <div class="hero__clients">
@@ -374,7 +374,7 @@
           <li>Communicate effectively with executives and technical teams</li>
           <li>Document properly so knowledge transfers and stays</li>
         </ul>
-        <a href="about.html" class="btn btn--primary">About Our Experience</a>
+        <a href="/about" class="btn btn--primary">About Our Experience</a>
       </div>
       <div class="split-content__image">
         <img src="assets/images/boardroom.jpg" alt="Enterprise boardroom environment">
@@ -469,42 +469,66 @@
               </div>
 
               <h3 style="margin-top: 2rem;">Hidden Cost Assumptions</h3>
-              <p class="calc-note">Adjust these based on your organisation's experience. Industry defaults shown.</p>
+              <p class="calc-note">Uncheck to customize, or use industry-researched defaults.</p>
 
               <div class="calc-field">
-                <label for="supervision">Supervision Hours/Week (Offshore)</label>
-                <div class="calc-input-group">
-                  <input type="range" id="supervision" min="2" max="15" value="8">
+                <div class="calc-field-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                  <label for="supervision">Supervision Hours/Week</label>
+                  <label class="calc-checkbox" style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: #666; cursor: pointer;">
+                    <input type="checkbox" id="supervision-default" checked onchange="toggleDefault('supervision', 8, 20)">
+                    <span>Use default (8 hrs)</span>
+                  </label>
+                </div>
+                <span class="calc-benchmark" style="display: block; margin-bottom: 8px;"><a href="https://sloanreview.mit.edu/article/the-hidden-costs-of-it-outsourcing/" target="_blank" rel="noopener" style="color: inherit;">MIT Sloan</a>: 5-12 hrs typical for offshore management</span>
+                <div class="calc-input-group" id="supervision-slider-group">
+                  <input type="range" id="supervision" min="0" max="20" value="8" disabled style="opacity: 0.5;">
                   <span class="calc-value"><span id="supervision-value">8</span> hrs</span>
                 </div>
-                <span class="calc-benchmark">Industry range: 5-12 hrs</span>
               </div>
 
               <div class="calc-field">
-                <label for="rework">Rework Rate (Offshore)</label>
-                <div class="calc-input-group">
-                  <input type="range" id="rework" min="10" max="60" value="35">
+                <div class="calc-field-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                  <label for="rework">Rework Rate</label>
+                  <label class="calc-checkbox" style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: #666; cursor: pointer;">
+                    <input type="checkbox" id="rework-default" checked onchange="toggleDefault('rework', 35, 100)">
+                    <span>Use default (35%)</span>
+                  </label>
+                </div>
+                <span class="calc-benchmark" style="display: block; margin-bottom: 8px;"><a href="https://www.gartner.com/en/newsroom" target="_blank" rel="noopener" style="color: inherit;">Gartner</a>: 67% of offshore projects require significant rework</span>
+                <div class="calc-input-group" id="rework-slider-group">
+                  <input type="range" id="rework" min="0" max="100" value="35" disabled style="opacity: 0.5;">
                   <span class="calc-value"><span id="rework-value">35</span>%</span>
                 </div>
-                <span class="calc-benchmark">Gartner: 67% require significant rework</span>
               </div>
 
               <div class="calc-field">
-                <label for="overrun">Timeline Overrun Risk</label>
-                <div class="calc-input-group">
-                  <input type="range" id="overrun" min="0" max="50" value="25">
+                <div class="calc-field-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                  <label for="overrun">Timeline Overrun Risk</label>
+                  <label class="calc-checkbox" style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: #666; cursor: pointer;">
+                    <input type="checkbox" id="overrun-default" checked onchange="toggleDefault('overrun', 25, 100)">
+                    <span>Use default (25%)</span>
+                  </label>
+                </div>
+                <span class="calc-benchmark" style="display: block; margin-bottom: 8px;"><a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/delivering-large-scale-it-projects-on-time-on-budget-and-on-value" target="_blank" rel="noopener" style="color: inherit;">McKinsey</a>: 27-45% average budget/timeline overrun</span>
+                <div class="calc-input-group" id="overrun-slider-group">
+                  <input type="range" id="overrun" min="0" max="100" value="25" disabled style="opacity: 0.5;">
                   <span class="calc-value"><span id="overrun-value">25</span>%</span>
                 </div>
-                <span class="calc-benchmark">McKinsey: 27-45% average overrun</span>
               </div>
 
               <div class="calc-field">
-                <label for="onboarding">Knowledge Transfer (Weeks)</label>
-                <div class="calc-input-group">
-                  <input type="range" id="onboarding" min="2" max="12" value="6">
+                <div class="calc-field-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                  <label for="onboarding">Knowledge Transfer</label>
+                  <label class="calc-checkbox" style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: #666; cursor: pointer;">
+                    <input type="checkbox" id="onboarding-default" checked onchange="toggleDefault('onboarding', 6, 16)">
+                    <span>Use default (6 weeks)</span>
+                  </label>
+                </div>
+                <span class="calc-benchmark" style="display: block; margin-bottom: 8px;"><a href="https://www2.deloitte.com/us/en/pages/operations/articles/global-outsourcing-survey.html" target="_blank" rel="noopener" style="color: inherit;">Deloitte</a>: 4-12 weeks typical onboarding for offshore</span>
+                <div class="calc-input-group" id="onboarding-slider-group">
+                  <input type="range" id="onboarding" min="0" max="16" value="6" disabled style="opacity: 0.5;">
                   <span class="calc-value"><span id="onboarding-value">6</span> weeks</span>
                 </div>
-                <span class="calc-benchmark">Industry: 4-12 weeks typical</span>
               </div>
             </div>
 
@@ -574,6 +598,23 @@
                   <span class="calc-comparison-label">Risk-Adjusted Value</span>
                   <span class="calc-comparison-value" id="risk-value">Pay 46% more for certainty</span>
                 </div>
+              </div>
+
+              <!-- Math Working Out -->
+              <div class="calc-math-section">
+                <details>
+                  <summary style="cursor: pointer; font-weight: 600; color: var(--text-muted); padding: 12px 0;">Show Calculation Breakdown</summary>
+                  <div class="calc-math-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 16px; font-size: 0.85rem;">
+                    <div class="calc-math-card" style="background: rgba(249, 115, 22, 0.05); border: 1px solid rgba(249, 115, 22, 0.2); border-radius: 8px; padding: 16px;">
+                      <h4 style="color: #f97316; margin: 0 0 12px;">Offshore/Junior Working</h4>
+                      <div id="offshore-math" style="font-family: monospace; line-height: 1.8; color: #666;"></div>
+                    </div>
+                    <div class="calc-math-card" style="background: rgba(34, 197, 94, 0.05); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 8px; padding: 16px;">
+                      <h4 style="color: #22c55e; margin: 0 0 12px;">Experienced Consultant Working</h4>
+                      <div id="consultant-math" style="font-family: monospace; line-height: 1.8; color: #666;"></div>
+                    </div>
+                  </div>
+                </details>
               </div>
             </div>
           </div>
@@ -682,7 +723,7 @@
         </div>
 
         <div class="text-center mt-xl">
-          <a href="contact.html" class="btn btn--primary">Discuss a Similar Engagement</a>
+          <a href="/contact" class="btn btn--primary">Discuss a Similar Engagement</a>
         </div>
       </div>
     </section>
@@ -740,7 +781,7 @@
           <li>Network integration and UC platform alignment</li>
           <li>User training and support transition</li>
         </ul>
-        <a href="services.html" class="btn btn--primary">View Services</a>
+        <a href="/services" class="btn btn--primary">View Services</a>
       </div>
       <div class="split-content__image">
         <img src="assets/images/meeting-room.jpg" alt="Modern meeting room with AV technology">
@@ -843,7 +884,7 @@
       <div class="container">
         <h2 class="cta__title fade-in">Let's discuss your engagement.</h2>
         <p class="cta__text fade-in">Whether you need embedded expertise, project delivery, or strategic advisory - we're ready to help your service line succeed.</p>
-        <a href="contact.html" class="btn btn--primary btn--lg pulse-glow">Start a Conversation</a>
+        <a href="/contact" class="btn btn--primary btn--lg pulse-glow">Start a Conversation</a>
         <p class="cta__contact">
           <a href="mailto:design@thetech.space">design@thetech.space</a> &nbsp;·&nbsp; Perth, Western Australia
         </p>
@@ -888,9 +929,9 @@
         <div>
           <h4 class="footer__title">Company</h4>
           <ul class="footer__links">
-            <li><a href="about.html">About</a></li>
-            <li><a href="blog/">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
 
@@ -915,5 +956,6 @@
 
   <!-- JavaScript -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/analytics.js"></script>
 </body>
 </html>

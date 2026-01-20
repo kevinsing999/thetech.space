@@ -312,6 +312,31 @@
     onboarding: document.getElementById('onboarding')
   };
 
+  // Toggle default checkbox function (global)
+  window.toggleDefault = function(fieldName, defaultValue, maxValue) {
+    const checkbox = document.getElementById(fieldName + '-default');
+    const slider = document.getElementById(fieldName);
+    const valueDisplay = document.getElementById(fieldName + '-value');
+
+    if (checkbox && slider) {
+      if (checkbox.checked) {
+        // Use default value
+        slider.value = defaultValue;
+        slider.disabled = true;
+        slider.style.opacity = '0.5';
+        if (valueDisplay) valueDisplay.textContent = defaultValue;
+      } else {
+        // Enable slider for custom value
+        slider.disabled = false;
+        slider.style.opacity = '1';
+      }
+      // Trigger recalculation
+      if (typeof calculateROI === 'function') {
+        calculateROI();
+      }
+    }
+  };
+
   // Check if calculator exists on page
   if (calculatorInputs.duration) {
     // Constants for experienced resource (lower hidden costs)
@@ -343,17 +368,21 @@
       }
     }
 
-    // Main calculation function
-    function calculateROI() {
+    // Main calculation function (exposed globally for checkbox toggle)
+    window.calculateROI = function calculateROI() {
       // Get input values
       const duration = parseInt(calculatorInputs.duration.value) || 6;
       const offshoreRate = parseFloat(calculatorInputs.offshoreRate.value) || 450;
       const seniorRate = parseFloat(calculatorInputs.seniorRate.value) || 120;
       const experiencedRate = parseFloat(calculatorInputs.experiencedRate.value) || 1200;
-      const supervisionHours = parseInt(calculatorInputs.supervision.value) || 8;
-      const reworkRate = parseInt(calculatorInputs.rework.value) / 100 || 0.35;
-      const overrunRate = parseInt(calculatorInputs.overrun.value) / 100 || 0.25;
-      const onboardingWeeks = parseInt(calculatorInputs.onboarding.value) || 6;
+      const supervisionHours = parseInt(calculatorInputs.supervision.value);
+      const reworkPct = parseInt(calculatorInputs.rework.value);
+      const overrunPct = parseInt(calculatorInputs.overrun.value);
+      const onboardingWeeks = parseInt(calculatorInputs.onboarding.value);
+
+      // Convert percentages to decimals (allow 0)
+      const reworkRate = reworkPct / 100;
+      const overrunRate = overrunPct / 100;
 
       // Calculate total working days
       const totalDays = duration * WORKING_DAYS_PER_MONTH;
@@ -434,6 +463,44 @@
       } else {
         const savings = ((trueCost - expTrueCost) / trueCost) * 100;
         riskValueEl.textContent = 'Save ' + Math.round(savings) + '% with lower risk';
+      }
+
+      // ========== UPDATE MATH WORKING OUT ==========
+      const offshoreMathEl = document.getElementById('offshore-math');
+      const consultantMathEl = document.getElementById('consultant-math');
+
+      if (offshoreMathEl) {
+        offshoreMathEl.innerHTML =
+          '<strong>Base Cost:</strong><br>' +
+          '$' + offshoreRate.toLocaleString() + '/day × ' + totalDays + ' days = ' + formatCurrency(apparentCost) + '<br><br>' +
+          '<strong>Supervision (' + supervisionHours + ' hrs/wk):</strong><br>' +
+          supervisionHours + ' hrs × ' + totalWeeks + ' wks × $' + seniorRate + '/hr = ' + formatCurrency(supervisionCost) + '<br><br>' +
+          '<strong>Rework (' + reworkPct + '%):</strong><br>' +
+          formatCurrency(apparentCost) + ' × ' + reworkPct + '% = ' + formatCurrency(reworkCost) + '<br><br>' +
+          '<strong>Timeline Overrun (' + overrunPct + '%):</strong><br>' +
+          formatCurrency(apparentCost) + ' × ' + overrunPct + '% = ' + formatCurrency(overrunCost) + '<br><br>' +
+          '<strong>Knowledge Transfer (' + onboardingWeeks + ' wks):</strong><br>' +
+          onboardingWeeks + ' wks × 40 hrs × $' + seniorRate + '/hr × 20% = ' + formatCurrency(onboardingCost) + '<br><br>' +
+          '<hr style="border: none; border-top: 1px solid #ddd; margin: 8px 0;">' +
+          '<strong style="color: #f97316;">TRUE COST:</strong><br>' +
+          formatCurrency(apparentCost) + ' + ' + formatCurrency(hiddenTotal) + '<br>= <strong style="color: #f97316; font-size: 1.1em;">' + formatCurrency(trueCost) + '</strong>';
+      }
+
+      if (consultantMathEl) {
+        consultantMathEl.innerHTML =
+          '<strong>Base Cost:</strong><br>' +
+          '$' + experiencedRate.toLocaleString() + '/day × ' + totalDays + ' days = ' + formatCurrency(expApparentCost) + '<br><br>' +
+          '<strong>Supervision (1.5 hrs/wk):</strong><br>' +
+          '1.5 hrs × ' + totalWeeks + ' wks × $' + seniorRate + '/hr = ' + formatCurrency(expSupervisionCost) + '<br><br>' +
+          '<strong>Rework (7.5%):</strong><br>' +
+          formatCurrency(expApparentCost) + ' × 7.5% = ' + formatCurrency(expReworkCost) + '<br><br>' +
+          '<strong>Timeline Overrun (5%):</strong><br>' +
+          formatCurrency(expApparentCost) + ' × 5% = ' + formatCurrency(expOverrunCost) + '<br><br>' +
+          '<strong>Knowledge Transfer (2 wks):</strong><br>' +
+          '2 wks × 40 hrs × $' + seniorRate + '/hr × 10% = ' + formatCurrency(expOnboardingCost) + '<br><br>' +
+          '<hr style="border: none; border-top: 1px solid #ddd; margin: 8px 0;">' +
+          '<strong style="color: #22c55e;">TRUE COST:</strong><br>' +
+          formatCurrency(expApparentCost) + ' + ' + formatCurrency(expHiddenTotal) + '<br>= <strong style="color: #22c55e; font-size: 1.1em;">' + formatCurrency(expTrueCost) + '</strong>';
       }
     }
 
