@@ -1623,6 +1623,1379 @@
         font-size: 2.5rem;
       }
     }
+
+    /* ==========================================
+       ACOUSTICS CALCULATOR STYLES
+       ========================================== */
+    .acoustics-card {
+      background: var(--tools-bg-white);
+      border-radius: var(--tools-radius);
+      box-shadow: var(--tools-shadow);
+      border: 1px solid var(--tools-border);
+      overflow: hidden;
+    }
+
+    .acoustics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      padding: 32px;
+    }
+
+    @media (max-width: 900px) {
+      .acoustics-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .acoustics-inputs h3,
+    .acoustics-results h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--tools-text);
+      margin: 0 0 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--tools-border);
+    }
+
+    .acoustics-field {
+      margin-bottom: 20px;
+    }
+
+    .acoustics-field label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--tools-text);
+      margin-bottom: 8px;
+    }
+
+    .dimension-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr auto;
+      gap: 12px;
+      align-items: end;
+    }
+
+    @media (max-width: 600px) {
+      .dimension-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .dimension-grid .dim-unit {
+        grid-column: span 2;
+      }
+    }
+
+    .dim-input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .dim-input-group span {
+      font-size: 0.8rem;
+      color: var(--tools-text-muted);
+    }
+
+    .dim-input-group input {
+      padding: 10px 12px;
+      border: 1px solid var(--tools-border);
+      border-radius: var(--tools-radius-sm);
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    .dim-input-group input:focus {
+      outline: none;
+      border-color: var(--tools-primary);
+    }
+
+    .dim-unit select {
+      padding: 10px 12px;
+      border: 1px solid var(--tools-border);
+      border-radius: var(--tools-radius-sm);
+      font-size: 1rem;
+      background: var(--tools-bg-white);
+      width: 100%;
+    }
+
+    .acoustics-select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--tools-border);
+      border-radius: var(--tools-radius-sm);
+      font-size: 0.95rem;
+      color: var(--tools-text);
+      background: var(--tools-bg-white);
+    }
+
+    .acoustics-select:focus {
+      outline: none;
+      border-color: var(--tools-primary);
+    }
+
+    .surface-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 600px) {
+      .surface-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .slider-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .slider-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .slider-row input[type="range"] {
+      flex: 1;
+      height: 6px;
+      -webkit-appearance: none;
+      background: var(--tools-border);
+      border-radius: 3px;
+    }
+
+    .slider-row input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      background: var(--tools-primary);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .slider-row input[type="range"]::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      background: var(--tools-primary);
+      border-radius: 50%;
+      cursor: pointer;
+      border: none;
+    }
+
+    .slider-value {
+      min-width: 50px;
+      text-align: right;
+      font-weight: 600;
+      color: var(--tools-text);
+    }
+
+    .additional-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 600px) {
+      .additional-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .additional-row input {
+      padding: 10px 12px;
+      border: 1px solid var(--tools-border);
+      border-radius: var(--tools-radius-sm);
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    .additional-row input:focus {
+      outline: none;
+      border-color: var(--tools-primary);
+    }
+
+    /* RT60 Result Hero */
+    .rt60-hero {
+      background: linear-gradient(135deg, var(--tools-primary) 0%, var(--tools-secondary) 100%);
+      border-radius: var(--tools-radius);
+      padding: 24px;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .rt60-label {
+      display: block;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.9;
+      margin-bottom: 8px;
+    }
+
+    .rt60-value {
+      display: block;
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .rt60-status {
+      font-size: 0.95rem;
+      opacity: 0.95;
+    }
+
+    .rt60-status.good {
+      color: #4ade80;
+    }
+
+    .rt60-status.warning {
+      color: #fbbf24;
+    }
+
+    .rt60-status.bad {
+      color: #f87171;
+    }
+
+    /* STI Scale */
+    .sti-box {
+      background: var(--tools-bg-white);
+      border: 1px solid var(--tools-border);
+      border-radius: var(--tools-radius);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .sti-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .sti-header h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--tools-text);
+      margin: 0;
+    }
+
+    .sti-rating {
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+    }
+
+    .sti-rating.bad { background: #fef2f2; color: #dc2626; }
+    .sti-rating.poor { background: #fff7ed; color: #ea580c; }
+    .sti-rating.fair { background: #fefce8; color: #ca8a04; }
+    .sti-rating.good { background: #f0fdf4; color: #16a34a; }
+    .sti-rating.excellent { background: #ecfdf5; color: #059669; }
+
+    .sti-scale {
+      display: flex;
+      height: 24px;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 8px;
+    }
+
+    .sti-segment {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .sti-segment.bad { background: #ef4444; }
+    .sti-segment.poor { background: #f97316; }
+    .sti-segment.fair { background: #eab308; }
+    .sti-segment.good { background: #22c55e; }
+    .sti-segment.excellent { background: #059669; }
+
+    .sti-indicator {
+      position: absolute;
+      top: -6px;
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid var(--tools-text);
+      transform: translateX(-8px);
+      transition: left 0.3s ease;
+    }
+
+    .sti-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: var(--tools-text-muted);
+    }
+
+    /* Absorption Table */
+    .absorption-box {
+      background: var(--tools-bg-white);
+      border: 1px solid var(--tools-border);
+      border-radius: var(--tools-radius);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .absorption-box h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--tools-text);
+      margin: 0 0 16px;
+    }
+
+    .absorption-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .absorption-table th,
+    .absorption-table td {
+      padding: 10px 8px;
+      text-align: left;
+      font-size: 0.85rem;
+      border-bottom: 1px solid var(--tools-border);
+    }
+
+    .absorption-table th {
+      font-weight: 600;
+      color: var(--tools-text-muted);
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.03em;
+    }
+
+    .absorption-table td:last-child {
+      text-align: right;
+      font-weight: 600;
+    }
+
+    .absorption-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .absorption-table .total-row td {
+      font-weight: 700;
+      color: var(--tools-primary);
+      border-top: 2px solid var(--tools-border);
+      padding-top: 12px;
+    }
+
+    /* Recommendations */
+    .recommendations-box {
+      background: var(--tools-bg);
+      border-radius: var(--tools-radius);
+      padding: 20px;
+    }
+
+    .recommendations-box h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--tools-text);
+      margin: 0 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .recommendations-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .recommendations-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--tools-text);
+      padding: 8px 12px;
+      background: var(--tools-bg-white);
+      border-radius: var(--tools-radius-sm);
+    }
+
+    .recommendations-list li .rec-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+    }
+
+    .rec-icon.success {
+      background: #dcfce7;
+      color: #16a34a;
+    }
+
+    .rec-icon.warning {
+      background: #fef3c7;
+      color: #d97706;
+    }
+
+    .rec-icon.info {
+      background: #dbeafe;
+      color: #2563eb;
+    }
+
+    .room-volume-display {
+      background: var(--tools-bg);
+      border-radius: var(--tools-radius-sm);
+      padding: 12px 16px;
+      margin-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .room-volume-display span:first-child {
+      font-size: 0.85rem;
+      color: var(--tools-text-muted);
+    }
+
+    .room-volume-display span:last-child {
+      font-weight: 600;
+      color: var(--tools-text);
+    }
+
+    .target-display {
+      font-size: 0.85rem;
+      color: var(--tools-text-muted);
+      margin-top: 8px;
+      padding: 8px 12px;
+      background: var(--tools-bg);
+      border-radius: var(--tools-radius-sm);
+    }
+
+    .target-display strong {
+      color: var(--tools-primary);
+    }
+
+    /* ==========================================
+       WALL REINFORCEMENT CALCULATOR STYLES
+       ========================================== */
+    .reinforcement-card {
+      background: var(--tools-bg-white);
+      border-radius: var(--tools-radius);
+      padding: 32px;
+      margin-top: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    .reinforcement-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--tools-text);
+      margin: 0 0 8px;
+    }
+
+    .reinforcement-card > p {
+      font-size: 0.9rem;
+      color: var(--tools-text-muted);
+      margin: 0 0 24px;
+    }
+
+    .equipment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .equipment-btn {
+      background: var(--tools-bg);
+      border: 2px solid transparent;
+      border-radius: var(--tools-radius);
+      padding: 16px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .equipment-btn:hover {
+      background: var(--tools-primary-light);
+      border-color: var(--tools-primary);
+    }
+
+    .equipment-btn.active {
+      background: var(--tools-primary-light);
+      border-color: var(--tools-primary);
+    }
+
+    .equipment-btn .eq-icon {
+      font-size: 1.75rem;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .equipment-btn .eq-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--tools-text);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .equipment-btn .eq-weight {
+      font-size: 0.75rem;
+      color: var(--tools-text-muted);
+    }
+
+    .custom-weight-row {
+      display: none;
+      gap: 16px;
+      align-items: flex-end;
+      margin-bottom: 24px;
+      padding: 16px;
+      background: var(--tools-bg);
+      border-radius: var(--tools-radius);
+    }
+
+    .custom-weight-row.visible {
+      display: flex;
+    }
+
+    .custom-weight-row .weight-input-group {
+      flex: 1;
+    }
+
+    .custom-weight-row label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--tools-text);
+      margin-bottom: 8px;
+    }
+
+    .custom-weight-row input[type="number"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--tools-border);
+      border-radius: var(--tools-radius-sm);
+      font-size: 1rem;
+      background: var(--tools-bg-white);
+    }
+
+    .custom-weight-row input[type="range"] {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .install-type-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .install-type-btn {
+      flex: 1;
+      padding: 12px 16px;
+      background: var(--tools-bg);
+      border: 2px solid transparent;
+      border-radius: var(--tools-radius);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--tools-text);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .install-type-btn:hover {
+      background: var(--tools-primary-light);
+    }
+
+    .install-type-btn.active {
+      background: var(--tools-primary-light);
+      border-color: var(--tools-primary);
+      color: var(--tools-primary);
+    }
+
+    .reinforcement-results {
+      background: var(--tools-bg);
+      border-radius: var(--tools-radius);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .reinforcement-results h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--tools-text);
+      margin: 0 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .result-status {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-left: auto;
+    }
+
+    .result-status.adequate {
+      background: #dcfce7;
+      color: #16a34a;
+    }
+
+    .result-status.marginal {
+      background: #fef3c7;
+      color: #d97706;
+    }
+
+    .result-status.engineer {
+      background: #fee2e2;
+      color: #dc2626;
+    }
+
+    .result-status.stud-mount {
+      background: #dbeafe;
+      color: #2563eb;
+    }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .spec-item {
+      background: var(--tools-bg-white);
+      border-radius: var(--tools-radius-sm);
+      padding: 16px;
+      text-align: center;
+    }
+
+    .spec-item .spec-label {
+      font-size: 0.75rem;
+      color: var(--tools-text-muted);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .spec-item .spec-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--tools-text);
+    }
+
+    .spec-item .spec-value.highlight {
+      color: var(--tools-primary);
+    }
+
+    .weight-bar-container {
+      background: var(--tools-bg-white);
+      border-radius: var(--tools-radius-sm);
+      padding: 16px;
+    }
+
+    .weight-bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+    }
+
+    .weight-bar-label span:first-child {
+      color: var(--tools-text-muted);
+    }
+
+    .weight-bar-label span:last-child {
+      font-weight: 600;
+      color: var(--tools-text);
+    }
+
+    .weight-bar {
+      height: 12px;
+      background: #e5e7eb;
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .weight-bar-fill {
+      height: 100%;
+      border-radius: 6px;
+      transition: width 0.3s ease, background 0.3s ease;
+    }
+
+    .weight-bar-fill.safe {
+      background: linear-gradient(90deg, #22c55e, #16a34a);
+    }
+
+    .weight-bar-fill.caution {
+      background: linear-gradient(90deg, #f59e0b, #d97706);
+    }
+
+    .weight-bar-fill.danger {
+      background: linear-gradient(90deg, #ef4444, #dc2626);
+    }
+
+    .install-notes {
+      margin-top: 20px;
+    }
+
+    .install-notes h5 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--tools-text);
+      margin: 0 0 12px;
+    }
+
+    .note-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: var(--tools-radius-sm);
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+    }
+
+    .note-box:last-child {
+      margin-bottom: 0;
+    }
+
+    .note-box.info {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .note-box.warning {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .note-box.danger {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .note-box .note-icon {
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+
+    .note-box p {
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .advanced-options {
+      margin-top: 24px;
+      border-top: 1px solid var(--tools-border);
+      padding-top: 24px;
+    }
+
+    .advanced-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--tools-text-muted);
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .advanced-toggle:hover {
+      color: var(--tools-text);
+    }
+
+    .advanced-toggle .toggle-icon {
+      transition: transform 0.2s ease;
+    }
+
+    .advanced-toggle.open .toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    .advanced-content {
+      display: none;
+      margin-top: 16px;
+    }
+
+    .advanced-content.visible {
+      display: block;
+    }
+
+    .override-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .override-field label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--tools-text-muted);
+      margin-bottom: 6px;
+    }
+
+    .override-field input,
+    .override-field select {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid var(--tools-border);
+      border-radius: var(--tools-radius-sm);
+      font-size: 0.9rem;
+      background: var(--tools-bg-white);
+    }
+
+    @media (max-width: 768px) {
+      .equipment-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .install-type-row {
+        flex-direction: column;
+      }
+
+      .spec-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .custom-weight-row {
+        flex-direction: column;
+      }
+
+      .override-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ==========================================
+       CISCO CODEC SELECTOR STYLES
+       ========================================== */
+    .codec-card {
+      background: var(--tools-bg-white);
+      border-radius: var(--tools-radius);
+      padding: 32px;
+      margin-top: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    .codec-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--tools-text);
+      margin: 0 0 8px;
+    }
+
+    .codec-card > p {
+      font-size: 0.9rem;
+      color: var(--tools-text-muted);
+      margin: 0 0 24px;
+    }
+
+    .codec-input-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .codec-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .codec-field label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--tools-text);
+    }
+
+    .codec-field .field-hint {
+      font-size: 0.75rem;
+      color: var(--tools-text-muted);
+      margin-top: -4px;
+    }
+
+    .distance-input-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .distance-input-row input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid var(--tools-border);
+      border-radius: var(--tools-radius-sm);
+      font-size: 1.1rem;
+      font-weight: 600;
+      background: var(--tools-bg-white);
+    }
+
+    .distance-input-row .unit-label {
+      font-size: 0.9rem;
+      color: var(--tools-text-muted);
+      min-width: 50px;
+    }
+
+    .distance-slider {
+      width: 100%;
+      margin-top: 8px;
+      accent-color: var(--tools-primary);
+    }
+
+    .distance-presets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .distance-preset-btn {
+      padding: 6px 12px;
+      background: var(--tools-bg);
+      border: 1px solid var(--tools-border);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: var(--tools-text);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .distance-preset-btn:hover {
+      background: var(--tools-primary-light);
+      border-color: var(--tools-primary);
+    }
+
+    .codec-field select {
+      padding: 12px 16px;
+      border: 1px solid var(--tools-border);
+      border-radius: var(--tools-radius-sm);
+      font-size: 0.95rem;
+      background: var(--tools-bg-white);
+      cursor: pointer;
+    }
+
+    .codec-results {
+      background: var(--tools-bg);
+      border-radius: var(--tools-radius);
+      padding: 24px;
+    }
+
+    .codec-results h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--tools-text);
+      margin: 0 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .codec-results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .codec-device-card {
+      background: var(--tools-bg-white);
+      border: 2px solid transparent;
+      border-radius: var(--tools-radius);
+      padding: 20px;
+      transition: all 0.2s ease;
+    }
+
+    .codec-device-card.recommended {
+      border-color: var(--tools-primary);
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.15);
+    }
+
+    .codec-device-card.compatible {
+      border-color: #22c55e;
+    }
+
+    .codec-device-card.needs-ext {
+      border-color: #f59e0b;
+    }
+
+    .codec-device-card.insufficient {
+      opacity: 0.5;
+      border-color: #ef4444;
+    }
+
+    .device-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .device-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--tools-text);
+    }
+
+    .device-series {
+      font-size: 0.75rem;
+      color: var(--tools-text-muted);
+      margin-top: 2px;
+    }
+
+    .device-badge {
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .device-badge.best {
+      background: var(--tools-primary-light);
+      color: var(--tools-primary);
+    }
+
+    .device-badge.good {
+      background: #dcfce7;
+      color: #16a34a;
+    }
+
+    .device-badge.ext-mics {
+      background: #fef3c7;
+      color: #d97706;
+    }
+
+    .device-badge.insufficient {
+      background: #fee2e2;
+      color: #dc2626;
+    }
+
+    .device-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .device-spec {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .device-spec .spec-label {
+      font-size: 0.7rem;
+      color: var(--tools-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .device-spec .spec-value {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--tools-text);
+    }
+
+    .device-spec .spec-value.highlight {
+      color: var(--tools-primary);
+    }
+
+    .device-spec .spec-value.warning {
+      color: #d97706;
+    }
+
+    .device-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--tools-border);
+    }
+
+    .device-feature {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      background: var(--tools-bg);
+      border-radius: 12px;
+      font-size: 0.7rem;
+      color: var(--tools-text-muted);
+    }
+
+    .device-feature .feature-icon {
+      font-size: 0.8rem;
+    }
+
+    .device-note {
+      margin-top: 12px;
+      padding: 10px 12px;
+      background: #fef3c7;
+      border-radius: var(--tools-radius-sm);
+      font-size: 0.8rem;
+      color: #92400e;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .device-note.info {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .codec-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--tools-border);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--tools-text-muted);
+    }
+
+    .legend-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      border: 2px solid;
+    }
+
+    .legend-color.recommended { border-color: var(--tools-primary); }
+    .legend-color.compatible { border-color: #22c55e; }
+    .legend-color.needs-ext { border-color: #f59e0b; }
+    .legend-color.insufficient { border-color: #ef4444; }
+
+    .codec-ext-mics {
+      margin-top: 24px;
+      padding: 20px;
+      background: var(--tools-bg-white);
+      border-radius: var(--tools-radius);
+      border: 1px solid var(--tools-border);
+    }
+
+    .codec-ext-mics h5 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--tools-text);
+      margin: 0 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ext-mic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .ext-mic-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background: var(--tools-bg);
+      border-radius: var(--tools-radius-sm);
+    }
+
+    .ext-mic-icon {
+      font-size: 1.5rem;
+    }
+
+    .ext-mic-info {
+      flex: 1;
+    }
+
+    .ext-mic-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--tools-text);
+    }
+
+    .ext-mic-range {
+      font-size: 0.75rem;
+      color: var(--tools-text-muted);
+    }
+
+    .peripherals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .peripheral-card {
+      background: var(--tools-bg);
+      border-radius: var(--tools-radius);
+      padding: 16px;
+      border: 1px solid var(--tools-border);
+    }
+
+    .peripheral-card:hover {
+      border-color: var(--tools-primary);
+    }
+
+    .peripheral-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .peripheral-icon {
+      font-size: 1.5rem;
+    }
+
+    .peripheral-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--tools-text);
+    }
+
+    .peripheral-type {
+      font-size: 0.7rem;
+      color: var(--tools-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .peripheral-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .peripheral-spec {
+      font-size: 0.8rem;
+    }
+
+    .peripheral-spec .label {
+      color: var(--tools-text-muted);
+      display: block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .peripheral-spec .value {
+      color: var(--tools-text);
+      font-weight: 500;
+    }
+
+    .peripheral-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid var(--tools-border);
+    }
+
+    .peripheral-feature {
+      font-size: 0.65rem;
+      padding: 2px 6px;
+      background: var(--tools-bg-white);
+      border-radius: 10px;
+      color: var(--tools-text-muted);
+    }
+
+    .references-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-top: 16px;
+    }
+
+    .references-group h5 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--tools-text);
+      margin: 0 0 8px;
+    }
+
+    .references-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .references-list li {
+      margin-bottom: 6px;
+    }
+
+    .references-list a {
+      font-size: 0.8rem;
+      color: var(--tools-primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .references-list a:hover {
+      text-decoration: underline;
+    }
+
+    .references-list a::before {
+      content: '→';
+      font-size: 0.7rem;
+    }
+
+    @media (max-width: 768px) {
+      .codec-input-section {
+        grid-template-columns: 1fr;
+      }
+
+      .codec-results-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .device-specs {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .codec-legend {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1674,6 +3047,14 @@
         <button class="tool-nav-btn" onclick="switchTool('display')">
           <h3>Display Size Calculator</h3>
           <p>AVIXA DISCAS optimal screen sizing</p>
+        </button>
+        <button class="tool-nav-btn" onclick="switchTool('acoustics')">
+          <h3>Acoustics Calculator</h3>
+          <p>Room reverberation & STI</p>
+        </button>
+        <button class="tool-nav-btn" onclick="switchTool('codec')">
+          <h3>Cisco Codec Selector</h3>
+          <p>Choose the right video device</p>
         </button>
       </div>
 
@@ -2169,6 +3550,184 @@
           </div>
         </div>
 
+        <!-- Wall Reinforcement Calculator -->
+        <div class="reinforcement-card">
+          <h3>Wall Reinforcement Calculator</h3>
+          <p>Determine the appropriate wall backing material for mounting displays, video walls, projectors, and AV equipment.</p>
+
+          <!-- Equipment Selection -->
+          <div class="equipment-grid" id="equipmentGrid">
+            <button type="button" class="equipment-btn" data-type="display_46" onclick="selectEquipment('display_46', this)">
+              <span class="eq-icon">📺</span>
+              <span class="eq-name">46" Display</span>
+              <span class="eq-weight">~25 kg</span>
+            </button>
+            <button type="button" class="equipment-btn" data-type="display_55" onclick="selectEquipment('display_55', this)">
+              <span class="eq-icon">📺</span>
+              <span class="eq-name">55" Display</span>
+              <span class="eq-weight">~35 kg</span>
+            </button>
+            <button type="button" class="equipment-btn" data-type="display_65" onclick="selectEquipment('display_65', this)">
+              <span class="eq-icon">📺</span>
+              <span class="eq-name">65" Display</span>
+              <span class="eq-weight">~45 kg</span>
+            </button>
+            <button type="button" class="equipment-btn" data-type="display_75" onclick="selectEquipment('display_75', this)">
+              <span class="eq-icon">📺</span>
+              <span class="eq-name">75" Display</span>
+              <span class="eq-weight">~50 kg</span>
+            </button>
+            <button type="button" class="equipment-btn" data-type="display_85" onclick="selectEquipment('display_85', this)">
+              <span class="eq-icon">📺</span>
+              <span class="eq-name">85" Display</span>
+              <span class="eq-weight">~65 kg</span>
+            </button>
+            <button type="button" class="equipment-btn" data-type="display_98" onclick="selectEquipment('display_98', this)">
+              <span class="eq-icon">📺</span>
+              <span class="eq-name">98" Display</span>
+              <span class="eq-weight">~80 kg</span>
+            </button>
+            <button type="button" class="equipment-btn" data-type="projector" onclick="selectEquipment('projector', this)">
+              <span class="eq-icon">📽️</span>
+              <span class="eq-name">Wall Projector</span>
+              <span class="eq-weight">~15 kg</span>
+            </button>
+            <button type="button" class="equipment-btn" data-type="speaker" onclick="selectEquipment('speaker', this)">
+              <span class="eq-icon">🔊</span>
+              <span class="eq-name">Ceiling Speaker</span>
+              <span class="eq-weight">~5 kg</span>
+            </button>
+            <button type="button" class="equipment-btn" data-type="videowall_2x2" onclick="selectEquipment('videowall_2x2', this)">
+              <span class="eq-icon">🖥️</span>
+              <span class="eq-name">2×2 Video Wall</span>
+              <span class="eq-weight">~150 kg</span>
+            </button>
+            <button type="button" class="equipment-btn" data-type="videowall_3x3" onclick="selectEquipment('videowall_3x3', this)">
+              <span class="eq-icon">🖥️</span>
+              <span class="eq-name">3×3 Video Wall</span>
+              <span class="eq-weight">~340 kg</span>
+            </button>
+            <button type="button" class="equipment-btn" data-type="led_6x3" onclick="selectEquipment('led_6x3', this)">
+              <span class="eq-icon">💡</span>
+              <span class="eq-name">6m×3m LED Wall</span>
+              <span class="eq-weight">~250 kg</span>
+            </button>
+            <button type="button" class="equipment-btn" data-type="rack_6u" onclick="selectEquipment('rack_6u', this)">
+              <span class="eq-icon">🗄️</span>
+              <span class="eq-name">Wall Rack (6U)</span>
+              <span class="eq-weight">~60 kg</span>
+            </button>
+            <button type="button" class="equipment-btn" data-type="custom" onclick="selectEquipment('custom', this)">
+              <span class="eq-icon">⚙️</span>
+              <span class="eq-name">Custom</span>
+              <span class="eq-weight">Enter weight</span>
+            </button>
+          </div>
+
+          <!-- Custom Weight Input (hidden by default) -->
+          <div class="custom-weight-row" id="customWeightRow">
+            <div class="weight-input-group">
+              <label>Equipment Weight (kg)</label>
+              <input type="number" id="customWeight" value="50" min="1" max="500" step="1" oninput="updateCustomWeight()">
+              <input type="range" id="customWeightSlider" min="1" max="400" value="50" oninput="syncWeightSlider()">
+            </div>
+          </div>
+
+          <!-- Installation Type -->
+          <div class="install-type-row">
+            <button type="button" class="install-type-btn active" data-type="new" onclick="setInstallType('new', this)">
+              New Build
+            </button>
+            <button type="button" class="install-type-btn" data-type="refurb" onclick="setInstallType('refurb', this)">
+              Refurbishment
+            </button>
+          </div>
+
+          <!-- Results Section -->
+          <div class="reinforcement-results" id="reinforcementResults">
+            <h4>
+              Reinforcement Specification
+              <span class="result-status adequate" id="resultStatus">Adequate</span>
+            </h4>
+
+            <div class="spec-grid">
+              <div class="spec-item">
+                <div class="spec-label">Material</div>
+                <div class="spec-value" id="specMaterial">MDF Sheet</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">Dimensions</div>
+                <div class="spec-value highlight" id="specDimensions">1200 × 1200</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">Thickness</div>
+                <div class="spec-value" id="specThickness">12mm</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">Capacity</div>
+                <div class="spec-value" id="specCapacity">~40 kg</div>
+              </div>
+            </div>
+
+            <div class="weight-bar-container">
+              <div class="weight-bar-label">
+                <span>Equipment Weight vs Capacity</span>
+                <span id="weightRatio">25 / 40 kg (63%)</span>
+              </div>
+              <div class="weight-bar">
+                <div class="weight-bar-fill safe" id="weightBarFill" style="width: 63%;"></div>
+              </div>
+            </div>
+
+            <div class="install-notes" id="installNotes">
+              <h5>Installation Notes</h5>
+              <div class="note-box info">
+                <span class="note-icon">ℹ️</span>
+                <p>Fix MDF to wall studs at 400mm centres using construction adhesive and 50mm screws.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Advanced Options -->
+          <div class="advanced-options">
+            <button type="button" class="advanced-toggle" onclick="toggleAdvanced(this)">
+              <span class="toggle-icon">▼</span>
+              Advanced Options (Override)
+            </button>
+            <div class="advanced-content" id="advancedContent">
+              <div class="override-grid">
+                <div class="override-field">
+                  <label>Material Override</label>
+                  <select id="overrideMaterial" onchange="recalculateReinforcement()">
+                    <option value="">Auto (recommended)</option>
+                    <option value="mdf">MDF Sheet</option>
+                    <option value="plywood">Plywood</option>
+                    <option value="steel">Structural Steel</option>
+                  </select>
+                </div>
+                <div class="override-field">
+                  <label>Width (mm)</label>
+                  <input type="number" id="overrideWidth" placeholder="Auto" min="600" max="10000" step="100" onchange="recalculateReinforcement()">
+                </div>
+                <div class="override-field">
+                  <label>Height (mm)</label>
+                  <input type="number" id="overrideHeight" placeholder="Auto" min="600" max="5000" step="100" onchange="recalculateReinforcement()">
+                </div>
+                <div class="override-field">
+                  <label>Thickness (mm)</label>
+                  <select id="overrideThickness" onchange="recalculateReinforcement()">
+                    <option value="">Auto (recommended)</option>
+                    <option value="12">12mm</option>
+                    <option value="16">16mm</option>
+                    <option value="25">25mm</option>
+                    <option value="32">32mm</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- CTA -->
         <div class="cta-section">
           <h3>Need help with room design?</h3>
@@ -2177,6 +3736,494 @@
         </div>
 
       </div><!-- End tool-display -->
+
+      <!-- ============================================
+           TOOL 4: ACOUSTICS CALCULATOR
+           ============================================ -->
+      <div class="tool-section" id="tool-acoustics">
+
+        <!-- Hero -->
+        <div class="tool-hero">
+          <h1>Room Acoustics Calculator</h1>
+          <p>Calculate reverberation time (RT60) and speech intelligibility (STI) for meeting rooms, classrooms, and auditoriums. Based on Sabine's formula and ANSI S12.60-2002 standard.</p>
+        </div>
+
+        <!-- Calculator -->
+        <div class="acoustics-card">
+          <div class="acoustics-grid">
+            <!-- Inputs -->
+            <div class="acoustics-inputs">
+              <h3>Room Parameters</h3>
+
+              <div class="acoustics-field">
+                <label>Room Dimensions</label>
+                <div class="dimension-grid">
+                  <div class="dim-input-group">
+                    <span>Length</span>
+                    <input type="number" id="acousticsLength" value="10" min="2" max="100" step="0.5">
+                  </div>
+                  <div class="dim-input-group">
+                    <span>Width</span>
+                    <input type="number" id="acousticsWidth" value="8" min="2" max="100" step="0.5">
+                  </div>
+                  <div class="dim-input-group">
+                    <span>Height</span>
+                    <input type="number" id="acousticsHeight" value="3" min="2" max="20" step="0.1">
+                  </div>
+                  <div class="dim-unit">
+                    <select id="acousticsUnit">
+                      <option value="m">metres</option>
+                      <option value="ft">feet</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="room-volume-display">
+                  <span>Room Volume</span>
+                  <span id="acousticsVolume">240 m³</span>
+                </div>
+              </div>
+
+              <div class="acoustics-field">
+                <label>Room Type</label>
+                <select id="acousticsRoomType" class="acoustics-select">
+                  <option value="conference">Conference / Meeting Room</option>
+                  <option value="classroom_small">Classroom (small, &lt;283 m³)</option>
+                  <option value="classroom_large">Classroom (large, 283-566 m³)</option>
+                  <option value="auditorium">Auditorium / Lecture Hall</option>
+                  <option value="open_office">Open Office</option>
+                </select>
+                <div class="target-display" id="targetDisplay">
+                  Target RT60: <strong>0.4 - 0.6 seconds</strong>
+                </div>
+              </div>
+
+              <div class="acoustics-field">
+                <label>Surface Materials</label>
+                <div class="surface-grid">
+                  <div>
+                    <span style="font-size: 0.8rem; color: var(--tools-text-muted); display: block; margin-bottom: 4px;">Ceiling</span>
+                    <select id="acousticsCeiling" class="acoustics-select">
+                      <option value="0.70">Acoustic ceiling tiles</option>
+                      <option value="0.05" selected>Drywall / Plaster</option>
+                      <option value="0.02">Concrete</option>
+                      <option value="0.10">Wood panels</option>
+                    </select>
+                  </div>
+                  <div>
+                    <span style="font-size: 0.8rem; color: var(--tools-text-muted); display: block; margin-bottom: 4px;">Floor</span>
+                    <select id="acousticsFloor" class="acoustics-select">
+                      <option value="0.50">Carpet (heavy on pad)</option>
+                      <option value="0.30" selected>Carpet (thin)</option>
+                      <option value="0.02">Concrete / Tile</option>
+                      <option value="0.10">Wood flooring</option>
+                    </select>
+                  </div>
+                  <div>
+                    <span style="font-size: 0.8rem; color: var(--tools-text-muted); display: block; margin-bottom: 4px;">Walls</span>
+                    <select id="acousticsWalls" class="acoustics-select">
+                      <option value="0.05" selected>Drywall / Plaster</option>
+                      <option value="0.02">Concrete / Brick</option>
+                      <option value="0.04">Glass</option>
+                      <option value="0.10">Wood panels</option>
+                      <option value="0.55">Fabric curtains (heavy)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="acoustics-field slider-field">
+                <label>Window Coverage (% of wall area)</label>
+                <div class="slider-row">
+                  <input type="range" id="acousticsWindows" min="0" max="80" value="20">
+                  <span class="slider-value" id="windowsValue">20%</span>
+                </div>
+              </div>
+
+              <div class="acoustics-field">
+                <label>Additional Absorption</label>
+                <div class="additional-row">
+                  <div>
+                    <span style="font-size: 0.8rem; color: var(--tools-text-muted); display: block; margin-bottom: 4px;">Upholstered Seats</span>
+                    <input type="number" id="acousticsSeats" value="0" min="0" max="500" step="1">
+                  </div>
+                  <div>
+                    <span style="font-size: 0.8rem; color: var(--tools-text-muted); display: block; margin-bottom: 4px;">Acoustic Panel Area (m²)</span>
+                    <input type="number" id="acousticsPanels" value="0" min="0" max="200" step="1">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Results -->
+            <div class="acoustics-results">
+              <h3>Acoustic Analysis</h3>
+
+              <!-- RT60 Hero -->
+              <div class="rt60-hero">
+                <span class="rt60-label">Reverberation Time (RT60)</span>
+                <span class="rt60-value" id="rt60Value">1.52s</span>
+                <span class="rt60-status" id="rt60Status">Above target range</span>
+              </div>
+
+              <!-- STI Scale -->
+              <div class="sti-box">
+                <div class="sti-header">
+                  <h4>Speech Transmission Index</h4>
+                  <span class="sti-rating" id="stiRating">FAIR</span>
+                </div>
+                <div class="sti-scale">
+                  <div class="sti-segment bad">BAD</div>
+                  <div class="sti-segment poor">POOR</div>
+                  <div class="sti-segment fair">FAIR</div>
+                  <div class="sti-segment good">GOOD</div>
+                  <div class="sti-segment excellent">EXCEL</div>
+                  <div class="sti-indicator" id="stiIndicator"></div>
+                </div>
+                <div class="sti-labels">
+                  <span>0.0</span>
+                  <span>0.3</span>
+                  <span>0.45</span>
+                  <span>0.6</span>
+                  <span>0.75</span>
+                  <span>1.0</span>
+                </div>
+              </div>
+
+              <!-- Absorption Breakdown -->
+              <div class="absorption-box">
+                <h4>Absorption Breakdown</h4>
+                <table class="absorption-table">
+                  <thead>
+                    <tr>
+                      <th>Surface</th>
+                      <th>Area</th>
+                      <th>Sabins</th>
+                    </tr>
+                  </thead>
+                  <tbody id="absorptionBody">
+                    <!-- Populated by JS -->
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Recommendations -->
+              <div class="recommendations-box">
+                <h4>Recommendations</h4>
+                <ul class="recommendations-list" id="recommendationsList">
+                  <!-- Populated by JS -->
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="calc-disclaimer">
+            <p><strong>Based on Sabine's Formula</strong> using average absorption coefficients at 500-1000 Hz. Actual RT60 may vary based on room geometry, furnishings, and occupancy. STI is a simplified estimate. For critical applications, consult an acoustics professional.</p>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+          <h3>Need acoustic design help?</h3>
+          <p>Room acoustics impacts speech intelligibility and collaboration effectiveness. We help design meeting spaces that work.</p>
+          <a href="contact.html" class="btn--primary">Discuss Your Project</a>
+        </div>
+
+      </div><!-- End tool-acoustics -->
+
+      <!-- ============================================
+           TOOL 5: CISCO CODEC SELECTOR
+           ============================================ -->
+      <div class="tool-section" id="tool-codec">
+
+        <!-- Hero -->
+        <div class="tool-hero">
+          <h1>Cisco Codec Selector</h1>
+          <p>Select the right Cisco video conferencing device based on room size and farthest participant distance. Covers Room Bar series, Board series, and Room Kit systems.</p>
+        </div>
+
+        <!-- Calculator -->
+        <div class="codec-card">
+          <!-- Input Section -->
+          <div class="codec-input-section">
+            <div class="codec-field">
+              <label>Farthest Participant Distance</label>
+              <p class="field-hint">Distance from camera/display to the farthest seated participant</p>
+              <div class="distance-input-row">
+                <input type="number" id="codecDistance" value="4" min="1" max="15" step="0.5" oninput="calculateCodec()">
+                <span class="unit-label">metres</span>
+              </div>
+              <input type="range" id="codecDistanceSlider" class="distance-slider" min="1" max="15" step="0.5" value="4" oninput="syncCodecSlider()">
+              <div class="distance-presets">
+                <button type="button" class="distance-preset-btn" onclick="setCodecDistance(2)">2m Huddle</button>
+                <button type="button" class="distance-preset-btn" onclick="setCodecDistance(3)">3m Small</button>
+                <button type="button" class="distance-preset-btn" onclick="setCodecDistance(4)">4m Medium</button>
+                <button type="button" class="distance-preset-btn" onclick="setCodecDistance(6)">6m Large</button>
+                <button type="button" class="distance-preset-btn" onclick="setCodecDistance(9)">9m Boardroom</button>
+                <button type="button" class="distance-preset-btn" onclick="setCodecDistance(12)">12m+ Auditorium</button>
+              </div>
+            </div>
+
+            <div class="codec-field">
+              <label>Room Type (Optional)</label>
+              <p class="field-hint">Helps refine recommendations</p>
+              <select id="codecRoomType" onchange="calculateCodec()">
+                <option value="any">Any / Not Sure</option>
+                <option value="huddle">Huddle Space (2-4 people)</option>
+                <option value="small">Small Meeting Room (4-6 people)</option>
+                <option value="medium">Medium Conference Room (6-10 people)</option>
+                <option value="large">Large Boardroom (10-16 people)</option>
+                <option value="training">Training Room / Classroom</option>
+                <option value="auditorium">Auditorium / Large Space</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Results Section -->
+          <div class="codec-results" id="codecResults">
+            <h4>📡 Recommended Devices</h4>
+
+            <div class="codec-results-grid" id="codecDeviceGrid">
+              <!-- Devices populated by JavaScript -->
+            </div>
+
+            <div class="codec-legend">
+              <div class="legend-item">
+                <span class="legend-color recommended"></span>
+                <span>Best Match</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color compatible"></span>
+                <span>Compatible</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color needs-ext"></span>
+                <span>Needs External Mics</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color insufficient"></span>
+                <span>Insufficient Range</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Peripherals Section -->
+        <div class="codec-card" style="margin-top: 24px;">
+          <h3>🎤 Cisco Microphones</h3>
+          <p>External microphones extend audio pickup for larger rooms.</p>
+          <div class="peripherals-grid">
+            <div class="peripheral-card">
+              <div class="peripheral-header">
+                <span class="peripheral-icon">⬛</span>
+                <div>
+                  <div class="peripheral-name">Table Microphone Pro</div>
+                  <div class="peripheral-type">Table Microphone</div>
+                </div>
+              </div>
+              <div class="peripheral-specs">
+                <div class="peripheral-spec"><span class="label">Pickup Radius</span><span class="value">1.5m</span></div>
+                <div class="peripheral-spec"><span class="label">Coverage</span><span class="value">360°</span></div>
+                <div class="peripheral-spec"><span class="label">Elements</span><span class="value">4 cardioid</span></div>
+                <div class="peripheral-spec"><span class="label">Connectivity</span><span class="value">PoE (RJ45)</span></div>
+              </div>
+              <div class="peripheral-features">
+                <span class="peripheral-feature">Speaker Tracking</span>
+                <span class="peripheral-feature">AI Noise Removal</span>
+                <span class="peripheral-feature">AEC</span>
+              </div>
+            </div>
+            <div class="peripheral-card">
+              <div class="peripheral-header">
+                <span class="peripheral-icon">🔘</span>
+                <div>
+                  <div class="peripheral-name">Ceiling Microphone Pro</div>
+                  <div class="peripheral-type">Ceiling Microphone</div>
+                </div>
+              </div>
+              <div class="peripheral-specs">
+                <div class="peripheral-spec"><span class="label">Pickup Radius</span><span class="value">3.5m</span></div>
+                <div class="peripheral-spec"><span class="label">Coverage</span><span class="value">360°</span></div>
+                <div class="peripheral-spec"><span class="label">Elements</span><span class="value">64-element array</span></div>
+                <div class="peripheral-spec"><span class="label">Connectivity</span><span class="value">PoE (RJ45)</span></div>
+              </div>
+              <div class="peripheral-features">
+                <span class="peripheral-feature">8 Adaptive Beams</span>
+                <span class="peripheral-feature">AI Tracking</span>
+                <span class="peripheral-feature">Cloud Managed</span>
+              </div>
+            </div>
+            <div class="peripheral-card">
+              <div class="peripheral-header">
+                <span class="peripheral-icon">⬛</span>
+                <div>
+                  <div class="peripheral-name">Table Microphone</div>
+                  <div class="peripheral-type">Table Microphone</div>
+                </div>
+              </div>
+              <div class="peripheral-specs">
+                <div class="peripheral-spec"><span class="label">Pickup Radius</span><span class="value">1.5m</span></div>
+                <div class="peripheral-spec"><span class="label">Coverage</span><span class="value">360°</span></div>
+                <div class="peripheral-spec"><span class="label">Elements</span><span class="value">Omnidirectional</span></div>
+                <div class="peripheral-spec"><span class="label">Connectivity</span><span class="value">4-pin mini jack</span></div>
+              </div>
+              <div class="peripheral-features">
+                <span class="peripheral-feature">Boundary Layer</span>
+                <span class="peripheral-feature">Phantom Power</span>
+              </div>
+            </div>
+            <div class="peripheral-card">
+              <div class="peripheral-header">
+                <span class="peripheral-icon">🔘</span>
+                <div>
+                  <div class="peripheral-name">Ceiling Microphone</div>
+                  <div class="peripheral-type">Ceiling Microphone</div>
+                </div>
+              </div>
+              <div class="peripheral-specs">
+                <div class="peripheral-spec"><span class="label">Pickup Radius</span><span class="value">4m</span></div>
+                <div class="peripheral-spec"><span class="label">Coverage</span><span class="value">180°</span></div>
+                <div class="peripheral-spec"><span class="label">Elements</span><span class="value">Directional</span></div>
+                <div class="peripheral-spec"><span class="label">Connectivity</span><span class="value">4-pin Euroblock</span></div>
+              </div>
+              <div class="peripheral-features">
+                <span class="peripheral-feature">Wire Hanging Mount</span>
+                <span class="peripheral-feature">Phantom Power</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="codec-card" style="margin-top: 24px;">
+          <h3>📷 Cisco Cameras</h3>
+          <p>Add-on cameras for speaker tracking, presenter tracking, and extended room coverage.</p>
+          <div class="peripherals-grid">
+            <div class="peripheral-card">
+              <div class="peripheral-header">
+                <span class="peripheral-icon">📷</span>
+                <div>
+                  <div class="peripheral-name">Quad Camera</div>
+                  <div class="peripheral-type">Intelligent Camera</div>
+                </div>
+              </div>
+              <div class="peripheral-specs">
+                <div class="peripheral-spec"><span class="label">Resolution</span><span class="value">5120×2880 (15MP)</span></div>
+                <div class="peripheral-spec"><span class="label">Field of View</span><span class="value">83° + 3×50° tele</span></div>
+                <div class="peripheral-spec"><span class="label">Zoom</span><span class="value">5x digital</span></div>
+                <div class="peripheral-spec"><span class="label">Tracking</span><span class="value">9m standard</span></div>
+              </div>
+              <div class="peripheral-features">
+                <span class="peripheral-feature">Speaker Tracking</span>
+                <span class="peripheral-feature">Best Overview</span>
+                <span class="peripheral-feature">Frames Mode</span>
+              </div>
+            </div>
+            <div class="peripheral-card">
+              <div class="peripheral-header">
+                <span class="peripheral-icon">📷</span>
+                <div>
+                  <div class="peripheral-name">PTZ 4K Camera</div>
+                  <div class="peripheral-type">PTZ Camera</div>
+                </div>
+              </div>
+              <div class="peripheral-specs">
+                <div class="peripheral-spec"><span class="label">Resolution</span><span class="value">3840×2160 (4K)</span></div>
+                <div class="peripheral-spec"><span class="label">Field of View</span><span class="value">70°</span></div>
+                <div class="peripheral-spec"><span class="label">Zoom</span><span class="value">20x optical + 12x digital</span></div>
+                <div class="peripheral-spec"><span class="label">Tracking</span><span class="value">15m+ (with Quad)</span></div>
+              </div>
+              <div class="peripheral-features">
+                <span class="peripheral-feature">AI Face Detection</span>
+                <span class="peripheral-feature">Auto Framing</span>
+                <span class="peripheral-feature">Presenter Tracking</span>
+              </div>
+            </div>
+            <div class="peripheral-card">
+              <div class="peripheral-header">
+                <span class="peripheral-icon">📷</span>
+                <div>
+                  <div class="peripheral-name">Room Vision PTZ</div>
+                  <div class="peripheral-type">PTZ Camera</div>
+                </div>
+              </div>
+              <div class="peripheral-specs">
+                <div class="peripheral-spec"><span class="label">Resolution</span><span class="value">3840×2160 (4K)</span></div>
+                <div class="peripheral-spec"><span class="label">Field of View</span><span class="value">80.5°</span></div>
+                <div class="peripheral-spec"><span class="label">Zoom</span><span class="value">12x optical + 5x digital</span></div>
+                <div class="peripheral-spec"><span class="label">Tracking</span><span class="value">AI PresenterTrack</span></div>
+              </div>
+              <div class="peripheral-features">
+                <span class="peripheral-feature">AI Head Detection</span>
+                <span class="peripheral-feature">PresenterTrack</span>
+                <span class="peripheral-feature">PoE+ Power</span>
+              </div>
+            </div>
+            <div class="peripheral-card">
+              <div class="peripheral-header">
+                <span class="peripheral-icon">📷</span>
+                <div>
+                  <div class="peripheral-name">SpeakerTrack 60</div>
+                  <div class="peripheral-type">Dual Camera</div>
+                </div>
+              </div>
+              <div class="peripheral-specs">
+                <div class="peripheral-spec"><span class="label">Resolution</span><span class="value">1080p60</span></div>
+                <div class="peripheral-spec"><span class="label">Field of View</span><span class="value">80°</span></div>
+                <div class="peripheral-spec"><span class="label">Zoom</span><span class="value">10x optical + 2x digital</span></div>
+                <div class="peripheral-spec"><span class="label">Tracking</span><span class="value">Dual-camera</span></div>
+              </div>
+              <div class="peripheral-features">
+                <span class="peripheral-feature">Fast Speaker Switching</span>
+                <span class="peripheral-feature">Deep Room Support</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- References Section -->
+        <div class="codec-card" style="margin-top: 24px;">
+          <h3>📚 Data Sources</h3>
+          <p>All specifications sourced from official Cisco data sheets (January 2026).</p>
+          <div class="references-section">
+            <div class="references-group">
+              <h5>Video Devices</h5>
+              <ul class="references-list">
+                <li><a href="https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/webex-room-series/webex-room-bar-ds.html" target="_blank">Room Bar Data Sheet</a></li>
+                <li><a href="https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/webex-room-series/room-bar-pro-ds.html" target="_blank">Room Bar Pro Data Sheet</a></li>
+                <li><a href="https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/webex-board/webex-board-pro-ds.html" target="_blank">Board Pro Data Sheet</a></li>
+                <li><a href="https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/webex-board/board-pro-g2-ds.html" target="_blank">Board Pro G2 Data Sheet</a></li>
+                <li><a href="https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/spark-room-kit-series/room-kit-eq-ds.html" target="_blank">Room Kit EQ Data Sheet</a></li>
+                <li><a href="https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/webex-room-series/datasheet-c78-741052.html" target="_blank">Room Kit Pro Data Sheet</a></li>
+              </ul>
+            </div>
+            <div class="references-group">
+              <h5>Microphones</h5>
+              <ul class="references-list">
+                <li><a href="https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/collaboration-peripherals/table-microphone-pro-ds.html" target="_blank">Table Microphone Pro Data Sheet</a></li>
+                <li><a href="https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/collaboration-peripherals/ceiling-microphone-pro-ds.html" target="_blank">Ceiling Microphone Pro Data Sheet</a></li>
+                <li><a href="https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/telepresence-microphones/datasheet-c78-736073.html" target="_blank">Cisco Microphones Data Sheet</a></li>
+              </ul>
+            </div>
+            <div class="references-group">
+              <h5>Cameras</h5>
+              <ul class="references-list">
+                <li><a href="https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/spark-room-kit-series/datasheet-c78-738752.html" target="_blank">Quad Camera (Room Kit Plus DS)</a></li>
+                <li><a href="https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/collaboration-peripherals/webex-ptz-4k-camera-ds.html" target="_blank">PTZ 4K Camera Data Sheet</a></li>
+                <li><a href="https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/conferencing-cameras/room-vision-ptz-ds.html" target="_blank">Room Vision PTZ Data Sheet</a></li>
+                <li><a href="https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/telepresence-speaker-track-60/datasheet-c78-729836.html" target="_blank">SpeakerTrack 60 Data Sheet</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+          <h3>Need help choosing the right solution?</h3>
+          <p>We're Cisco partners and can help design and deploy the perfect video conferencing setup for your spaces.</p>
+          <a href="contact.html" class="btn--primary">Discuss Your Project</a>
+        </div>
+
+      </div><!-- End tool-codec -->
 
     </div>
   </main>
@@ -3038,6 +5085,1045 @@
       r.addEventListener('change', calculateDisplay);
     });
     calculateDisplay();
+
+    // ==========================================
+    // WALL REINFORCEMENT CALCULATOR
+    // ==========================================
+
+    // Equipment data with recommended reinforcement specs
+    const EQUIPMENT_DATA = {
+      display_46: { name: '46" Display', weight: 25, width: 1200, height: 1200, thickness: 12, note: null },
+      display_55: { name: '55" Display', weight: 35, width: 1200, height: 1200, thickness: 16, note: null },
+      display_65: { name: '65" Display', weight: 45, width: 2400, height: 2400, thickness: 16, note: null },
+      display_75: { name: '75" Display', weight: 50, width: 2400, height: 2400, thickness: 16, note: null },
+      display_85: { name: '85" Display', weight: 65, width: 2400, height: 2400, thickness: 25, note: null },
+      display_98: { name: '98" Display', weight: 80, width: 2400, height: 2400, thickness: 25, note: null },
+      projector: { name: 'Wall-Mount Projector', weight: 15, width: 0, height: 0, thickness: 0, note: 'Mount directly to wall stud - no reinforcement required' },
+      speaker: { name: 'Ceiling Speaker', weight: 5, width: 0, height: 0, thickness: 0, note: 'Mount directly to ceiling joist or stud - no reinforcement required' },
+      videowall_2x2: { name: '2×2 Video Wall', weight: 150, width: 3200, height: 2400, thickness: 32, note: null },
+      videowall_3x3: { name: '3×3 Video Wall', weight: 340, width: 4800, height: 2400, thickness: 32, note: null },
+      led_6x3: { name: '6m×3m LED Wall', weight: 250, width: 6000, height: 3000, thickness: 32, note: null },
+      rack_6u: { name: 'Wall-Mount Rack (6U)', weight: 60, width: 2400, height: 2400, thickness: 16, note: null },
+      custom: { name: 'Custom Equipment', weight: 50, width: 0, height: 0, thickness: 0, note: null }
+    };
+
+    // MDF thickness thresholds with load capacity
+    const THICKNESS_THRESHOLDS = [
+      { maxWeight: 30, thickness: 12, capacity: 40, material: 'MDF Sheet' },
+      { maxWeight: 60, thickness: 16, capacity: 70, material: 'MDF Sheet' },
+      { maxWeight: 100, thickness: 25, capacity: 120, material: 'MDF Sheet' },
+      { maxWeight: 400, thickness: 32, capacity: 200, material: 'MDF Sheet' }
+    ];
+
+    // Default dimension recommendations based on weight
+    const DIMENSION_THRESHOLDS = [
+      { maxWeight: 40, width: 1200, height: 1200 },
+      { maxWeight: 80, width: 2400, height: 2400 },
+      { maxWeight: 150, width: 3200, height: 2400 },
+      { maxWeight: 250, width: 4800, height: 2400 },
+      { maxWeight: 400, width: 6000, height: 3000 }
+    ];
+
+    let selectedEquipment = null;
+    let installType = 'new';
+
+    function selectEquipment(type, btn) {
+      selectedEquipment = type;
+
+      // Update button states
+      document.querySelectorAll('.equipment-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Show/hide custom weight input
+      const customRow = document.getElementById('customWeightRow');
+      if (type === 'custom') {
+        customRow.classList.add('visible');
+      } else {
+        customRow.classList.remove('visible');
+      }
+
+      calculateReinforcement();
+    }
+
+    function setInstallType(type, btn) {
+      installType = type;
+
+      // Update button states
+      document.querySelectorAll('.install-type-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      updateInstallNotes();
+    }
+
+    function updateCustomWeight() {
+      const weight = parseInt(document.getElementById('customWeight').value) || 50;
+      document.getElementById('customWeightSlider').value = Math.min(weight, 400);
+      calculateReinforcement();
+    }
+
+    function syncWeightSlider() {
+      const weight = parseInt(document.getElementById('customWeightSlider').value) || 50;
+      document.getElementById('customWeight').value = weight;
+      calculateReinforcement();
+    }
+
+    function toggleAdvanced(btn) {
+      btn.classList.toggle('open');
+      const content = document.getElementById('advancedContent');
+      content.classList.toggle('visible');
+    }
+
+    function recalculateReinforcement() {
+      calculateReinforcement();
+    }
+
+    function calculateReinforcement() {
+      if (!selectedEquipment) {
+        return;
+      }
+
+      const equipment = EQUIPMENT_DATA[selectedEquipment];
+      let weight = equipment.weight;
+
+      // Use custom weight if selected
+      if (selectedEquipment === 'custom') {
+        weight = parseInt(document.getElementById('customWeight').value) || 50;
+      }
+
+      // Check for stud-mount equipment (no reinforcement needed)
+      if (equipment.note && equipment.thickness === 0) {
+        displayStudMountResult(equipment);
+        return;
+      }
+
+      // Get overrides if set
+      const overrideMaterial = document.getElementById('overrideMaterial').value;
+      const overrideWidth = parseInt(document.getElementById('overrideWidth').value);
+      const overrideHeight = parseInt(document.getElementById('overrideHeight').value);
+      const overrideThickness = parseInt(document.getElementById('overrideThickness').value);
+
+      // Calculate recommended specs
+      let specs = calculateSpecs(weight, equipment);
+
+      // Apply overrides
+      if (overrideMaterial) {
+        specs.material = overrideMaterial === 'mdf' ? 'MDF Sheet' :
+                        overrideMaterial === 'plywood' ? 'Plywood' : 'Structural Steel';
+      }
+      if (overrideWidth) specs.width = overrideWidth;
+      if (overrideHeight) specs.height = overrideHeight;
+      if (overrideThickness) {
+        specs.thickness = overrideThickness;
+        // Recalculate capacity based on thickness
+        const thresholdMatch = THICKNESS_THRESHOLDS.find(t => t.thickness === overrideThickness);
+        if (thresholdMatch) {
+          specs.capacity = thresholdMatch.capacity;
+        }
+      }
+
+      // Determine adequacy
+      const ratio = weight / specs.capacity;
+      let status, statusClass, barClass;
+
+      if (weight > 100) {
+        status = 'Engineer Required';
+        statusClass = 'engineer';
+        barClass = 'danger';
+      } else if (ratio <= 0.7) {
+        status = 'Adequate';
+        statusClass = 'adequate';
+        barClass = 'safe';
+      } else if (ratio <= 0.9) {
+        status = 'Marginal';
+        statusClass = 'marginal';
+        barClass = 'caution';
+      } else {
+        status = 'Undersized';
+        statusClass = 'engineer';
+        barClass = 'danger';
+      }
+
+      // Update UI
+      document.getElementById('specMaterial').textContent = specs.material;
+      document.getElementById('specDimensions').textContent = specs.width + ' × ' + specs.height;
+      document.getElementById('specThickness').textContent = specs.thickness + 'mm';
+      document.getElementById('specCapacity').textContent = '~' + specs.capacity + ' kg';
+
+      const statusEl = document.getElementById('resultStatus');
+      statusEl.textContent = status;
+      statusEl.className = 'result-status ' + statusClass;
+
+      const percentage = Math.min(Math.round(ratio * 100), 100);
+      document.getElementById('weightRatio').textContent = weight + ' / ' + specs.capacity + ' kg (' + percentage + '%)';
+
+      const barFill = document.getElementById('weightBarFill');
+      barFill.style.width = percentage + '%';
+      barFill.className = 'weight-bar-fill ' + barClass;
+
+      updateInstallNotes(weight, specs);
+    }
+
+    function calculateSpecs(weight, equipment) {
+      // Use equipment-specific specs if available
+      if (equipment.width > 0 && equipment.height > 0 && equipment.thickness > 0) {
+        const thresholdMatch = THICKNESS_THRESHOLDS.find(t => t.thickness === equipment.thickness);
+        return {
+          material: 'MDF Sheet',
+          width: equipment.width,
+          height: equipment.height,
+          thickness: equipment.thickness,
+          capacity: thresholdMatch ? thresholdMatch.capacity : 70
+        };
+      }
+
+      // Calculate based on weight for custom equipment
+      let thickness = 12, capacity = 40;
+      for (const t of THICKNESS_THRESHOLDS) {
+        if (weight <= t.maxWeight) {
+          thickness = t.thickness;
+          capacity = t.capacity;
+          break;
+        }
+        thickness = t.thickness;
+        capacity = t.capacity;
+      }
+
+      let width = 1200, height = 1200;
+      for (const d of DIMENSION_THRESHOLDS) {
+        if (weight <= d.maxWeight) {
+          width = d.width;
+          height = d.height;
+          break;
+        }
+        width = d.width;
+        height = d.height;
+      }
+
+      return { material: 'MDF Sheet', width, height, thickness, capacity };
+    }
+
+    function displayStudMountResult(equipment) {
+      document.getElementById('specMaterial').textContent = 'Stud Mount';
+      document.getElementById('specDimensions').textContent = 'N/A';
+      document.getElementById('specThickness').textContent = 'N/A';
+      document.getElementById('specCapacity').textContent = '~45 kg';
+
+      const statusEl = document.getElementById('resultStatus');
+      statusEl.textContent = 'Stud Mount';
+      statusEl.className = 'result-status stud-mount';
+
+      const percentage = Math.round((equipment.weight / 45) * 100);
+      document.getElementById('weightRatio').textContent = equipment.weight + ' / 45 kg (' + percentage + '%)';
+
+      const barFill = document.getElementById('weightBarFill');
+      barFill.style.width = percentage + '%';
+      barFill.className = 'weight-bar-fill safe';
+
+      const notesContainer = document.getElementById('installNotes');
+      notesContainer.innerHTML = '<h5>Installation Notes</h5>' +
+        '<div class="note-box info">' +
+        '<span class="note-icon">ℹ️</span>' +
+        '<p>' + equipment.note + '</p>' +
+        '</div>' +
+        '<div class="note-box info">' +
+        '<span class="note-icon">📐</span>' +
+        '<p>Use a stud finder to locate framing. Mount using appropriate lag bolts or structural screws into the centre of the stud.</p>' +
+        '</div>';
+    }
+
+    function updateInstallNotes(weight, specs) {
+      if (!weight || !specs) {
+        weight = selectedEquipment ? EQUIPMENT_DATA[selectedEquipment].weight : 50;
+        specs = calculateSpecs(weight, EQUIPMENT_DATA[selectedEquipment] || EQUIPMENT_DATA.custom);
+      }
+
+      const notesContainer = document.getElementById('installNotes');
+      let notes = '<h5>Installation Notes</h5>';
+
+      // Standard fixing note
+      notes += '<div class="note-box info">' +
+        '<span class="note-icon">🔧</span>' +
+        '<p>Fix ' + specs.thickness + 'mm MDF to wall studs at 400mm centres using construction adhesive and 50mm screws.</p>' +
+        '</div>';
+
+      // Installation type specific notes
+      if (installType === 'new') {
+        notes += '<div class="note-box info">' +
+          '<span class="note-icon">🏗️</span>' +
+          '<p>New build: Install reinforcement behind plasterboard before lining. Ensure MDF edges are flush with stud faces.</p>' +
+          '</div>';
+      } else {
+        notes += '<div class="note-box info">' +
+          '<span class="note-icon">🔨</span>' +
+          '<p>Refurbishment: Install reinforcement over existing wall surface. Paint to match surrounding walls before mounting equipment.</p>' +
+          '</div>';
+      }
+
+      // Weight warning for >100kg
+      if (weight > 100) {
+        notes += '<div class="note-box danger">' +
+          '<span class="note-icon">⚠️</span>' +
+          '<p><strong>Structural engineer sign-off required.</strong> Loads exceeding 100kg require engineering assessment to verify wall structure can support the load.</p>' +
+          '</div>';
+      }
+
+      // Safety margin note
+      if (weight > 60) {
+        notes += '<div class="note-box warning">' +
+          '<span class="note-icon">📋</span>' +
+          '<p>For heavy equipment, ensure wall framing is 90×45mm studs minimum at 450mm centres. Consider additional noggins between studs.</p>' +
+          '</div>';
+      }
+
+      notesContainer.innerHTML = notes;
+    }
+
+    // ==========================================
+    // CISCO CODEC SELECTOR
+    // ==========================================
+
+    const CISCO_DEVICES = [
+      {
+        id: 'room_bar',
+        name: 'Room Bar',
+        series: 'Room Bar Series',
+        audioPickup: 3,
+        speakerTracking: 3,
+        micArray: '4-element',
+        roomSize: 'Huddle/Small',
+        maxPeople: 5,
+        features: ['4K Camera', 'AI Framing', 'Noise Removal'],
+        extMicSupport: 1,
+        needsExtMic: false,
+        note: null
+      },
+      {
+        id: 'room_bar_pro',
+        name: 'Room Bar Pro',
+        series: 'Room Bar Series',
+        audioPickup: 4,
+        speakerTracking: 6,
+        micArray: '16-element',
+        roomSize: 'Small-Medium',
+        maxPeople: 10,
+        features: ['Dual 4K Cameras', 'AI Framing', 'Motorized Tilt', 'Wi-Fi 6E'],
+        extMicSupport: 3,
+        needsExtMic: false,
+        note: null
+      },
+      {
+        id: 'board_pro',
+        name: 'Board Pro',
+        series: 'Board Series',
+        audioPickup: 4,
+        speakerTracking: 6,
+        micArray: '14-element',
+        roomSize: 'Small-Medium',
+        maxPeople: 10,
+        features: ['55" or 75"', '4K Touch Display', 'Whiteboarding', 'All-in-One'],
+        extMicSupport: 8,
+        needsExtMic: false,
+        note: 'Integrated display + collaboration'
+      },
+      {
+        id: 'board_pro_g2',
+        name: 'Board Pro G2',
+        series: 'Board Series',
+        audioPickup: 4,
+        speakerTracking: 7,
+        micArray: '14-element',
+        roomSize: 'Small-Medium',
+        maxPeople: 12,
+        features: ['55" or 75"', '4K Touch Display', 'Enhanced AI', 'Spatial Audio'],
+        extMicSupport: 8,
+        needsExtMic: false,
+        note: 'Latest generation with improved tracking'
+      },
+      {
+        id: 'room_kit_eq',
+        name: 'Room Kit EQ',
+        series: 'Room Kit Series',
+        audioPickup: 0,
+        speakerTracking: 9,
+        extendedRange: 15,
+        micArray: '8-element (tracking only)',
+        roomSize: 'Large',
+        maxPeople: 14,
+        features: ['Quad Camera', 'Frames Mode', 'Codec + Camera'],
+        extMicSupport: 8,
+        needsExtMic: true,
+        note: 'Requires external microphones for audio'
+      },
+      {
+        id: 'room_kit_eqx',
+        name: 'Room Kit EQX',
+        series: 'Room Kit Series',
+        audioPickup: 0,
+        speakerTracking: 9,
+        extendedRange: 15,
+        micArray: '8-element (tracking only)',
+        roomSize: 'Medium-Large',
+        maxPeople: 14,
+        features: ['Quad Camera', 'Integrated Display', 'Frames Mode'],
+        extMicSupport: 8,
+        needsExtMic: true,
+        note: 'Integrated 70" or 85" display, needs ext mics'
+      },
+      {
+        id: 'room_kit_pro',
+        name: 'Room Kit Pro',
+        series: 'Room Kit Series',
+        audioPickup: 0,
+        speakerTracking: 9,
+        extendedRange: 18,
+        micArray: '8-element (tracking only)',
+        roomSize: 'Large/Specialized',
+        maxPeople: 20,
+        features: ['Quad Camera', 'PTZ Support', 'Multi-screen', 'Extended View'],
+        extMicSupport: 8,
+        needsExtMic: true,
+        note: 'For large boardrooms & auditoriums'
+      }
+    ];
+
+    // Cisco Microphones
+    const CISCO_MICROPHONES = [
+      {
+        id: 'table_mic_pro',
+        name: 'Table Microphone Pro',
+        type: 'Table',
+        pickupRadius: 1.5,
+        coverage: '360°',
+        elements: '4 cardioid',
+        frequency: '100Hz - 16kHz',
+        connectivity: 'PoE (RJ45)',
+        features: ['Speaker Tracking', 'AI Noise Removal', 'AEC', 'Touch Mute'],
+        maxUnits: 8,
+        source: 'https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/collaboration-peripherals/table-microphone-pro-ds.html'
+      },
+      {
+        id: 'ceiling_mic_pro',
+        name: 'Ceiling Microphone Pro',
+        type: 'Ceiling',
+        pickupRadius: 3.5,
+        coverage: '360°',
+        elements: '64-element array',
+        frequency: '120Hz - 20kHz',
+        connectivity: 'PoE (RJ45)',
+        features: ['8 Adaptive Beams', 'AI Tracking', 'Cloud Managed'],
+        maxUnits: 8,
+        source: 'https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/collaboration-peripherals/ceiling-microphone-pro-ds.html'
+      },
+      {
+        id: 'table_mic',
+        name: 'Table Microphone',
+        type: 'Table',
+        pickupRadius: 1.5,
+        coverage: '360°',
+        elements: 'Omnidirectional',
+        frequency: '80Hz - 20kHz',
+        connectivity: '4-pin mini jack',
+        features: ['Boundary Layer', 'Phantom Power'],
+        maxUnits: 3,
+        source: 'https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/telepresence-microphones/datasheet-c78-736073.html'
+      },
+      {
+        id: 'ceiling_mic',
+        name: 'Ceiling Microphone',
+        type: 'Ceiling',
+        pickupRadius: 4,
+        coverage: '180°',
+        elements: 'Directional',
+        frequency: '80Hz - 20kHz',
+        connectivity: '4-pin Euroblock',
+        features: ['Wire Hanging Mount', 'Phantom Power'],
+        maxUnits: 8,
+        source: 'https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/telepresence-microphones/datasheet-c78-736073.html'
+      }
+    ];
+
+    // Cisco Cameras
+    const CISCO_CAMERAS = [
+      {
+        id: 'quad_camera',
+        name: 'Quad Camera',
+        type: 'Intelligent',
+        resolution: '5120×2880 (15MP)',
+        output: '1080p60',
+        fov: '83° (main) + 3×50° tele',
+        zoom: '5x digital',
+        tracking: '9m standard',
+        features: ['Speaker Tracking', 'Best Overview', 'Frames Mode', 'People Count'],
+        compatibility: 'Room Kit EQ, EQX, Pro, Plus',
+        source: 'https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/spark-room-kit-series/datasheet-c78-738752.html'
+      },
+      {
+        id: 'ptz_4k',
+        name: 'PTZ 4K Camera',
+        type: 'PTZ',
+        resolution: '3840×2160 (4K)',
+        output: '4K30 / 1080p60',
+        fov: '70°',
+        zoom: '20x optical + 12x digital',
+        tracking: '15m+ (with Quad Camera)',
+        features: ['AI Face Detection', 'Auto Framing', 'Presenter Tracking'],
+        compatibility: 'Codec Pro, Codec Plus, Room Kit Pro',
+        source: 'https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/collaboration-peripherals/webex-ptz-4k-camera-ds.html'
+      },
+      {
+        id: 'room_vision_ptz',
+        name: 'Room Vision PTZ',
+        type: 'PTZ',
+        resolution: '3840×2160 (4K)',
+        output: '4K30 / 1080p60',
+        fov: '80.5°',
+        zoom: '12x optical + 5x digital',
+        tracking: 'AI PresenterTrack',
+        features: ['AI Head Detection', 'PresenterTrack', 'PoE+ Power'],
+        compatibility: 'Room Bar Pro, Board Pro, Codec EQ',
+        source: 'https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/conferencing-cameras/room-vision-ptz-ds.html'
+      },
+      {
+        id: 'speakertrack_60',
+        name: 'SpeakerTrack 60',
+        type: 'Dual Camera',
+        resolution: '1080p60',
+        output: '1080p60',
+        fov: '80°',
+        zoom: '10x optical + 2x digital',
+        tracking: 'Dual-camera tracking',
+        features: ['Fast Speaker Switching', 'Deep Room Support'],
+        compatibility: 'SX80, Codec Pro (legacy)',
+        source: 'https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/telepresence-speaker-track-60/datasheet-c78-729836.html'
+      }
+    ];
+
+    // Data Sources
+    const CISCO_SOURCES = {
+      devices: [
+        { name: 'Room Bar Data Sheet', url: 'https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/webex-room-series/webex-room-bar-ds.html' },
+        { name: 'Room Bar Pro Data Sheet', url: 'https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/webex-room-series/room-bar-pro-ds.html' },
+        { name: 'Board Pro Data Sheet', url: 'https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/webex-board/webex-board-pro-ds.html' },
+        { name: 'Board Pro G2 Data Sheet', url: 'https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/webex-board/board-pro-g2-ds.html' },
+        { name: 'Room Kit EQ Data Sheet', url: 'https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/spark-room-kit-series/room-kit-eq-ds.html' },
+        { name: 'Room Kit EQX Data Sheet', url: 'https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/spark-room-kit-series/room-kit-eqx-ds.html' },
+        { name: 'Room Kit Pro Data Sheet', url: 'https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/webex-room-series/datasheet-c78-741052.html' }
+      ],
+      microphones: [
+        { name: 'Table Microphone Pro Data Sheet', url: 'https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/collaboration-peripherals/table-microphone-pro-ds.html' },
+        { name: 'Ceiling Microphone Pro Data Sheet', url: 'https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/collaboration-peripherals/ceiling-microphone-pro-ds.html' },
+        { name: 'Cisco Microphones Data Sheet', url: 'https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/telepresence-microphones/datasheet-c78-736073.html' }
+      ],
+      cameras: [
+        { name: 'Quad Camera (Room Kit Plus DS)', url: 'https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/spark-room-kit-series/datasheet-c78-738752.html' },
+        { name: 'PTZ 4K Camera Data Sheet', url: 'https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/collaboration-peripherals/webex-ptz-4k-camera-ds.html' },
+        { name: 'Room Vision PTZ Data Sheet', url: 'https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/conferencing-cameras/room-vision-ptz-ds.html' },
+        { name: 'SpeakerTrack 60 Data Sheet', url: 'https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/telepresence-speaker-track-60/datasheet-c78-729836.html' }
+      ]
+    };
+
+    function setCodecDistance(distance) {
+      const distanceEl = document.getElementById('codecDistance');
+      const sliderEl = document.getElementById('codecDistanceSlider');
+      if (distanceEl) distanceEl.value = distance;
+      if (sliderEl) sliderEl.value = distance;
+      calculateCodec();
+    }
+
+    function syncCodecSlider() {
+      const sliderEl = document.getElementById('codecDistanceSlider');
+      const distanceEl = document.getElementById('codecDistance');
+      if (!sliderEl || !distanceEl) return;
+      const distance = parseFloat(sliderEl.value);
+      distanceEl.value = distance;
+      calculateCodec();
+    }
+
+    function calculateCodec() {
+      const distanceEl = document.getElementById('codecDistance');
+      const roomTypeEl = document.getElementById('codecRoomType');
+      const sliderEl = document.getElementById('codecDistanceSlider');
+      const gridEl = document.getElementById('codecDeviceGrid');
+
+      // Skip if elements don't exist
+      if (!distanceEl || !roomTypeEl || !gridEl) return;
+
+      const distance = parseFloat(distanceEl.value) || 4;
+      const roomType = roomTypeEl.value;
+
+      // Sync slider
+      if (sliderEl) sliderEl.value = Math.min(distance, 15);
+
+      // Evaluate each device
+      const evaluatedDevices = CISCO_DEVICES.map(device => {
+        let status, priority;
+        const extendedRange = device.extendedRange || device.speakerTracking;
+
+        // Determine status based on distance vs capabilities
+        if (device.needsExtMic) {
+          // Room Kit series - always needs external mics
+          if (distance <= device.speakerTracking) {
+            // Within standard speaker tracking range
+            status = 'needs-ext';
+            priority = 2;
+          } else if (distance <= extendedRange) {
+            // Within extended range (with PTZ + ext mics)
+            status = 'needs-ext';
+            priority = 2.5;
+          } else {
+            status = 'insufficient';
+            priority = 5;
+          }
+        } else {
+          // Room Bar / Board series - has integrated mics
+          if (distance <= device.audioPickup) {
+            status = 'recommended';
+            priority = 1;
+          } else if (distance <= device.speakerTracking) {
+            status = 'compatible';
+            priority = 1.5;
+          } else if (distance <= device.speakerTracking + 3 && device.extMicSupport > 0) {
+            status = 'needs-ext';
+            priority = 3;
+          } else {
+            status = 'insufficient';
+            priority = 5;
+          }
+        }
+
+        // Adjust priority based on room type fit
+        if (roomType !== 'any') {
+          const roomFit = getRoomTypeFit(device, roomType);
+          if (roomFit === 'ideal') priority -= 0.3;
+          else if (roomFit === 'poor') priority += 0.5;
+        }
+
+        return { ...device, status, priority, extendedRange };
+      });
+
+      // Sort by priority (lower is better)
+      evaluatedDevices.sort((a, b) => a.priority - b.priority);
+
+      // Mark the best one as "best" if it's not insufficient
+      if (evaluatedDevices[0].status !== 'insufficient') {
+        evaluatedDevices[0].isBest = true;
+      }
+
+      // Render devices
+      renderCodecDevices(evaluatedDevices);
+
+      // Show/hide external mics section
+      const needsExtMics = distance > 4 || evaluatedDevices.some(d => d.status === 'needs-ext' && d.priority <= 3);
+      document.getElementById('codecExtMics').style.display = needsExtMics ? 'block' : 'none';
+    }
+
+    function getRoomTypeFit(device, roomType) {
+      const fits = {
+        'room_bar': { huddle: 'ideal', small: 'good', medium: 'poor', large: 'poor', training: 'poor', auditorium: 'poor' },
+        'room_bar_pro': { huddle: 'good', small: 'ideal', medium: 'ideal', large: 'poor', training: 'good', auditorium: 'poor' },
+        'board_pro': { huddle: 'good', small: 'ideal', medium: 'ideal', large: 'poor', training: 'ideal', auditorium: 'poor' },
+        'board_pro_g2': { huddle: 'good', small: 'ideal', medium: 'ideal', large: 'good', training: 'ideal', auditorium: 'poor' },
+        'room_kit_eq': { huddle: 'poor', small: 'poor', medium: 'good', large: 'ideal', training: 'good', auditorium: 'good' },
+        'room_kit_eqx': { huddle: 'poor', small: 'poor', medium: 'ideal', large: 'ideal', training: 'ideal', auditorium: 'good' },
+        'room_kit_pro': { huddle: 'poor', small: 'poor', medium: 'good', large: 'ideal', training: 'good', auditorium: 'ideal' }
+      };
+      return fits[device.id]?.[roomType] || 'good';
+    }
+
+    function renderCodecDevices(devices) {
+      const grid = document.getElementById('codecDeviceGrid');
+
+      // Show all non-insufficient devices (up to 6)
+      let visibleDevices = devices.filter(d => d.status !== 'insufficient').slice(0, 6);
+
+      // If we have fewer than 3 compatible devices, add some insufficient ones for reference
+      if (visibleDevices.length < 3) {
+        const insufficientDevices = devices.filter(d => d.status === 'insufficient').slice(0, 3 - visibleDevices.length);
+        visibleDevices = [...visibleDevices, ...insufficientDevices];
+      }
+
+      grid.innerHTML = visibleDevices.map(device => {
+        const badgeClass = device.isBest ? 'best' :
+                          device.status === 'recommended' ? 'best' :
+                          device.status === 'compatible' ? 'good' :
+                          device.status === 'needs-ext' ? 'ext-mics' : 'insufficient';
+        const badgeText = device.isBest ? 'Best Match' :
+                         device.status === 'recommended' ? 'Recommended' :
+                         device.status === 'compatible' ? 'Compatible' :
+                         device.status === 'needs-ext' ? '+ Ext Mics' : 'Insufficient';
+
+        const audioPickupText = device.needsExtMic ? 'Ext Mics' : device.audioPickup + 'm';
+        const audioClass = device.needsExtMic ? 'warning' : '';
+
+        // Show extended range for Room Kit series
+        const trackingText = device.extendedRange && device.extendedRange > device.speakerTracking
+          ? `${device.speakerTracking}m (${device.extendedRange}m ext)`
+          : `${device.speakerTracking}m`;
+
+        return `
+          <div class="codec-device-card ${device.status} ${device.isBest ? 'recommended' : ''}">
+            <div class="device-header">
+              <div>
+                <div class="device-name">${device.name}</div>
+                <div class="device-series">${device.series}</div>
+              </div>
+              <span class="device-badge ${badgeClass}">${badgeText}</span>
+            </div>
+            <div class="device-specs">
+              <div class="device-spec">
+                <span class="spec-label">Audio Pickup</span>
+                <span class="spec-value ${audioClass}">${audioPickupText}</span>
+              </div>
+              <div class="device-spec">
+                <span class="spec-label">Speaker Track</span>
+                <span class="spec-value highlight">${trackingText}</span>
+              </div>
+              <div class="device-spec">
+                <span class="spec-label">Mic Array</span>
+                <span class="spec-value">${device.micArray}</span>
+              </div>
+              <div class="device-spec">
+                <span class="spec-label">Room Size</span>
+                <span class="spec-value">${device.roomSize}</span>
+              </div>
+            </div>
+            <div class="device-features">
+              ${device.features.map(f => `<span class="device-feature"><span class="feature-icon">✓</span>${f}</span>`).join('')}
+            </div>
+            ${device.note ? `<div class="device-note ${device.needsExtMic ? '' : 'info'}"><span>ℹ️</span>${device.note}</div>` : ''}
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Render Microphones
+    function renderMicrophones() {
+      const grid = document.getElementById('microphonesGrid');
+      if (!grid) return;
+
+      grid.innerHTML = CISCO_MICROPHONES.map(mic => `
+        <div class="peripheral-card">
+          <div class="peripheral-header">
+            <span class="peripheral-icon">${mic.type === 'Ceiling' ? '🔘' : '⬛'}</span>
+            <div>
+              <div class="peripheral-name">${mic.name}</div>
+              <div class="peripheral-type">${mic.type} Microphone</div>
+            </div>
+          </div>
+          <div class="peripheral-specs">
+            <div class="peripheral-spec">
+              <span class="label">Pickup Radius</span>
+              <span class="value">${mic.pickupRadius}m</span>
+            </div>
+            <div class="peripheral-spec">
+              <span class="label">Coverage</span>
+              <span class="value">${mic.coverage}</span>
+            </div>
+            <div class="peripheral-spec">
+              <span class="label">Elements</span>
+              <span class="value">${mic.elements}</span>
+            </div>
+            <div class="peripheral-spec">
+              <span class="label">Connectivity</span>
+              <span class="value">${mic.connectivity}</span>
+            </div>
+          </div>
+          <div class="peripheral-features">
+            ${mic.features.map(f => `<span class="peripheral-feature">${f}</span>`).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Render Cameras
+    function renderCameras() {
+      const grid = document.getElementById('camerasGrid');
+      if (!grid) return;
+
+      grid.innerHTML = CISCO_CAMERAS.map(cam => `
+        <div class="peripheral-card">
+          <div class="peripheral-header">
+            <span class="peripheral-icon">📷</span>
+            <div>
+              <div class="peripheral-name">${cam.name}</div>
+              <div class="peripheral-type">${cam.type} Camera</div>
+            </div>
+          </div>
+          <div class="peripheral-specs">
+            <div class="peripheral-spec">
+              <span class="label">Resolution</span>
+              <span class="value">${cam.resolution}</span>
+            </div>
+            <div class="peripheral-spec">
+              <span class="label">Field of View</span>
+              <span class="value">${cam.fov}</span>
+            </div>
+            <div class="peripheral-spec">
+              <span class="label">Zoom</span>
+              <span class="value">${cam.zoom}</span>
+            </div>
+            <div class="peripheral-spec">
+              <span class="label">Tracking</span>
+              <span class="value">${cam.tracking}</span>
+            </div>
+          </div>
+          <div class="peripheral-features">
+            ${cam.features.map(f => `<span class="peripheral-feature">${f}</span>`).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Render References
+    function renderReferences() {
+      const deviceRefs = document.getElementById('deviceRefs');
+      const micRefs = document.getElementById('micRefs');
+      const cameraRefs = document.getElementById('cameraRefs');
+
+      if (deviceRefs) {
+        deviceRefs.innerHTML = CISCO_SOURCES.devices.map(s =>
+          `<li><a href="${s.url}" target="_blank" rel="noopener">${s.name}</a></li>`
+        ).join('');
+      }
+
+      if (micRefs) {
+        micRefs.innerHTML = CISCO_SOURCES.microphones.map(s =>
+          `<li><a href="${s.url}" target="_blank" rel="noopener">${s.name}</a></li>`
+        ).join('');
+      }
+
+      if (cameraRefs) {
+        cameraRefs.innerHTML = CISCO_SOURCES.cameras.map(s =>
+          `<li><a href="${s.url}" target="_blank" rel="noopener">${s.name}</a></li>`
+        ).join('');
+      }
+    }
+
+    // Initialize codec selector
+    function initCodecSelector() {
+      calculateCodec();
+      renderMicrophones();
+      renderCameras();
+      renderReferences();
+    }
+
+    // Run on page load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCodecSelector);
+    } else {
+      initCodecSelector();
+    }
+
+    // ==========================================
+    // ACOUSTICS CALCULATOR (Sabine's Formula)
+    // ==========================================
+
+    // ANSI S12.60-2002 Room Type Targets
+    const ROOM_TARGETS = {
+      conference: { min: 0.4, max: 0.6, label: 'Conference / Meeting Room' },
+      classroom_small: { min: 0.4, max: 0.6, label: 'Classroom (<283 m³)' },
+      classroom_large: { min: 0.5, max: 0.7, label: 'Classroom (283-566 m³)' },
+      auditorium: { min: 0.8, max: 1.2, label: 'Auditorium / Lecture Hall' },
+      open_office: { min: 0.5, max: 0.7, label: 'Open Office' }
+    };
+
+    // Absorption coefficients (500-1000 Hz average)
+    const ABSORPTION = {
+      acoustic_tiles: 0.70,
+      carpet_heavy: 0.50,
+      carpet_thin: 0.30,
+      concrete: 0.02,
+      drywall: 0.05,
+      glass: 0.04,
+      wood: 0.10,
+      curtains: 0.55,
+      acoustic_panels: 0.85,
+      upholstered_seat: 0.50 // sabins per seat
+    };
+
+    const FT_TO_M = 0.3048;
+
+    function calculateAcoustics() {
+      // Get dimensions
+      let length = parseFloat(document.getElementById('acousticsLength').value) || 10;
+      let width = parseFloat(document.getElementById('acousticsWidth').value) || 8;
+      let height = parseFloat(document.getElementById('acousticsHeight').value) || 3;
+      const unit = document.getElementById('acousticsUnit').value;
+
+      // Convert to metres if needed
+      if (unit === 'ft') {
+        length *= FT_TO_M;
+        width *= FT_TO_M;
+        height *= FT_TO_M;
+      }
+
+      // Calculate areas
+      const floorArea = length * width;
+      const ceilingArea = floorArea;
+      const wallArea = 2 * (length * height) + 2 * (width * height);
+      const volume = length * width * height;
+
+      // Get material coefficients
+      const ceilingCoef = parseFloat(document.getElementById('acousticsCeiling').value);
+      const floorCoef = parseFloat(document.getElementById('acousticsFloor').value);
+      const wallCoef = parseFloat(document.getElementById('acousticsWalls').value);
+
+      // Window percentage (glass coefficient = 0.04)
+      const windowPct = parseFloat(document.getElementById('acousticsWindows').value) / 100;
+      const windowArea = wallArea * windowPct;
+      const netWallArea = wallArea * (1 - windowPct);
+
+      // Additional absorption
+      const seats = parseInt(document.getElementById('acousticsSeats').value) || 0;
+      const panelArea = parseFloat(document.getElementById('acousticsPanels').value) || 0;
+
+      // Calculate absorption (sabins) for each surface
+      const absorptionData = [
+        { surface: 'Ceiling', area: ceilingArea, coef: ceilingCoef, sabins: ceilingArea * ceilingCoef },
+        { surface: 'Floor', area: floorArea, coef: floorCoef, sabins: floorArea * floorCoef },
+        { surface: 'Walls', area: netWallArea, coef: wallCoef, sabins: netWallArea * wallCoef },
+        { surface: 'Windows', area: windowArea, coef: 0.04, sabins: windowArea * 0.04 }
+      ];
+
+      if (seats > 0) {
+        absorptionData.push({ surface: 'Upholstered Seats', area: seats, coef: 0.50, sabins: seats * 0.50, isCount: true });
+      }
+      if (panelArea > 0) {
+        absorptionData.push({ surface: 'Acoustic Panels', area: panelArea, coef: 0.85, sabins: panelArea * 0.85 });
+      }
+
+      // Total absorption
+      const totalAbsorption = absorptionData.reduce((sum, item) => sum + item.sabins, 0);
+
+      // Sabine's formula: RT60 = (0.1611 × V) / A
+      const rt60 = (0.1611 * volume) / totalAbsorption;
+
+      // Simplified STI estimation: STI ≈ 0.9 - (0.5 × RT60), clamped to 0-1
+      let sti = 0.9 - (0.5 * rt60);
+      sti = Math.max(0, Math.min(1, sti));
+
+      // Get room type target
+      const roomType = document.getElementById('acousticsRoomType').value;
+      const target = ROOM_TARGETS[roomType];
+
+      // Update UI
+      updateAcousticsUI(volume, unit, rt60, sti, target, absorptionData, totalAbsorption, ceilingCoef, panelArea);
+    }
+
+    function updateAcousticsUI(volume, unit, rt60, sti, target, absorptionData, totalAbsorption, ceilingCoef, panelArea) {
+      // Volume display
+      const volumeDisplay = unit === 'ft'
+        ? Math.round(volume / Math.pow(FT_TO_M, 3)) + ' ft³'
+        : Math.round(volume) + ' m³';
+      document.getElementById('acousticsVolume').textContent = volumeDisplay;
+
+      // Target display
+      document.getElementById('targetDisplay').innerHTML =
+        'Target RT60: <strong>' + target.min.toFixed(1) + ' - ' + target.max.toFixed(1) + ' seconds</strong>';
+
+      // RT60 value
+      document.getElementById('rt60Value').textContent = rt60.toFixed(2) + 's';
+
+      // RT60 status
+      const rt60StatusEl = document.getElementById('rt60Status');
+      if (rt60 >= target.min && rt60 <= target.max) {
+        rt60StatusEl.textContent = 'Within target range';
+        rt60StatusEl.className = 'rt60-status good';
+      } else if (rt60 < target.min) {
+        rt60StatusEl.textContent = 'Below target (too dry)';
+        rt60StatusEl.className = 'rt60-status warning';
+      } else {
+        rt60StatusEl.textContent = 'Above target (too reverberant)';
+        rt60StatusEl.className = 'rt60-status bad';
+      }
+
+      // STI rating
+      const stiRatingEl = document.getElementById('stiRating');
+      let stiClass, stiLabel;
+      if (sti < 0.30) { stiClass = 'bad'; stiLabel = 'BAD'; }
+      else if (sti < 0.45) { stiClass = 'poor'; stiLabel = 'POOR'; }
+      else if (sti < 0.60) { stiClass = 'fair'; stiLabel = 'FAIR'; }
+      else if (sti < 0.75) { stiClass = 'good'; stiLabel = 'GOOD'; }
+      else { stiClass = 'excellent'; stiLabel = 'EXCELLENT'; }
+      stiRatingEl.textContent = stiLabel;
+      stiRatingEl.className = 'sti-rating ' + stiClass;
+
+      // STI indicator position (0-100%)
+      const stiPct = Math.min(100, Math.max(0, sti * 100));
+      document.getElementById('stiIndicator').style.left = stiPct + '%';
+
+      // Window slider value
+      document.getElementById('windowsValue').textContent = document.getElementById('acousticsWindows').value + '%';
+
+      // Absorption table
+      const tbody = document.getElementById('absorptionBody');
+      tbody.innerHTML = '';
+      absorptionData.forEach(item => {
+        const row = document.createElement('tr');
+        const areaStr = item.isCount
+          ? item.area + ' seats'
+          : item.area.toFixed(1) + ' m²';
+        row.innerHTML = '<td>' + item.surface + '</td><td>' + areaStr + '</td><td>' + item.sabins.toFixed(1) + '</td>';
+        tbody.appendChild(row);
+      });
+      // Total row
+      const totalRow = document.createElement('tr');
+      totalRow.className = 'total-row';
+      totalRow.innerHTML = '<td>Total Absorption</td><td></td><td>' + totalAbsorption.toFixed(1) + '</td>';
+      tbody.appendChild(totalRow);
+
+      // Recommendations
+      const recList = document.getElementById('recommendationsList');
+      recList.innerHTML = '';
+      const recommendations = [];
+
+      if (rt60 >= target.min && rt60 <= target.max) {
+        recommendations.push({ icon: 'success', text: 'Room acoustics meet ANSI S12.60-2002 guidelines for this room type.' });
+      }
+
+      if (rt60 > target.max) {
+        if (ceilingCoef < 0.70) {
+          recommendations.push({ icon: 'warning', text: 'Consider acoustic ceiling tiles to significantly reduce RT60.' });
+        }
+        if (panelArea === 0) {
+          recommendations.push({ icon: 'warning', text: 'Add acoustic wall panels to absorb excess reverberation.' });
+        }
+        recommendations.push({ icon: 'info', text: 'Soft furnishings, curtains, and upholstered seating help reduce RT60.' });
+      }
+
+      if (rt60 < target.min) {
+        recommendations.push({ icon: 'info', text: 'Room may be over-treated acoustically. Some reverberation aids speech naturalness.' });
+        recommendations.push({ icon: 'info', text: 'Consider reducing acoustic treatment or adding harder surfaces.' });
+      }
+
+      if (sti < 0.60) {
+        recommendations.push({ icon: 'warning', text: 'Speech intelligibility is compromised. Improve room acoustics for clear communication.' });
+      }
+
+      if (sti >= 0.75) {
+        recommendations.push({ icon: 'success', text: 'Excellent speech intelligibility - ideal for conferencing and presentations.' });
+      }
+
+      recommendations.forEach(rec => {
+        const li = document.createElement('li');
+        li.innerHTML = '<span class="rec-icon ' + rec.icon + '">' + (rec.icon === 'success' ? '✓' : rec.icon === 'warning' ? '!' : 'i') + '</span>' + rec.text;
+        recList.appendChild(li);
+      });
+    }
+
+    // Initialize acoustics calculator event listeners
+    ['acousticsLength', 'acousticsWidth', 'acousticsHeight', 'acousticsUnit',
+     'acousticsRoomType', 'acousticsCeiling', 'acousticsFloor', 'acousticsWalls',
+     'acousticsWindows', 'acousticsSeats', 'acousticsPanels'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('input', calculateAcoustics);
+        el.addEventListener('change', calculateAcoustics);
+      }
+    });
+
+    // Initial calculation
+    calculateAcoustics();
   </script>
 </body>
 </html>
