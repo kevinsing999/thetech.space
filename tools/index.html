@@ -18,14 +18,14 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://thetech.space/tools.html">
+  <meta property="og:url" content="https://thetech.space/tools/">
   <meta property="og:title" content="Tools | The Tech Space">
   <meta property="og:description" content="Free UC/AV planning tools: Project Budget Planner and True Cost Calculator.">
   <meta property="og:image" content="https://thetech.space/assets/images/og-image.jpg">
   <meta property="og:locale" content="en_AU">
 
   <!-- Canonical -->
-  <link rel="canonical" href="https://thetech.space/tools.html">
+  <link rel="canonical" href="https://thetech.space/tools/">
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -4306,18 +4306,62 @@
     // TOOL SWITCHING
     // ============================================
 
-    function switchTool(tool) {
+    // Map URL hashes to tool IDs
+    const HASH_TO_TOOL = {
+      'budget': 'budget',
+      'truecost': 'tco',
+      'tco': 'tco',
+      'display': 'display',
+      'acoustics': 'acoustics',
+      'codec': 'codec'
+    };
+
+    // Map tool IDs to URL hashes (for cleaner URLs)
+    const TOOL_TO_HASH = {
+      'budget': 'budget',
+      'tco': 'truecost',
+      'display': 'display',
+      'acoustics': 'acoustics',
+      'codec': 'codec'
+    };
+
+    function switchTool(tool, updateHash = true) {
       // Update nav buttons
       document.querySelectorAll('.tool-nav-btn').forEach(btn => btn.classList.remove('active'));
-      event.target.closest('.tool-nav-btn').classList.add('active');
+      // Find the nav button for this tool
+      const navButtons = document.querySelectorAll('.tool-nav-btn');
+      const toolIndex = { 'budget': 0, 'tco': 1, 'display': 2, 'acoustics': 3, 'codec': 4 };
+      if (navButtons[toolIndex[tool]]) {
+        navButtons[toolIndex[tool]].classList.add('active');
+      }
 
       // Update tool sections
       document.querySelectorAll('.tool-section').forEach(sec => sec.classList.remove('active'));
-      document.getElementById('tool-' + tool).classList.add('active');
+      const toolSection = document.getElementById('tool-' + tool);
+      if (toolSection) {
+        toolSection.classList.add('active');
+      }
+
+      // Update URL hash (without triggering scroll)
+      if (updateHash) {
+        const hash = TOOL_TO_HASH[tool] || tool;
+        history.replaceState(null, null, '#' + hash);
+      }
 
       // Scroll to top
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    // Handle URL hash on page load and hash changes
+    function handleHashChange() {
+      const hash = window.location.hash.slice(1).toLowerCase();
+      if (hash && HASH_TO_TOOL[hash]) {
+        switchTool(HASH_TO_TOOL[hash], false);
+      }
+    }
+
+    // Listen for hash changes (back/forward navigation)
+    window.addEventListener('hashchange', handleHashChange);
 
     // ============================================
     // PROJECT BUDGET PLANNER
@@ -4340,6 +4384,9 @@
       loadFromStorage();
       render();
       calculateTrueCost();
+
+      // Handle URL hash to switch to correct calculator
+      handleHashChange();
     });
 
     function initDefaults() {
